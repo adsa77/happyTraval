@@ -1,11 +1,18 @@
-package com.happyTraval.userLogin.controller;
+package com.happyTravel.userLogin.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("user")
+@RequestMapping("api/user")
 @RequiredArgsConstructor
-public class userLoginController {
+public class UserLoginRestController {
+
+//    @GetMapping("signUp")
+//    public String userSignUp() {
+//
+//    }
+
+
 }
