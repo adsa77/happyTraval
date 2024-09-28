@@ -25,7 +25,7 @@ public class UserSignUpDtoReq {
     @Email(message = "이메일은 필수 입니다.")
     private String emailId;
 
-    private String emailAdress;
+    private String emailAddress;
     private String phoneNo;
     private String regUser;
 

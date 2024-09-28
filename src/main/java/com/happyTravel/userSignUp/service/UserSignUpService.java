@@ -10,18 +10,18 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-@Transactional
 public class UserSignUpService {
 
     private final UserSignUpRepository repository;
 
+    @Transactional
     public UserSignUpDtoResp signUp(UserSignUpDtoReq userSingUpDtoReq){
         // 엔티티로 변환
         UserSignUpEntity newUser = new UserSignUpEntity();
         newUser.setUserId(userSingUpDtoReq.getUserId());
         newUser.setUserPwd(userSingUpDtoReq.getUserPwd());
         newUser.setEmailId(userSingUpDtoReq.getEmailId());
-        newUser.setEmailAdress(userSingUpDtoReq.getEmailAdress());
+        newUser.setEmailAddress(userSingUpDtoReq.getEmailAddress());
         newUser.setPhoneNo(userSingUpDtoReq.getPhoneNo());
         newUser.setRegUser(userSingUpDtoReq.getRegUser());
 
