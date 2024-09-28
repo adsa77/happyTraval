@@ -1,4 +1,4 @@
-package com.happyTraval;
+package com.happyTravel;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
