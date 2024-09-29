@@ -3,6 +3,7 @@ package com.happyTravel.userLogin.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
+@Table(name = "USER_TB")
 public class UserLoginEntity {
 
     @Id
@@ -32,8 +34,8 @@ public class UserLoginEntity {
     @Column(name = "EMAIL_ID", length = 50)
     private String emailId;
 
-    @Column(name = "EMAIL_ADRESS", length = 50)
-    private String emailAdress;
+    @Column(name = "EMAIL_ADDRESS", length = 50)
+    private String emailAddress;
 
     @Column(name = "PHONE_NO", length = 11)
     private String phoneNo;
