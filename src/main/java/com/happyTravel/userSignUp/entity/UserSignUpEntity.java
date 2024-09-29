@@ -51,4 +51,5 @@ public class UserSignUpEntity {
 
     @Column(name = "UPDT_DTM")
     private LocalDateTime updtDtm;
+
 }
