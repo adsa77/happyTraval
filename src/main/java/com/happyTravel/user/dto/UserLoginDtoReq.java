@@ -1,4 +1,4 @@
-package com.happyTravel.userLogin.model;
+package com.happyTravel.user.dto;
 
 import lombok.Getter;
 import lombok.Setter;
