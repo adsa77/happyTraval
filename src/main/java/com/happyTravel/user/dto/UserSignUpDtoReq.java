@@ -4,8 +4,7 @@ import com.happyTravel.common.error.ErrorCode;
 import com.happyTravel.common.validation.ValidUserSignUpData;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,7 +26,10 @@ public class UserSignUpDtoReq {
     @NotBlank
     private String emailAddress;
 
-    @NotBlank(message = "전화번호는 필수입니다.") // 전화번호 필수 오류 메시지
+    @NotBlank
     private String phoneNo;
+
+    @NotBlank
+    private String address;
 
 }

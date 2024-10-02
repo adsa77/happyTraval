@@ -44,10 +44,19 @@ public class UserSignUpDataValidator implements ConstraintValidator<ValidUserSig
 //            throw new CustomException(ErrorCode.VALIDATION_PHONE_NUMBER_REQUIRED);
 //        }
 
-        // 전화번호 유효성 검사 (추가 필요에 따라)
-//        if (StringUtils.isBlank(signUpDto.getPhoneNo())) {
-//            throw new CustomException(ErrorCode.VALIDATION_PHONE_NUMBER_REQUIRED);
-//        }
+        // 전화번호 유효성 검사
+        if (StringUtils.isBlank(signUpDto.getPhoneNo())) {
+            throw new CustomException(ErrorCode.VALIDATION_PHONE_NUMBER_REQUIRED);
+        }
+
+        // 주소 유효성 검사
+        if (StringUtils.isBlank(signUpDto.getAddress())) {
+            throw new CustomException(ErrorCode.VALIDATION_ADDRESS_REQUIRED); // 주소 필수 오류 코드
+        }
+        if (signUpDto.getAddress().length() > 150) {
+            throw new CustomException(ErrorCode.VALIDATION_ADDRESS_LENGTH); // 주소 길이 오류 코드
+        }
+
 
         return true;
 
