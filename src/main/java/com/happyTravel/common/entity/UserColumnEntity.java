@@ -40,6 +40,9 @@ public class UserColumnEntity {
     @Column(name = "PHONE_NO", length = 11)
     private String phoneNo;
 
+    @Column(name = "ADDRESS", length = 150)
+    private String address;
+
     @Column(name = "REG_USER", length = 50)
     private String regUser;
 

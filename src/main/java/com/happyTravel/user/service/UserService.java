@@ -8,6 +8,7 @@ import com.happyTravel.user.dto.UserLoginDtoReq;
 import com.happyTravel.user.dto.UserSignUpDtoReq;
 import com.happyTravel.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -29,6 +30,7 @@ public class UserService {
                 .emailId(userSignUpDtoReq.getEmailId())
                 .emailAddress(userSignUpDtoReq.getEmailAddress())
                 .phoneNo(userSignUpDtoReq.getPhoneNo())
+                .address(userSignUpDtoReq.getAddress())
                 .build();
 
         // 사용자 정보 저장
@@ -37,6 +39,7 @@ public class UserService {
         // 응답 DTO 생성
         CommonResponse response = new CommonResponse(true, "회원가입이 완료되었습니다.");
         response.addData("signedUpUserId", newUser.getUserId());
+        response.setHttpStatus(HttpStatus.CREATED.value()); // HTTP 상태 코드 설정
 
         return response;
 
@@ -44,36 +47,11 @@ public class UserService {
 
     // 유효성 검사 및 아이디 중복 체크
     private void validateUserSignUp(UserSignUpDtoReq userSignUpDtoReq) {
-        // ID 유효성 검사
-        if (userSignUpDtoReq.getUserId() == null || userSignUpDtoReq.getUserId().isEmpty()) {
-            throw new CustomException(ErrorCode.VALIDATION_USER_ID_EMPTY);
-        }
 
         // 아이디 중복 체크
         if (repository.findByUserId(userSignUpDtoReq.getUserId()) != null) {
             throw new CustomException(ErrorCode.USER_ID_ALREADY_EXISTS);
         }
-
-        // 비밀번호 유효성 검사
-        if (userSignUpDtoReq.getUserPwd() == null || userSignUpDtoReq.getUserPwd().isBlank()) {
-            throw new CustomException(ErrorCode.VALIDATION_USER_PASSWORD_REQUIRED);
-        }
-
-        // 비밀번호 규칙 검사
-        if (!userSignUpDtoReq.getUserPwd().matches("^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]).+$")) {
-            throw new CustomException(ErrorCode.VALIDATION_PASSWORD_REQUIREMENTS_NOT_MET);
-        }
-
-        // 전화번호 필수 검사
-        if (userSignUpDtoReq.getPhoneNo() == null || userSignUpDtoReq.getPhoneNo().isEmpty()) {
-            throw new CustomException(ErrorCode.VALIDATION_PHONE_NUMBER_REQUIRED);
-        }
-
-        // 비밀번호 확인 검사
-        // (이 부분은 필요시 추가: 예: 사용자가 비밀번호 확인 입력을 받았다면)
-        // if (!userSignUpDtoReq.getUserPwd().equals(userSignUpDtoReq.getConfirmPassword())) {
-        //     throw new CustomException(ErrorCode.VALIDATION_PASSWORD_MISMATCH);
-        // }
     }
 
     //로그인
@@ -91,6 +69,7 @@ public class UserService {
         // 로그인 성공 시 응답 생성
         CommonResponse response = new CommonResponse(true, "로그인 성공");
         response.addData("loginSuccess", true);  // 로그인 성공 여부 추가
+        response.setHttpStatus(HttpStatus.OK.value()); // HTTP 상태 코드 설정
 
         return response;
 
