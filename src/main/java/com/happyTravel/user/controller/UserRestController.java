@@ -2,6 +2,8 @@ package com.happyTravel.user.controller;
 
 import com.happyTravel.common.response.CommonResponse;
 import com.happyTravel.user.dto.UserDtoReq;
+import com.happyTravel.user.dto.UserLoginDtoReq;
+import com.happyTravel.user.dto.UserSignUpDtoReq;
 import com.happyTravel.user.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -20,14 +22,14 @@ public class UserRestController {
     private final UserService service;
 
     @PostMapping("signUp")
-    public ResponseEntity<CommonResponse> userSingUp(@Valid @RequestBody UserDtoReq userDtoReq){
-        CommonResponse response = service.userSignUp(userDtoReq);
+    public ResponseEntity<CommonResponse> userSingUp(@Valid @RequestBody UserSignUpDtoReq userSignUpDtoReq){
+        CommonResponse response = service.userSignUp(userSignUpDtoReq);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
     @PostMapping("login")
-    public ResponseEntity<CommonResponse> userlogin(@RequestBody UserDtoReq userDtoReq){
-        CommonResponse response = service.userLogin(userDtoReq);
+    public ResponseEntity<CommonResponse> userlogin(@RequestBody UserLoginDtoReq userLoginDtoReq){
+        CommonResponse response = service.userLogin(userLoginDtoReq);
         return ResponseEntity.ok(response);
     }
 

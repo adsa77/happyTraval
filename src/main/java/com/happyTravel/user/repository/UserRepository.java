@@ -1,4 +1,4 @@
-package com.happyTravel.user.reopsitory;
+package com.happyTravel.user.repository;
 
 import com.happyTravel.common.entity.UserColumnEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
