@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Getter
-@Setter
+//@Setter
 @NoArgsConstructor  //매개변수가 없는 기본 생성자를 자동으로 생성
 @AllArgsConstructor //모든 필드를 인자로 받는 생성자를 생성
 @Builder            //빌더 패턴 사용

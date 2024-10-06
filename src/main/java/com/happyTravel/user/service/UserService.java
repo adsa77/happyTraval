@@ -44,9 +44,11 @@ public class UserService {
         repository.save(newUser);
 
         //  응답 DTO 생성
-        CommonResponse response = new CommonResponse(true, "회원가입이 완료되었습니다.");
-        response.addData("signedUpUserId", newUser.getUserId());
-        response.setHttpStatus(HttpStatus.CREATED.value()); // HTTP 상태 코드 설정
+        CommonResponse response = CommonResponse.builder()
+                .message("회원가입이 완료되었습니다.")
+                .httpStatus(HttpStatus.CREATED.value()) // HTTP 상태 코드 설정
+                .errorCode(null) // 에러 코드 설정 (성공 시 null)
+                .build();
 
         return response;
 
@@ -74,9 +76,14 @@ public class UserService {
         }
 
         //  로그인 성공 시 응답 생성
-        CommonResponse response = new CommonResponse(true, "로그인 성공");
+        CommonResponse response = CommonResponse.builder()
+                .message("로그인 성공")
+                .httpStatus(HttpStatus.OK.value()) // HTTP 상태 코드 설정
+                .errorCode(null) // 에러 코드 설정 (성공 시 null)
+                .build();
+
+        // 동적으로 데이터 추가
         response.addData("loginSuccess", true);  // 로그인 성공 여부 추가
-        response.setHttpStatus(HttpStatus.OK.value()); // HTTP 상태 코드 설정
 
         return response;
 
