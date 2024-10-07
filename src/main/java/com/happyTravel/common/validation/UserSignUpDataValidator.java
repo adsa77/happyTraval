@@ -30,9 +30,13 @@ public class UserSignUpDataValidator implements ConstraintValidator<ValidUserSig
         if (StringUtils.isBlank(signUpDto.getUserPwd())) {
             throw new CustomException(ErrorCode.VALIDATION_USER_PASSWORD_REQUIRED);
         }
-        if (signUpDto.getUserPwd().length() < 8 || signUpDto.getUserPwd().length() > 20) {
+        if (signUpDto.getUserPwd().length() < 8) {
+            throw new CustomException(ErrorCode.PASSWORD_LENGTH_REQUIREMENTS_NOT_MET);
+        }
+        if (!signUpDto.getUserPwd().matches("^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]).+$")) {
             throw new CustomException(ErrorCode.VALIDATION_PASSWORD_REQUIREMENTS_NOT_MET);
         }
+
 
         // 비밀번호 확인
 //        if (!signUpDto.getUserPwd().equals(signUpDto.getConfirmUserPwd())) { // confirmUserPwd는 추가된 필드라고 가정

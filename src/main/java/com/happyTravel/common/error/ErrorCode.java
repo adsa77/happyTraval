@@ -19,10 +19,11 @@ public enum ErrorCode {
     VALIDATION_USER_PASSWORD_REQUIRED(1102, "비밀번호는 필수입니다."), // 비밀번호 필수 오류
     VALIDATION_PASSWORD_MISMATCH(1103, "비밀번호가 일치하지 않습니다."), // 비밀번호 불일치 오류
     VALIDATION_PASSWORD_REQUIREMENTS_NOT_MET(1104, "비밀번호는 숫자, 영문, 특수문자를 포함해야 합니다."), // 비밀번호 규칙 오류
-    VALIDATION_PHONE_NUMBER_REQUIRED(1105, "휴대전화번호는 필수입니다."), // 전화번호 필수 오류
-    VALIDATION_USER_SIGNUP_DATA(1106, "회원가입 데이터가 유효하지 않습니다."),
-    VALIDATION_ADDRESS_REQUIRED(1107, "주소는 필수입니다."), // 주소 필수 오류
-    VALIDATION_ADDRESS_LENGTH(1108, "주소는 150자 이내로 입력해야 합니다."), // 주소 길이 오류
+    PASSWORD_LENGTH_REQUIREMENTS_NOT_MET(1105, "비밀번호는 최소 8자리 이상이어야 합니다."), // 비밀번호 길이 오류
+    VALIDATION_PHONE_NUMBER_REQUIRED(1106, "휴대전화번호는 필수입니다."), // 전화번호 필수 오류
+    VALIDATION_USER_SIGNUP_DATA(1107, "회원가입 데이터가 유효하지 않습니다."),
+    VALIDATION_ADDRESS_REQUIRED(1108, "주소는 필수입니다."), // 주소 필수 오류
+    VALIDATION_ADDRESS_LENGTH(1109, "주소는 150자 이내로 입력해야 합니다."), // 주소 길이 오류
 
     // 로그인 관련 문제 (1200번대)
     INVALID_CREDENTIALS(1200, "잘못된 자격 증명입니다."), // 자격 증명 오류
