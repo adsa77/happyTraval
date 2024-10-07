@@ -11,20 +11,26 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(CustomException.class)
     public ResponseEntity<CommonResponse> handleCustomException(CustomException cEx) {
-        //  CustomException에서 에러 코드와 메시지를 가져와서 CommonResponse 생성
-//        CommonResponse response = new CommonResponse(false, cEx.getErrorCode().getMessage());
-//        response.setHttpStatus(HttpStatus.BAD_REQUEST.value()); // HTTP 상태 코드 설정
-//        response.setErrorCode(cEx.getErrorCodeNumber()); // 최상위 에러 코드 설정
-        
+
         //  빌더 패턴
         CommonResponse response = CommonResponse.builder()
                 .message(cEx.getErrorCode().getMessage())
-                .httpStatus(HttpStatus.BAD_REQUEST.value())
-                .errorCode(cEx.getErrorCodeNumber())
+                .httpStatus(HttpStatus.BAD_REQUEST.value()) // HTTP 상태 코드 설정
+                .errorCode(cEx.getErrorCodeNumber())        // 최상위 에러 코드 설정
                 .build();
 
         // 요청 오류에 대한 응답
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 
+//    @ExceptionHandler(Exception.class)
+//    public ResponseEntity<CommonResponse> handleException(Exception ex) {
+//        CommonResponse response = CommonResponse.builder()
+//                .message("서버에서 오류가 발생했습니다. 잠시 후 다시 시도해주세요.") // 일반적인 메시지
+//                .httpStatus(HttpStatus.INTERNAL_SERVER_ERROR.value())
+//                .build();
+//
+//        // 서버 오류에 대한 응답
+//        return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+//    }
 }
