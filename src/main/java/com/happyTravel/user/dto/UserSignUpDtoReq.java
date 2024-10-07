@@ -20,7 +20,6 @@ public class UserSignUpDtoReq {
     private String userPwd;
 
     @NotBlank
-    @Email
     private String emailId;
 
     @NotBlank
