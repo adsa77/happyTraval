@@ -11,23 +11,24 @@ public enum ErrorCode {
     // 일반 고객의 문제 (1000번대)
     VALIDATION_USER_ID_EMPTY(1000, "ID를 입력하세요."), // ID 입력 오류
     VALIDATION_USER_PASSWORD_EMPTY(1001, "비밀번호를 입력하세요."), // 비밀번호 입력 오류
-
+    VALIDATION_ID_PASSWORD_ERROR(1002, "아이디, 비밀번호가 유효하지 않습니다."),
 
     // 회원가입 관련 문제 (1100번대)
-    USER_ID_ALREADY_EXISTS(1100, "이미 사용 중인 아이디입니다."), // 아이디 중복
-    USER_ID_LENGTH(1101, "ID는 4자 이상 20자 이하로 입력하세요."),
-    VALIDATION_USER_PASSWORD_REQUIRED(1102, "비밀번호는 필수입니다."), // 비밀번호 필수 오류
-    VALIDATION_PASSWORD_MISMATCH(1103, "비밀번호가 일치하지 않습니다."), // 비밀번호 불일치 오류
-    VALIDATION_PASSWORD_REQUIREMENTS_NOT_MET(1104, "비밀번호는 숫자, 영문, 특수문자를 포함해야 합니다."), // 비밀번호 규칙 오류
-    PASSWORD_LENGTH_REQUIREMENTS_NOT_MET(1105, "비밀번호는 최소 8자리 이상이어야 합니다."), // 비밀번호 길이 오류
-    VALIDATION_PHONE_NUMBER_REQUIRED(1106, "휴대전화번호는 필수입니다."), // 전화번호 필수 오류
-    VALIDATION_USER_SIGNUP_DATA(1107, "회원가입 데이터가 유효하지 않습니다."),
+    VALIDATION_USER_SIGNUP_DATA(1100, "회원가입 데이터가 유효하지 않습니다."),
+    USER_ID_ALREADY_EXISTS(1101, "이미 사용 중인 아이디입니다."), // 아이디 중복
+    USER_ID_LENGTH(1102, "ID는 4자 이상 20자 이하로 입력하세요."),
+    VALIDATION_USER_PASSWORD_REQUIRED(1103, "비밀번호는 필수입니다."), // 비밀번호 필수 오류
+    VALIDATION_PASSWORD_MISMATCH(1104, "비밀번호가 일치하지 않습니다."), // 비밀번호 불일치 오류
+    VALIDATION_PASSWORD_REQUIREMENTS_NOT_MET(1105, "비밀번호는 숫자, 영문, 특수문자를 포함해야 합니다."), // 비밀번호 규칙 오류
+    PASSWORD_LENGTH_REQUIREMENTS_NOT_MET(1106, "비밀번호는 최소 8자리 이상이어야 합니다."), // 비밀번호 길이 오류
+    VALIDATION_PHONE_NUMBER_REQUIRED(1107, "휴대전화번호는 필수입니다."), // 전화번호 필수 오류
     VALIDATION_ADDRESS_REQUIRED(1108, "주소는 필수입니다."), // 주소 필수 오류
     VALIDATION_ADDRESS_LENGTH(1109, "주소는 150자 이내로 입력해야 합니다."), // 주소 길이 오류
 
     // 로그인 관련 문제 (1200번대)
-    INVALID_CREDENTIALS(1200, "잘못된 자격 증명입니다."), // 자격 증명 오류
-    LOGIN_FAILURE(1201, "로그인에 실패했습니다. 아이디와 비밀번호를 확인해주시기 바랍니다."), // 로그인 실패 오류
+    VALIDATION_LOGIN_DATA_ERROR(1200, "로그인 데이터가 유효하지 않습니다."),
+    INVALID_CREDENTIALS(1201, "잘못된 자격 증명입니다."), // 자격 증명 오류
+    LOGIN_FAILURE(1202, "로그인에 실패했습니다. 아이디와 비밀번호를 확인해주시기 바랍니다."), // 로그인 실패 오류
 
     // 약관 동의 오류 (1300번대)
     TERMS_CONSENT_REQUIRED(1300, "필수 약관에 동의해야 합니다."), // 약관 동의 필수 오류
