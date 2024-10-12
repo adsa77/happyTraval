@@ -1,0 +1,1456 @@
+2024-10-12 04:07:52 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-12 04:07:52 [main] INFO  c.happyTravel.HappyTravelApplication - Starting HappyTravelApplication using Java 17.0.10 with PID 22468 (D:\dev\practice\happyTravel\build\classes\java\main started by adsa7 in D:\dev\practice\happyTravel)
+2024-10-12 04:07:52 [main] DEBUG c.happyTravel.HappyTravelApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-12 04:07:52 [main] INFO  c.happyTravel.HappyTravelApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-12 04:07:53 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-12 04:07:53 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 61 ms. Found 1 JPA repository interface.
+2024-10-12 04:07:54 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-12 04:07:54 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-12 04:07:54 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-12 04:07:54 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-12 04:07:54 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-12 04:07:54 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1977 ms
+2024-10-12 04:07:54 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-12 04:07:54 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-12 04:07:54 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-10-12 04:07:54 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-12 04:07:55 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-12 04:07:55 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@75452aea
+2024-10-12 04:07:55 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-12 04:07:55 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@2804b13f) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@69069866)
+2024-10-12 04:07:55 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@ac417a2) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@64c95480)
+2024-10-12 04:07:55 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@69499c6f) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@3451fc88)
+2024-10-12 04:07:55 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@1e0294a7) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@3041beb3)
+2024-10-12 04:07:55 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@15cee630) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@2e40fdbd)
+2024-10-12 04:07:55 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@246de37e) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@19647566)
+2024-10-12 04:07:55 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@7b79ff1c) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@527d48db)
+2024-10-12 04:07:55 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@194037f9) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@2335aef2)
+2024-10-12 04:07:55 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@17003497) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@2f038d3c)
+2024-10-12 04:07:55 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 04:07:55 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 04:07:55 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 04:07:55 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 04:07:56 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-12 04:07:56 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-12 04:07:56 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-12 04:07:57 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-12 04:07:57 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-12 04:07:57 [main] INFO  c.happyTravel.HappyTravelApplication - Started HappyTravelApplication in 5.389 seconds (process running for 6.199)
+2024-10-12 04:07:59 [http-nio-8080-exec-3] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-12 04:07:59 [http-nio-8080-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-12 04:07:59 [http-nio-8080-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-12 04:08:00 [http-nio-8080-exec-8] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 217 ms
+2024-10-12 04:08:15 [http-nio-8080-exec-3] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: jakarta.validation.ConstraintDefinitionException: HV000074: com.happyTravel.common.validation.ValidUserSignUpData contains Constraint annotation, but does not contain a message parameter.] with root cause
+jakarta.validation.ConstraintDefinitionException: HV000074: com.happyTravel.common.validation.ValidUserSignUpData contains Constraint annotation, but does not contain a message parameter.
+	at org.hibernate.validator.internal.metadata.core.ConstraintHelper.assertMessageParameterExists(ConstraintHelper.java:1064)
+	at org.hibernate.validator.internal.metadata.core.ConstraintHelper.lambda$isConstraintAnnotation$3(ConstraintHelper.java:1010)
+	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1708)
+	at org.hibernate.validator.internal.metadata.core.ConstraintHelper.isConstraintAnnotation(ConstraintHelper.java:1009)
+	at org.hibernate.validator.internal.metadata.provider.AnnotationMetaDataProvider.findConstraintAnnotations(AnnotationMetaDataProvider.java:534)
+	at org.hibernate.validator.internal.metadata.provider.AnnotationMetaDataProvider.findConstraints(AnnotationMetaDataProvider.java:503)
+	at org.hibernate.validator.internal.metadata.provider.AnnotationMetaDataProvider.getClassLevelConstraints(AnnotationMetaDataProvider.java:193)
+	at org.hibernate.validator.internal.metadata.provider.AnnotationMetaDataProvider.retrieveBeanConfiguration(AnnotationMetaDataProvider.java:134)
+	at org.hibernate.validator.internal.metadata.provider.AnnotationMetaDataProvider.getBeanConfiguration(AnnotationMetaDataProvider.java:121)
+	at org.hibernate.validator.internal.metadata.BeanMetaDataManagerImpl.getBeanConfigurationForHierarchy(BeanMetaDataManagerImpl.java:234)
+	at org.hibernate.validator.internal.metadata.BeanMetaDataManagerImpl.createBeanMetaData(BeanMetaDataManagerImpl.java:201)
+	at org.hibernate.validator.internal.metadata.BeanMetaDataManagerImpl.getBeanMetaData(BeanMetaDataManagerImpl.java:165)
+	at org.hibernate.validator.internal.engine.ValidatorImpl.validate(ValidatorImpl.java:156)
+	at org.springframework.validation.beanvalidation.SpringValidatorAdapter.validate(SpringValidatorAdapter.java:106)
+	at org.springframework.boot.autoconfigure.validation.ValidatorAdapter.validate(ValidatorAdapter.java:67)
+	at org.springframework.validation.DataBinder.validate(DataBinder.java:1264)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodArgumentResolver.validateIfApplicable(AbstractMessageConverterMethodArgumentResolver.java:252)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.resolveArgument(RequestResponseBodyMethodProcessor.java:142)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:224)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:178)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2024-10-12 04:10:16 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-12 04:10:16 [main] INFO  c.happyTravel.HappyTravelApplication - Starting HappyTravelApplication using Java 17.0.10 with PID 21348 (D:\dev\practice\happyTravel\build\classes\java\main started by adsa7 in D:\dev\practice\happyTravel)
+2024-10-12 04:10:16 [main] DEBUG c.happyTravel.HappyTravelApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-12 04:10:16 [main] INFO  c.happyTravel.HappyTravelApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-12 04:10:17 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-12 04:10:17 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 75 ms. Found 1 JPA repository interface.
+2024-10-12 04:10:17 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-12 04:10:17 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-12 04:10:17 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-12 04:10:17 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-12 04:10:17 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-12 04:10:17 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1549 ms
+2024-10-12 04:10:17 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-12 04:10:18 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-12 04:10:18 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-10-12 04:10:18 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-12 04:10:18 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-12 04:10:18 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@312a738d
+2024-10-12 04:10:18 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-12 04:10:18 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@ff2266c) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@71b3ba5a)
+2024-10-12 04:10:18 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@83ebdc5) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@a047bdb)
+2024-10-12 04:10:18 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@14dbfdb1) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@7856f41a)
+2024-10-12 04:10:18 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@5fbae40) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@2c08c787)
+2024-10-12 04:10:18 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@67f591c2) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@284c4f02)
+2024-10-12 04:10:18 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@709d6de5) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@1a43a88e)
+2024-10-12 04:10:18 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@51f34185) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@1b8d20e6)
+2024-10-12 04:10:18 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@e49437) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@7645b7d)
+2024-10-12 04:10:18 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@4c50cd7d) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@3ea84e01)
+2024-10-12 04:10:18 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 04:10:18 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 04:10:18 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 04:10:18 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 04:10:19 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-12 04:10:19 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-12 04:10:19 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-12 04:10:20 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-12 04:10:20 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-12 04:10:20 [main] INFO  c.happyTravel.HappyTravelApplication - Started HappyTravelApplication in 4.421 seconds (process running for 4.81)
+2024-10-12 04:10:22 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-12 04:10:22 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-12 04:10:22 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-12 04:10:22 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        uce1_0.user_id,
+        uce1_0.address,
+        uce1_0.email_address,
+        uce1_0.email_id,
+        uce1_0.last_login_dt,
+        uce1_0.phone_no,
+        uce1_0.pwd_upd_dt,
+        uce1_0.reg_dtm,
+        uce1_0.reg_user,
+        uce1_0.updt_dtm,
+        uce1_0.updt_user,
+        uce1_0.user_pwd 
+    from
+        user_tb uce1_0 
+    where
+        uce1_0.user_id=?
+2024-10-12 04:15:30 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-12 04:15:30 [main] INFO  c.happyTravel.HappyTravelApplication - Starting HappyTravelApplication using Java 17.0.10 with PID 7124 (D:\dev\practice\happyTravel\build\classes\java\main started by adsa7 in D:\dev\practice\happyTravel)
+2024-10-12 04:15:30 [main] DEBUG c.happyTravel.HappyTravelApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-12 04:15:30 [main] INFO  c.happyTravel.HappyTravelApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-12 04:15:31 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-12 04:15:31 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 52 ms. Found 1 JPA repository interface.
+2024-10-12 04:15:31 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-12 04:15:31 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-12 04:15:31 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-12 04:15:31 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-12 04:15:31 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-12 04:15:31 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1380 ms
+2024-10-12 04:15:31 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-12 04:15:31 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-12 04:15:31 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-10-12 04:15:32 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-12 04:15:32 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-12 04:15:32 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4537880f
+2024-10-12 04:15:32 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-12 04:15:32 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@ac417a2) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@64c95480)
+2024-10-12 04:15:32 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@69499c6f) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@3451fc88)
+2024-10-12 04:15:32 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@1e0294a7) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@3041beb3)
+2024-10-12 04:15:32 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@15cee630) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@2e40fdbd)
+2024-10-12 04:15:32 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@246de37e) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@19647566)
+2024-10-12 04:15:32 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@7b79ff1c) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@527d48db)
+2024-10-12 04:15:32 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@194037f9) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@2335aef2)
+2024-10-12 04:15:32 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@17003497) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@2f038d3c)
+2024-10-12 04:15:32 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@376498da) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@39a8e2fa)
+2024-10-12 04:15:32 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 04:15:32 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 04:15:32 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 04:15:32 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 04:15:33 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-12 04:15:33 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-12 04:15:33 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-12 04:15:34 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-12 04:15:34 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-12 04:15:34 [main] INFO  c.happyTravel.HappyTravelApplication - Started HappyTravelApplication in 4.232 seconds (process running for 4.557)
+2024-10-12 04:15:40 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-12 04:15:40 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-12 04:15:40 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2024-10-12 04:15:40 [http-nio-8080-exec-2] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: jakarta.validation.UnexpectedTypeException: HV000030: No validator could be found for constraint 'com.happyTravel.common.validation.ValidEmptyIdPwd' validating type 'java.lang.String'. Check configuration for 'userId'] with root cause
+jakarta.validation.UnexpectedTypeException: HV000030: No validator could be found for constraint 'com.happyTravel.common.validation.ValidEmptyIdPwd' validating type 'java.lang.String'. Check configuration for 'userId'
+	at org.hibernate.validator.internal.engine.constraintvalidation.ConstraintTree.getExceptionForNullValidator(ConstraintTree.java:116)
+	at org.hibernate.validator.internal.engine.constraintvalidation.ConstraintTree.getInitializedConstraintValidator(ConstraintTree.java:162)
+	at org.hibernate.validator.internal.engine.constraintvalidation.SimpleConstraintTree.validateConstraints(SimpleConstraintTree.java:58)
+	at org.hibernate.validator.internal.engine.constraintvalidation.ConstraintTree.validateConstraints(ConstraintTree.java:75)
+	at org.hibernate.validator.internal.metadata.core.MetaConstraint.doValidateConstraint(MetaConstraint.java:130)
+	at org.hibernate.validator.internal.metadata.core.MetaConstraint.validateConstraint(MetaConstraint.java:123)
+	at org.hibernate.validator.internal.engine.ValidatorImpl.validateMetaConstraint(ValidatorImpl.java:555)
+	at org.hibernate.validator.internal.engine.ValidatorImpl.validateConstraintsForSingleDefaultGroupElement(ValidatorImpl.java:518)
+	at org.hibernate.validator.internal.engine.ValidatorImpl.validateConstraintsForDefaultGroup(ValidatorImpl.java:488)
+	at org.hibernate.validator.internal.engine.ValidatorImpl.validateConstraintsForCurrentGroup(ValidatorImpl.java:450)
+	at org.hibernate.validator.internal.engine.ValidatorImpl.validateInContext(ValidatorImpl.java:400)
+	at org.hibernate.validator.internal.engine.ValidatorImpl.validate(ValidatorImpl.java:172)
+	at org.springframework.validation.beanvalidation.SpringValidatorAdapter.validate(SpringValidatorAdapter.java:106)
+	at org.springframework.boot.autoconfigure.validation.ValidatorAdapter.validate(ValidatorAdapter.java:67)
+	at org.springframework.validation.DataBinder.validate(DataBinder.java:1264)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodArgumentResolver.validateIfApplicable(AbstractMessageConverterMethodArgumentResolver.java:252)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.resolveArgument(RequestResponseBodyMethodProcessor.java:142)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:224)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:178)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2024-10-12 04:20:08 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-12 04:20:08 [main] INFO  c.happyTravel.HappyTravelApplication - Starting HappyTravelApplication using Java 17.0.10 with PID 10528 (D:\dev\practice\happyTravel\build\classes\java\main started by adsa7 in D:\dev\practice\happyTravel)
+2024-10-12 04:20:08 [main] DEBUG c.happyTravel.HappyTravelApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-12 04:20:08 [main] INFO  c.happyTravel.HappyTravelApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-12 04:20:09 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-12 04:20:09 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 58 ms. Found 1 JPA repository interface.
+2024-10-12 04:20:09 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-12 04:20:09 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-12 04:20:09 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-12 04:20:09 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-12 04:20:09 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-12 04:20:09 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1285 ms
+2024-10-12 04:20:09 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-12 04:20:09 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-12 04:20:09 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-10-12 04:20:10 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-12 04:20:10 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-12 04:20:10 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6233c6c2
+2024-10-12 04:20:10 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-12 04:20:10 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@1c43df76) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@ff2266c)
+2024-10-12 04:20:10 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@71b3ba5a) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@83ebdc5)
+2024-10-12 04:20:10 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@a047bdb) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@14dbfdb1)
+2024-10-12 04:20:10 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@7856f41a) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@5fbae40)
+2024-10-12 04:20:10 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@2c08c787) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@67f591c2)
+2024-10-12 04:20:10 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@284c4f02) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@709d6de5)
+2024-10-12 04:20:10 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@1a43a88e) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@51f34185)
+2024-10-12 04:20:10 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@1b8d20e6) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@e49437)
+2024-10-12 04:20:10 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@7645b7d) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@4c50cd7d)
+2024-10-12 04:20:10 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 04:20:10 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 04:20:10 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 04:20:10 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 04:20:11 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-12 04:20:11 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-12 04:20:11 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-12 04:20:12 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-12 04:20:12 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-12 04:20:12 [main] INFO  c.happyTravel.HappyTravelApplication - Started HappyTravelApplication in 4.329 seconds (process running for 4.654)
+2024-10-12 04:20:13 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-12 04:20:13 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-12 04:20:13 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2024-10-12 04:20:47 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        uce1_0.user_id,
+        uce1_0.address,
+        uce1_0.email_address,
+        uce1_0.email_id,
+        uce1_0.last_login_dt,
+        uce1_0.phone_no,
+        uce1_0.pwd_upd_dt,
+        uce1_0.reg_dtm,
+        uce1_0.reg_user,
+        uce1_0.updt_dtm,
+        uce1_0.updt_user,
+        uce1_0.user_pwd 
+    from
+        user_tb uce1_0 
+    where
+        uce1_0.user_id=?
+2024-10-12 04:22:45 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-12 04:22:45 [main] INFO  c.happyTravel.HappyTravelApplication - Starting HappyTravelApplication using Java 17.0.10 with PID 4492 (D:\dev\practice\happyTravel\build\classes\java\main started by adsa7 in D:\dev\practice\happyTravel)
+2024-10-12 04:22:45 [main] DEBUG c.happyTravel.HappyTravelApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-12 04:22:45 [main] INFO  c.happyTravel.HappyTravelApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-12 04:22:45 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-12 04:22:45 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 56 ms. Found 1 JPA repository interface.
+2024-10-12 04:22:46 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-12 04:22:46 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-12 04:22:46 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-12 04:22:46 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-12 04:22:46 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-12 04:22:46 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1293 ms
+2024-10-12 04:22:46 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-12 04:22:46 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-12 04:22:46 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-10-12 04:22:46 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-12 04:22:46 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-12 04:22:47 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7e50eeb9
+2024-10-12 04:22:47 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-12 04:22:47 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@71b3ba5a) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@83ebdc5)
+2024-10-12 04:22:47 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@a047bdb) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@14dbfdb1)
+2024-10-12 04:22:47 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@7856f41a) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@5fbae40)
+2024-10-12 04:22:47 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@2c08c787) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@67f591c2)
+2024-10-12 04:22:47 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@284c4f02) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@709d6de5)
+2024-10-12 04:22:47 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@1a43a88e) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@51f34185)
+2024-10-12 04:22:47 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@1b8d20e6) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@e49437)
+2024-10-12 04:22:47 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@7645b7d) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@4c50cd7d)
+2024-10-12 04:22:47 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@3ea84e01) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@1a4930cf)
+2024-10-12 04:22:47 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 04:22:47 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 04:22:47 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 04:22:47 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 04:22:47 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-12 04:22:48 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-12 04:22:48 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-12 04:22:48 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-12 04:22:48 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-12 04:22:48 [main] INFO  c.happyTravel.HappyTravelApplication - Started HappyTravelApplication in 4.053 seconds (process running for 4.451)
+2024-10-12 04:23:10 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-12 04:23:10 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-12 04:23:10 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-12 04:23:10 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        uce1_0.user_id,
+        uce1_0.address,
+        uce1_0.email_address,
+        uce1_0.email_id,
+        uce1_0.last_login_dt,
+        uce1_0.phone_no,
+        uce1_0.pwd_upd_dt,
+        uce1_0.reg_dtm,
+        uce1_0.reg_user,
+        uce1_0.updt_dtm,
+        uce1_0.updt_user,
+        uce1_0.user_pwd 
+    from
+        user_tb uce1_0 
+    where
+        uce1_0.user_id=?
+2024-10-12 05:56:11 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-12 05:56:11 [main] INFO  c.happyTravel.HappyTravelApplication - Starting HappyTravelApplication using Java 17.0.10 with PID 21376 (D:\dev\practice\happyTravel\build\classes\java\main started by adsa7 in D:\dev\practice\happyTravel)
+2024-10-12 05:56:11 [main] DEBUG c.happyTravel.HappyTravelApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-12 05:56:11 [main] INFO  c.happyTravel.HappyTravelApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-12 05:56:11 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-12 05:56:11 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 63 ms. Found 1 JPA repository interface.
+2024-10-12 05:56:12 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-12 05:56:12 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-12 05:56:12 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-12 05:56:12 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-12 05:56:12 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-12 05:56:12 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1408 ms
+2024-10-12 05:56:12 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-12 05:56:12 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-12 05:56:12 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-10-12 05:56:13 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-12 05:56:13 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-12 05:56:13 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2729bb71
+2024-10-12 05:56:13 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-12 05:56:13 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@3041beb3) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@15cee630)
+2024-10-12 05:56:13 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@2e40fdbd) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@246de37e)
+2024-10-12 05:56:13 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@19647566) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@7b79ff1c)
+2024-10-12 05:56:13 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@527d48db) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@194037f9)
+2024-10-12 05:56:13 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@2335aef2) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@17003497)
+2024-10-12 05:56:13 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@2f038d3c) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@376498da)
+2024-10-12 05:56:13 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@39a8e2fa) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@2f9addd4)
+2024-10-12 05:56:13 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@1c43df76) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@ff2266c)
+2024-10-12 05:56:13 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@71b3ba5a) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@83ebdc5)
+2024-10-12 05:56:13 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 05:56:13 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 05:56:13 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 05:56:13 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 05:56:14 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-12 05:56:14 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-12 05:56:14 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-12 05:56:14 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-12 05:56:14 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-12 05:56:14 [main] INFO  c.happyTravel.HappyTravelApplication - Started HappyTravelApplication in 4.2 seconds (process running for 4.565)
+2024-10-12 05:57:45 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-12 05:57:45 [main] INFO  c.happyTravel.HappyTravelApplication - Starting HappyTravelApplication using Java 17.0.10 with PID 15300 (D:\dev\practice\happyTravel\build\classes\java\main started by adsa7 in D:\dev\practice\happyTravel)
+2024-10-12 05:57:45 [main] DEBUG c.happyTravel.HappyTravelApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-12 05:57:45 [main] INFO  c.happyTravel.HappyTravelApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-12 05:57:45 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-12 05:57:45 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 79 ms. Found 1 JPA repository interface.
+2024-10-12 05:57:46 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-12 05:57:46 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-12 05:57:46 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-12 05:57:46 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-12 05:57:46 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-12 05:57:46 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1453 ms
+2024-10-12 05:57:46 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-12 05:57:46 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-12 05:57:46 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-10-12 05:57:47 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-12 05:57:47 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-12 05:57:47 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@42211e04
+2024-10-12 05:57:47 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-12 05:57:47 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@2f9addd4) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@1c43df76)
+2024-10-12 05:57:47 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@ff2266c) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@71b3ba5a)
+2024-10-12 05:57:47 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@83ebdc5) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@a047bdb)
+2024-10-12 05:57:47 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@14dbfdb1) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@7856f41a)
+2024-10-12 05:57:47 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@5fbae40) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@2c08c787)
+2024-10-12 05:57:47 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@67f591c2) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@284c4f02)
+2024-10-12 05:57:47 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@709d6de5) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@1a43a88e)
+2024-10-12 05:57:47 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@51f34185) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@1b8d20e6)
+2024-10-12 05:57:47 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@e49437) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@7645b7d)
+2024-10-12 05:57:47 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 05:57:47 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 05:57:47 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 05:57:47 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 05:57:48 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-12 05:57:48 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-12 05:57:48 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-12 05:57:48 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-12 05:57:48 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-12 05:57:48 [main] INFO  c.happyTravel.HappyTravelApplication - Started HappyTravelApplication in 4.254 seconds (process running for 4.599)
+2024-10-12 05:58:58 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-12 05:58:58 [main] INFO  c.happyTravel.HappyTravelApplication - Starting HappyTravelApplication using Java 17.0.10 with PID 18908 (D:\dev\practice\happyTravel\build\classes\java\main started by adsa7 in D:\dev\practice\happyTravel)
+2024-10-12 05:58:58 [main] DEBUG c.happyTravel.HappyTravelApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-12 05:58:58 [main] INFO  c.happyTravel.HappyTravelApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-12 05:58:59 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-12 05:58:59 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 55 ms. Found 1 JPA repository interface.
+2024-10-12 05:59:00 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-12 05:59:00 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-12 05:59:00 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-12 05:59:00 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-12 05:59:00 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-12 05:59:00 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1315 ms
+2024-10-12 05:59:00 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-12 05:59:00 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-12 05:59:00 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-10-12 05:59:00 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-12 05:59:00 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-12 05:59:00 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6233c6c2
+2024-10-12 05:59:00 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-12 05:59:01 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@1c43df76) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@ff2266c)
+2024-10-12 05:59:01 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@71b3ba5a) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@83ebdc5)
+2024-10-12 05:59:01 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@a047bdb) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@14dbfdb1)
+2024-10-12 05:59:01 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@7856f41a) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@5fbae40)
+2024-10-12 05:59:01 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@2c08c787) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@67f591c2)
+2024-10-12 05:59:01 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@284c4f02) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@709d6de5)
+2024-10-12 05:59:01 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@1a43a88e) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@51f34185)
+2024-10-12 05:59:01 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@1b8d20e6) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@e49437)
+2024-10-12 05:59:01 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@7645b7d) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@4c50cd7d)
+2024-10-12 05:59:01 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 05:59:01 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 05:59:01 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 05:59:01 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 05:59:01 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-12 05:59:01 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-12 05:59:02 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-12 05:59:02 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-12 05:59:02 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-12 05:59:02 [main] INFO  c.happyTravel.HappyTravelApplication - Started HappyTravelApplication in 4.39 seconds (process running for 4.719)
+2024-10-12 07:17:38 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-12 07:17:38 [main] INFO  c.happyTravel.HappyTravelApplication - Starting HappyTravelApplication using Java 17.0.10 with PID 23328 (D:\dev\practice\happyTravel\build\classes\java\main started by adsa7 in D:\dev\practice\happyTravel)
+2024-10-12 07:17:38 [main] DEBUG c.happyTravel.HappyTravelApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-12 07:17:38 [main] INFO  c.happyTravel.HappyTravelApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-12 07:17:39 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-12 07:17:39 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 72 ms. Found 1 JPA repository interface.
+2024-10-12 07:17:39 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-12 07:17:39 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-12 07:17:39 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-12 07:17:39 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-12 07:17:39 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-12 07:17:39 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1390 ms
+2024-10-12 07:17:40 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-12 07:17:40 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-12 07:17:40 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-10-12 07:17:40 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-12 07:17:40 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-12 07:17:40 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1c43df76
+2024-10-12 07:17:40 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-12 07:17:40 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@1da5c19d) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@3e4f2300)
+2024-10-12 07:17:40 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@e706aa) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@25e6c22a)
+2024-10-12 07:17:40 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@16fc5622) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@516c20de)
+2024-10-12 07:17:40 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@6906be0f) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@7a62d697)
+2024-10-12 07:17:40 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@edbc2bf) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@3e01796a)
+2024-10-12 07:17:40 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@62ab5e63) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@e91facf)
+2024-10-12 07:17:40 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@5e8f0f98) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@6bf0f70a)
+2024-10-12 07:17:40 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@5310e451) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@52d63b7e)
+2024-10-12 07:17:40 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@74830d73) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@1827fc4e)
+2024-10-12 07:17:40 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 07:17:40 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 07:17:40 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 07:17:40 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 07:17:41 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-12 07:17:41 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-12 07:17:42 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-12 07:17:42 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-12 07:17:42 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-12 07:17:42 [main] INFO  c.happyTravel.HappyTravelApplication - Started HappyTravelApplication in 4.233 seconds (process running for 4.543)
+2024-10-12 07:20:57 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-12 07:20:57 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-12 07:20:57 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-12 07:20:57 [http-nio-8080-exec-1] INFO  c.h.common.aop.UserLoggingAspect - User login attempt for testUser1
+2024-10-12 07:20:57 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        uce1_0.user_id,
+        uce1_0.address,
+        uce1_0.email_address,
+        uce1_0.email_id,
+        uce1_0.last_login_dt,
+        uce1_0.phone_no,
+        uce1_0.pwd_upd_dt,
+        uce1_0.reg_dtm,
+        uce1_0.reg_user,
+        uce1_0.updt_dtm,
+        uce1_0.updt_user,
+        uce1_0.user_pwd 
+    from
+        user_tb uce1_0 
+    where
+        uce1_0.user_id=?
+2024-10-12 07:20:57 [http-nio-8080-exec-1] ERROR c.h.common.aop.UserLoggingAspect - User login failed for testUser1: ID를 입력하세요.
+2024-10-12 07:21:11 [http-nio-8080-exec-2] INFO  c.h.common.aop.UserLoggingAspect - User login attempt for testUser1
+2024-10-12 07:21:11 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        uce1_0.user_id,
+        uce1_0.address,
+        uce1_0.email_address,
+        uce1_0.email_id,
+        uce1_0.last_login_dt,
+        uce1_0.phone_no,
+        uce1_0.pwd_upd_dt,
+        uce1_0.reg_dtm,
+        uce1_0.reg_user,
+        uce1_0.updt_dtm,
+        uce1_0.updt_user,
+        uce1_0.user_pwd 
+    from
+        user_tb uce1_0 
+    where
+        uce1_0.user_id=?
+2024-10-12 07:21:11 [http-nio-8080-exec-2] ERROR c.h.common.aop.UserLoggingAspect - User login failed for testUser1: ID를 입력하세요.
+2024-10-12 07:21:21 [http-nio-8080-exec-6] INFO  c.h.common.aop.UserLoggingAspect - User login attempt for testUser1
+2024-10-12 07:21:21 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        uce1_0.user_id,
+        uce1_0.address,
+        uce1_0.email_address,
+        uce1_0.email_id,
+        uce1_0.last_login_dt,
+        uce1_0.phone_no,
+        uce1_0.pwd_upd_dt,
+        uce1_0.reg_dtm,
+        uce1_0.reg_user,
+        uce1_0.updt_dtm,
+        uce1_0.updt_user,
+        uce1_0.user_pwd 
+    from
+        user_tb uce1_0 
+    where
+        uce1_0.user_id=?
+2024-10-12 07:21:21 [http-nio-8080-exec-6] ERROR c.h.common.aop.UserLoggingAspect - User login failed for testUser1: ID를 입력하세요.
+2024-10-12 07:21:30 [http-nio-8080-exec-5] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 174 ms
+2024-10-12 07:23:00 [http-nio-8080-exec-3] INFO  c.h.common.aop.UserLoggingAspect - User login attempt for testUser1
+2024-10-12 07:23:00 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        uce1_0.user_id,
+        uce1_0.address,
+        uce1_0.email_address,
+        uce1_0.email_id,
+        uce1_0.last_login_dt,
+        uce1_0.phone_no,
+        uce1_0.pwd_upd_dt,
+        uce1_0.reg_dtm,
+        uce1_0.reg_user,
+        uce1_0.updt_dtm,
+        uce1_0.updt_user,
+        uce1_0.user_pwd 
+    from
+        user_tb uce1_0 
+    where
+        uce1_0.user_id=?
+2024-10-12 07:23:00 [http-nio-8080-exec-3] ERROR c.h.common.aop.UserLoggingAspect - User login failed for testUser1: ID를 입력하세요.
+2024-10-12 07:23:11 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-12 07:23:11 [main] INFO  c.happyTravel.HappyTravelApplication - Starting HappyTravelApplication using Java 17.0.10 with PID 10064 (D:\dev\practice\happyTravel\build\classes\java\main started by adsa7 in D:\dev\practice\happyTravel)
+2024-10-12 07:23:11 [main] DEBUG c.happyTravel.HappyTravelApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-12 07:23:11 [main] INFO  c.happyTravel.HappyTravelApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-12 07:23:12 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-12 07:23:12 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 57 ms. Found 1 JPA repository interface.
+2024-10-12 07:23:13 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-12 07:23:13 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-12 07:23:13 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-12 07:23:13 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-12 07:23:13 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-12 07:23:13 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1385 ms
+2024-10-12 07:23:13 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-12 07:23:13 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-12 07:23:13 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-10-12 07:23:13 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-12 07:23:13 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-12 07:23:14 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7856f41a
+2024-10-12 07:23:14 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-12 07:23:14 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@7a62d697) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@edbc2bf)
+2024-10-12 07:23:14 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@3e01796a) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@62ab5e63)
+2024-10-12 07:23:14 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@e91facf) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@5e8f0f98)
+2024-10-12 07:23:14 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@6bf0f70a) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@5310e451)
+2024-10-12 07:23:14 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@52d63b7e) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@74830d73)
+2024-10-12 07:23:14 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@1827fc4e) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@4c41a177)
+2024-10-12 07:23:14 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@2faf6e4a) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@43ab0659)
+2024-10-12 07:23:14 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@644947ee) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@25421809)
+2024-10-12 07:23:14 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@714bffd5) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@6ac9b66b)
+2024-10-12 07:23:14 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 07:23:14 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 07:23:14 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 07:23:14 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 07:23:14 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-12 07:23:15 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-12 07:23:15 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-12 07:23:15 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-12 07:23:15 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-12 07:23:15 [main] INFO  c.happyTravel.HappyTravelApplication - Started HappyTravelApplication in 4.306 seconds (process running for 4.665)
+2024-10-12 07:23:33 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-12 07:23:33 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-12 07:23:33 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-12 07:23:33 [http-nio-8080-exec-1] INFO  c.h.common.aop.UserLoggingAspect - User login attempt for testUser1
+2024-10-12 07:23:33 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        uce1_0.user_id,
+        uce1_0.address,
+        uce1_0.email_address,
+        uce1_0.email_id,
+        uce1_0.last_login_dt,
+        uce1_0.phone_no,
+        uce1_0.pwd_upd_dt,
+        uce1_0.reg_dtm,
+        uce1_0.reg_user,
+        uce1_0.updt_dtm,
+        uce1_0.updt_user,
+        uce1_0.user_pwd 
+    from
+        user_tb uce1_0 
+    where
+        uce1_0.user_id=?
+2024-10-12 07:23:33 [http-nio-8080-exec-1] ERROR c.h.common.aop.UserLoggingAspect - User login failed for testUser1: ID를 입력하세요.
+2024-10-12 07:26:27 [http-nio-8080-exec-4] INFO  c.h.common.aop.UserLoggingAspect - User login attempt for testUser2
+2024-10-12 07:26:27 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        uce1_0.user_id,
+        uce1_0.address,
+        uce1_0.email_address,
+        uce1_0.email_id,
+        uce1_0.last_login_dt,
+        uce1_0.phone_no,
+        uce1_0.pwd_upd_dt,
+        uce1_0.reg_dtm,
+        uce1_0.reg_user,
+        uce1_0.updt_dtm,
+        uce1_0.updt_user,
+        uce1_0.user_pwd 
+    from
+        user_tb uce1_0 
+    where
+        uce1_0.user_id=?
+2024-10-12 07:26:27 [http-nio-8080-exec-4] ERROR c.h.common.aop.UserLoggingAspect - User login failed for testUser2: 로그인에 실패했습니다. 아이디와 비밀번호를 확인해주시기 바랍니다.
+2024-10-12 07:26:38 [http-nio-8080-exec-5] INFO  c.h.common.aop.UserLoggingAspect - User login attempt for testUser3
+2024-10-12 07:26:38 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        uce1_0.user_id,
+        uce1_0.address,
+        uce1_0.email_address,
+        uce1_0.email_id,
+        uce1_0.last_login_dt,
+        uce1_0.phone_no,
+        uce1_0.pwd_upd_dt,
+        uce1_0.reg_dtm,
+        uce1_0.reg_user,
+        uce1_0.updt_dtm,
+        uce1_0.updt_user,
+        uce1_0.user_pwd 
+    from
+        user_tb uce1_0 
+    where
+        uce1_0.user_id=?
+2024-10-12 07:26:38 [http-nio-8080-exec-5] INFO  c.h.common.aop.UserLoggingAspect - User login successful for testUser3
+2024-10-12 07:27:24 [http-nio-8080-exec-7] INFO  c.h.common.aop.UserLoggingAspect - User login attempt for testUser1
+2024-10-12 07:27:24 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        uce1_0.user_id,
+        uce1_0.address,
+        uce1_0.email_address,
+        uce1_0.email_id,
+        uce1_0.last_login_dt,
+        uce1_0.phone_no,
+        uce1_0.pwd_upd_dt,
+        uce1_0.reg_dtm,
+        uce1_0.reg_user,
+        uce1_0.updt_dtm,
+        uce1_0.updt_user,
+        uce1_0.user_pwd 
+    from
+        user_tb uce1_0 
+    where
+        uce1_0.user_id=?
+2024-10-12 07:27:24 [http-nio-8080-exec-7] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1054, SQLState: 42S22
+2024-10-12 07:27:24 [http-nio-8080-exec-7] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Unknown column 'uce1_0.email_address' in 'field list'
+2024-10-12 07:27:24 [http-nio-8080-exec-7] ERROR c.h.common.aop.UserLoggingAspect - User login failed for testUser1: JDBC exception executing SQL [select uce1_0.user_id,uce1_0.address,uce1_0.email_address,uce1_0.email_id,uce1_0.last_login_dt,uce1_0.phone_no,uce1_0.pwd_upd_dt,uce1_0.reg_dtm,uce1_0.reg_user,uce1_0.updt_dtm,uce1_0.updt_user,uce1_0.user_pwd from user_tb uce1_0 where uce1_0.user_id=?] [Unknown column 'uce1_0.email_address' in 'field list'] [n/a]; SQL [n/a]
+2024-10-12 07:27:24 [http-nio-8080-exec-7] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.InvalidDataAccessResourceUsageException: JDBC exception executing SQL [select uce1_0.user_id,uce1_0.address,uce1_0.email_address,uce1_0.email_id,uce1_0.last_login_dt,uce1_0.phone_no,uce1_0.pwd_upd_dt,uce1_0.reg_dtm,uce1_0.reg_user,uce1_0.updt_dtm,uce1_0.updt_user,uce1_0.user_pwd from user_tb uce1_0 where uce1_0.user_id=?] [Unknown column 'uce1_0.email_address' in 'field list'] [n/a]; SQL [n/a]] with root cause
+java.sql.SQLSyntaxErrorException: Unknown column 'uce1_0.email_address' in 'field list'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:912)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:968)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:246)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.getResultSet(DeferredResultSetAccess.java:167)
+	at org.hibernate.sql.results.jdbc.internal.JdbcValuesResultSetImpl.advanceNext(JdbcValuesResultSetImpl.java:265)
+	at org.hibernate.sql.results.jdbc.internal.JdbcValuesResultSetImpl.processNext(JdbcValuesResultSetImpl.java:145)
+	at org.hibernate.sql.results.jdbc.internal.AbstractJdbcValues.next(AbstractJdbcValues.java:19)
+	at org.hibernate.sql.results.internal.RowProcessingStateStandardImpl.next(RowProcessingStateStandardImpl.java:67)
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:204)
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:33)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:211)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:83)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:76)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:65)
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.lambda$new$2(ConcreteSqmSelectQueryPlan.java:139)
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.withCacheableSqmInterpretation(ConcreteSqmSelectQueryPlan.java:382)
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.performList(ConcreteSqmSelectQueryPlan.java:302)
+	at org.hibernate.query.sqm.internal.QuerySqmImpl.doList(QuerySqmImpl.java:526)
+	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:423)
+	at org.hibernate.query.spi.AbstractSelectionQuery.getSingleResult(AbstractSelectionQuery.java:555)
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution$SingleEntityExecution.doExecute(JpaQueryExecution.java:223)
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:92)
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:152)
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:140)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:169)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:148)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:379)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:136)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy2/jdk.proxy2.$Proxy132.findByUserId(Unknown Source)
+	at com.happyTravel.user.service.UserService.userLogin(UserService.java:69)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:355)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:64)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:57)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:720)
+	at com.happyTravel.user.service.UserService$$SpringCGLIB$$0.userLogin(<generated>)
+	at com.happyTravel.user.controller.UserRestController.userlogin(UserRestController.java:32)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2024-10-12 07:27:48 [http-nio-8080-exec-2] INFO  c.h.common.aop.UserLoggingAspect - User registration started for testUser1
+2024-10-12 07:27:48 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        uce1_0.user_id,
+        uce1_0.address,
+        uce1_0.email_address,
+        uce1_0.email_id,
+        uce1_0.last_login_dt,
+        uce1_0.phone_no,
+        uce1_0.pwd_upd_dt,
+        uce1_0.reg_dtm,
+        uce1_0.reg_user,
+        uce1_0.updt_dtm,
+        uce1_0.updt_user,
+        uce1_0.user_pwd 
+    from
+        user_tb uce1_0 
+    where
+        uce1_0.user_id=?
+2024-10-12 07:27:48 [http-nio-8080-exec-2] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1054, SQLState: 42S22
+2024-10-12 07:27:48 [http-nio-8080-exec-2] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Unknown column 'uce1_0.email_address' in 'field list'
+2024-10-12 07:27:48 [http-nio-8080-exec-2] ERROR c.h.common.aop.UserLoggingAspect - User registration failed for testUser1: JDBC exception executing SQL [select uce1_0.user_id,uce1_0.address,uce1_0.email_address,uce1_0.email_id,uce1_0.last_login_dt,uce1_0.phone_no,uce1_0.pwd_upd_dt,uce1_0.reg_dtm,uce1_0.reg_user,uce1_0.updt_dtm,uce1_0.updt_user,uce1_0.user_pwd from user_tb uce1_0 where uce1_0.user_id=?] [Unknown column 'uce1_0.email_address' in 'field list'] [n/a]; SQL [n/a]
+2024-10-12 07:27:48 [http-nio-8080-exec-2] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.InvalidDataAccessResourceUsageException: JDBC exception executing SQL [select uce1_0.user_id,uce1_0.address,uce1_0.email_address,uce1_0.email_id,uce1_0.last_login_dt,uce1_0.phone_no,uce1_0.pwd_upd_dt,uce1_0.reg_dtm,uce1_0.reg_user,uce1_0.updt_dtm,uce1_0.updt_user,uce1_0.user_pwd from user_tb uce1_0 where uce1_0.user_id=?] [Unknown column 'uce1_0.email_address' in 'field list'] [n/a]; SQL [n/a]] with root cause
+java.sql.SQLSyntaxErrorException: Unknown column 'uce1_0.email_address' in 'field list'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:912)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:968)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:246)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.getResultSet(DeferredResultSetAccess.java:167)
+	at org.hibernate.sql.results.jdbc.internal.JdbcValuesResultSetImpl.advanceNext(JdbcValuesResultSetImpl.java:265)
+	at org.hibernate.sql.results.jdbc.internal.JdbcValuesResultSetImpl.processNext(JdbcValuesResultSetImpl.java:145)
+	at org.hibernate.sql.results.jdbc.internal.AbstractJdbcValues.next(AbstractJdbcValues.java:19)
+	at org.hibernate.sql.results.internal.RowProcessingStateStandardImpl.next(RowProcessingStateStandardImpl.java:67)
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:204)
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:33)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:211)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:83)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:76)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:65)
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.lambda$new$2(ConcreteSqmSelectQueryPlan.java:139)
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.withCacheableSqmInterpretation(ConcreteSqmSelectQueryPlan.java:382)
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.performList(ConcreteSqmSelectQueryPlan.java:302)
+	at org.hibernate.query.sqm.internal.QuerySqmImpl.doList(QuerySqmImpl.java:526)
+	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:423)
+	at org.hibernate.query.spi.AbstractSelectionQuery.getSingleResult(AbstractSelectionQuery.java:555)
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution$SingleEntityExecution.doExecute(JpaQueryExecution.java:223)
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:92)
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:152)
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:140)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:169)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:148)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:379)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:136)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy2/jdk.proxy2.$Proxy132.findByUserId(Unknown Source)
+	at com.happyTravel.user.service.UserService.validateUserSignUp(UserService.java:61)
+	at com.happyTravel.user.service.UserService.userSignUp(UserService.java:26)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:355)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:64)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:57)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:720)
+	at com.happyTravel.user.service.UserService$$SpringCGLIB$$0.userSignUp(<generated>)
+	at com.happyTravel.user.controller.UserRestController.userSingUp(UserRestController.java:26)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2024-10-12 07:28:27 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-12 07:28:27 [main] INFO  c.happyTravel.HappyTravelApplication - Starting HappyTravelApplication using Java 17.0.10 with PID 8784 (D:\dev\practice\happyTravel\build\classes\java\main started by adsa7 in D:\dev\practice\happyTravel)
+2024-10-12 07:28:27 [main] DEBUG c.happyTravel.HappyTravelApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-12 07:28:27 [main] INFO  c.happyTravel.HappyTravelApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-12 07:28:28 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-12 07:28:28 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 100 ms. Found 1 JPA repository interface.
+2024-10-12 07:28:29 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-12 07:28:29 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-12 07:28:29 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-12 07:28:29 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-12 07:28:29 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-12 07:28:29 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1683 ms
+2024-10-12 07:28:29 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-12 07:28:29 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-12 07:28:29 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-10-12 07:28:29 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-12 07:28:29 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-12 07:28:29 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@ff2266c
+2024-10-12 07:28:29 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-12 07:28:29 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@3e4f2300) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@e706aa)
+2024-10-12 07:28:29 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@25e6c22a) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@16fc5622)
+2024-10-12 07:28:29 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@516c20de) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@6906be0f)
+2024-10-12 07:28:29 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@7a62d697) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@edbc2bf)
+2024-10-12 07:28:29 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@3e01796a) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@62ab5e63)
+2024-10-12 07:28:29 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@e91facf) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@5e8f0f98)
+2024-10-12 07:28:29 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@6bf0f70a) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@5310e451)
+2024-10-12 07:28:29 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@52d63b7e) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@74830d73)
+2024-10-12 07:28:29 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@1827fc4e) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@4c41a177)
+2024-10-12 07:28:30 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 07:28:30 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 07:28:30 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 07:28:30 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 07:28:30 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-12 07:28:30 [main] DEBUG org.hibernate.SQL - 
+    alter table user_tb 
+       add column email_address varchar(50)
+2024-10-12 07:28:30 [main] DEBUG org.hibernate.SQL - 
+    alter table user_tb 
+       modify column phone_no varchar(11)
+2024-10-12 07:28:30 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-12 07:28:31 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-12 07:28:31 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-12 07:28:31 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-12 07:28:31 [main] INFO  c.happyTravel.HappyTravelApplication - Started HappyTravelApplication in 4.721 seconds (process running for 5.107)
+2024-10-12 07:28:35 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-12 07:28:35 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-12 07:28:35 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-12 07:28:35 [http-nio-8080-exec-2] INFO  c.h.common.aop.UserLoggingAspect - User registration started for testUser1
+2024-10-12 07:28:35 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        uce1_0.user_id,
+        uce1_0.address,
+        uce1_0.email_address,
+        uce1_0.email_id,
+        uce1_0.last_login_dt,
+        uce1_0.phone_no,
+        uce1_0.pwd_upd_dt,
+        uce1_0.reg_dtm,
+        uce1_0.reg_user,
+        uce1_0.updt_dtm,
+        uce1_0.updt_user,
+        uce1_0.user_pwd 
+    from
+        user_tb uce1_0 
+    where
+        uce1_0.user_id=?
+2024-10-12 07:28:35 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        uce1_0.user_id,
+        uce1_0.address,
+        uce1_0.email_address,
+        uce1_0.email_id,
+        uce1_0.last_login_dt,
+        uce1_0.phone_no,
+        uce1_0.pwd_upd_dt,
+        uce1_0.reg_dtm,
+        uce1_0.reg_user,
+        uce1_0.updt_dtm,
+        uce1_0.updt_user,
+        uce1_0.user_pwd 
+    from
+        user_tb uce1_0 
+    where
+        uce1_0.user_id=?
+2024-10-12 07:28:35 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        user_tb
+        (address, email_address, email_id, last_login_dt, phone_no, pwd_upd_dt, reg_dtm, reg_user, updt_dtm, updt_user, user_pwd, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2024-10-12 07:28:35 [http-nio-8080-exec-2] INFO  c.h.common.aop.UserLoggingAspect - User registration successful for testUser1
+2024-10-12 07:28:47 [http-nio-8080-exec-6] INFO  c.h.common.aop.UserLoggingAspect - User login attempt for testUser1
+2024-10-12 07:28:47 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        uce1_0.user_id,
+        uce1_0.address,
+        uce1_0.email_address,
+        uce1_0.email_id,
+        uce1_0.last_login_dt,
+        uce1_0.phone_no,
+        uce1_0.pwd_upd_dt,
+        uce1_0.reg_dtm,
+        uce1_0.reg_user,
+        uce1_0.updt_dtm,
+        uce1_0.updt_user,
+        uce1_0.user_pwd 
+    from
+        user_tb uce1_0 
+    where
+        uce1_0.user_id=?
+2024-10-12 07:28:47 [http-nio-8080-exec-6] ERROR c.h.common.aop.UserLoggingAspect - User login failed for testUser1: 로그인에 실패했습니다. 아이디와 비밀번호를 확인해주시기 바랍니다.
+2024-10-12 07:28:56 [http-nio-8080-exec-8] INFO  c.h.common.aop.UserLoggingAspect - User login attempt for testUser1
+2024-10-12 07:28:56 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        uce1_0.user_id,
+        uce1_0.address,
+        uce1_0.email_address,
+        uce1_0.email_id,
+        uce1_0.last_login_dt,
+        uce1_0.phone_no,
+        uce1_0.pwd_upd_dt,
+        uce1_0.reg_dtm,
+        uce1_0.reg_user,
+        uce1_0.updt_dtm,
+        uce1_0.updt_user,
+        uce1_0.user_pwd 
+    from
+        user_tb uce1_0 
+    where
+        uce1_0.user_id=?
+2024-10-12 07:28:56 [http-nio-8080-exec-8] INFO  c.h.common.aop.UserLoggingAspect - User login successful for testUser1
+2024-10-12 08:51:21 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-12 08:51:22 [main] INFO  c.happyTravel.HappyTravelApplication - Starting HappyTravelApplication using Java 17.0.10 with PID 21112 (D:\dev\practice\happyTravel\build\classes\java\main started by adsa7 in D:\dev\practice\happyTravel)
+2024-10-12 08:51:22 [main] DEBUG c.happyTravel.HappyTravelApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-12 08:51:22 [main] INFO  c.happyTravel.HappyTravelApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-12 08:51:22 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-12 08:51:22 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 64 ms. Found 1 JPA repository interface.
+2024-10-12 08:51:23 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-12 08:51:23 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-12 08:51:23 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-12 08:51:23 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-12 08:51:23 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-12 08:51:23 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1387 ms
+2024-10-12 08:51:23 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-12 08:51:23 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-12 08:51:23 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-10-12 08:51:23 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-12 08:51:23 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-12 08:51:24 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7bce9ce4
+2024-10-12 08:51:24 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-12 08:51:24 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@1d622556) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@4b9f7edc)
+2024-10-12 08:51:24 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@70ee1963) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@2e0652ab)
+2024-10-12 08:51:24 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@22c29aa8) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@129b69b2)
+2024-10-12 08:51:24 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@12be4f83) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@eb1d475)
+2024-10-12 08:51:24 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@389008d1) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@718f3088)
+2024-10-12 08:51:24 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@11adab6d) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@11bfd751)
+2024-10-12 08:51:24 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@29519337) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@2152fde5)
+2024-10-12 08:51:24 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@5d58dc61) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@32328dc4)
+2024-10-12 08:51:24 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@17df689e) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@21540255)
+2024-10-12 08:51:24 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 08:51:24 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 08:51:24 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 08:51:24 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 08:51:25 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-12 08:51:25 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-12 08:51:25 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-12 08:51:25 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-12 08:51:25 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-12 08:51:25 [main] INFO  c.happyTravel.HappyTravelApplication - Started HappyTravelApplication in 4.374 seconds (process running for 4.695)
+2024-10-12 08:51:29 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-12 08:51:29 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-12 08:51:29 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-12 08:51:29 [http-nio-8080-exec-1] INFO  c.h.common.aop.UserLoggingAspect - User login attempt for testUser1
+2024-10-12 08:51:29 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        uce1_0.user_id,
+        uce1_0.address,
+        uce1_0.email_address,
+        uce1_0.email_id,
+        uce1_0.last_login_dt,
+        uce1_0.phone_no,
+        uce1_0.pwd_upd_dt,
+        uce1_0.reg_dtm,
+        uce1_0.reg_user,
+        uce1_0.updt_dtm,
+        uce1_0.updt_user,
+        uce1_0.user_pwd 
+    from
+        user_tb uce1_0 
+    where
+        uce1_0.user_id=?
+2024-10-12 08:51:29 [http-nio-8080-exec-1] INFO  c.h.common.aop.UserLoggingAspect - User login successful for testUser1
+2024-10-12 09:02:28 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-12 09:02:29 [main] INFO  c.happyTravel.HappyTravelApplication - Starting HappyTravelApplication using Java 17.0.10 with PID 4444 (D:\dev\practice\happyTravel\build\classes\java\main started by adsa7 in D:\dev\practice\happyTravel)
+2024-10-12 09:02:29 [main] DEBUG c.happyTravel.HappyTravelApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-12 09:02:29 [main] INFO  c.happyTravel.HappyTravelApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-12 09:02:29 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-12 09:02:29 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 59 ms. Found 1 JPA repository interface.
+2024-10-12 09:02:30 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-12 09:02:30 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-12 09:02:30 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-12 09:02:30 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-12 09:02:30 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-12 09:02:30 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1576 ms
+2024-10-12 09:02:30 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-12 09:02:30 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-12 09:02:30 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-10-12 09:02:31 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-12 09:02:31 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-12 09:02:31 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@fd87c22
+2024-10-12 09:02:31 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-12 09:02:31 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@2e0652ab) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@22c29aa8)
+2024-10-12 09:02:31 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@129b69b2) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@12be4f83)
+2024-10-12 09:02:31 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@eb1d475) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@389008d1)
+2024-10-12 09:02:31 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@718f3088) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@11adab6d)
+2024-10-12 09:02:31 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@11bfd751) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@29519337)
+2024-10-12 09:02:31 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@2152fde5) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@5d58dc61)
+2024-10-12 09:02:31 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@32328dc4) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@17df689e)
+2024-10-12 09:02:31 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@21540255) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@3a7469ca)
+2024-10-12 09:02:31 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@1c8e8fed) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@70f98f7a)
+2024-10-12 09:02:31 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 09:02:31 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 09:02:31 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 09:02:31 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 09:02:32 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-12 09:02:32 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-12 09:02:32 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-12 09:02:33 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-12 09:02:33 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-12 09:02:33 [main] INFO  c.happyTravel.HappyTravelApplication - Started HappyTravelApplication in 4.487 seconds (process running for 4.912)
+2024-10-12 09:02:36 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-12 09:02:36 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-12 09:02:36 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-12 09:02:36 [http-nio-8080-exec-2] INFO  c.h.common.aop.UserLoggingAspect - User login attempt for testUser1
+2024-10-12 09:02:36 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        uce1_0.user_id,
+        uce1_0.address,
+        uce1_0.email_address,
+        uce1_0.email_id,
+        uce1_0.last_login_dt,
+        uce1_0.phone_no,
+        uce1_0.pwd_upd_dt,
+        uce1_0.reg_dtm,
+        uce1_0.reg_user,
+        uce1_0.updt_dtm,
+        uce1_0.updt_user,
+        uce1_0.user_pwd 
+    from
+        user_tb uce1_0 
+    where
+        uce1_0.user_id=?
+2024-10-12 09:02:36 [http-nio-8080-exec-2] INFO  c.h.common.aop.UserLoggingAspect - User login successful for testUser1. request_id=446cc663-52a4-4ec3-87cc-bc331d6065e1
+2024-10-12 09:19:14 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-12 09:19:14 [main] INFO  c.happyTravel.HappyTravelApplication - Starting HappyTravelApplication using Java 17.0.10 with PID 24484 (D:\dev\practice\happyTravel\build\classes\java\main started by adsa7 in D:\dev\practice\happyTravel)
+2024-10-12 09:19:14 [main] DEBUG c.happyTravel.HappyTravelApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-12 09:19:14 [main] INFO  c.happyTravel.HappyTravelApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-12 09:19:15 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-12 09:19:15 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 57 ms. Found 1 JPA repository interface.
+2024-10-12 09:19:15 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-12 09:19:15 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-12 09:19:15 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-12 09:19:15 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-12 09:19:15 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-12 09:19:15 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1476 ms
+2024-10-12 09:19:15 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-12 09:19:15 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-12 09:19:15 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-10-12 09:19:16 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-12 09:19:16 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-12 09:19:16 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1be77a76
+2024-10-12 09:19:16 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-12 09:19:16 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@32328dc4) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@17df689e)
+2024-10-12 09:19:16 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@21540255) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@3a7469ca)
+2024-10-12 09:19:16 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@1c8e8fed) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@70f98f7a)
+2024-10-12 09:19:16 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@713e7d9a) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@681d704e)
+2024-10-12 09:19:16 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@846b47) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@3c3ab672)
+2024-10-12 09:19:16 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@3e6acec2) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@3d764641)
+2024-10-12 09:19:16 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@1e8bccfb) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@77eb607e)
+2024-10-12 09:19:16 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@1f1fbc9f) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@10d4b573)
+2024-10-12 09:19:16 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@50785f86) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@7c3c3d67)
+2024-10-12 09:19:16 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 09:19:16 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 09:19:16 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 09:19:16 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 09:19:17 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-12 09:19:17 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-12 09:19:17 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-12 09:19:18 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-12 09:19:18 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-12 09:19:18 [main] INFO  c.happyTravel.HappyTravelApplication - Started HappyTravelApplication in 4.659 seconds (process running for 4.973)
+2024-10-12 09:19:23 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-12 09:19:23 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-12 09:19:23 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-12 09:19:23 [http-nio-8080-exec-1] INFO  c.h.common.aop.UserLoggingAspect - User login attempt for testUser1
+2024-10-12 09:19:23 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        uce1_0.user_id,
+        uce1_0.address,
+        uce1_0.email_address,
+        uce1_0.email_id,
+        uce1_0.last_login_dt,
+        uce1_0.phone_no,
+        uce1_0.pwd_upd_dt,
+        uce1_0.reg_dtm,
+        uce1_0.reg_user,
+        uce1_0.updt_dtm,
+        uce1_0.updt_user,
+        uce1_0.user_pwd 
+    from
+        user_tb uce1_0 
+    where
+        uce1_0.user_id=?
+2024-10-12 09:19:23 [http-nio-8080-exec-1] INFO  c.h.common.aop.UserLoggingAspect - User login successful for testUser1. request_id=885a1539-d62c-4267-aaaa-6d91a79f43bf
+2024-10-12 09:21:11 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-12 09:21:11 [main] INFO  c.happyTravel.HappyTravelApplication - Starting HappyTravelApplication using Java 17.0.10 with PID 7704 (D:\dev\practice\happyTravel\build\classes\java\main started by adsa7 in D:\dev\practice\happyTravel)
+2024-10-12 09:21:11 [main] DEBUG c.happyTravel.HappyTravelApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-12 09:21:11 [main] INFO  c.happyTravel.HappyTravelApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-12 09:21:12 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-12 09:21:12 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 61 ms. Found 1 JPA repository interface.
+2024-10-12 09:21:13 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-12 09:21:13 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-12 09:21:13 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-12 09:21:13 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-12 09:21:13 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-12 09:21:13 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1392 ms
+2024-10-12 09:21:13 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-12 09:21:13 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-12 09:21:13 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-10-12 09:21:13 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-12 09:21:13 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-12 09:21:14 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@563263a
+2024-10-12 09:21:14 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-12 09:21:14 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@1c8e8fed) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@70f98f7a)
+2024-10-12 09:21:14 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@713e7d9a) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@681d704e)
+2024-10-12 09:21:14 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@846b47) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@3c3ab672)
+2024-10-12 09:21:14 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@3e6acec2) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@3d764641)
+2024-10-12 09:21:14 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@1e8bccfb) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@77eb607e)
+2024-10-12 09:21:14 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@1f1fbc9f) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@10d4b573)
+2024-10-12 09:21:14 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@50785f86) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@7c3c3d67)
+2024-10-12 09:21:14 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@1e258d3b) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@2b6fcca1)
+2024-10-12 09:21:14 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@39f93225) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@24b3f778)
+2024-10-12 09:21:14 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 09:21:14 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 09:21:14 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 09:21:14 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 09:21:14 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-12 09:21:14 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-12 09:21:15 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-12 09:21:15 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-12 09:21:15 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-12 09:21:15 [main] INFO  c.happyTravel.HappyTravelApplication - Started HappyTravelApplication in 4.226 seconds (process running for 4.539)
+2024-10-12 09:21:21 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-12 09:21:21 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-12 09:21:21 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-12 09:21:21 [http-nio-8080-exec-2] INFO  c.h.common.aop.UserLoggingAspect - 로그인 시도 testUser1
+2024-10-12 09:21:21 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        uce1_0.user_id,
+        uce1_0.address,
+        uce1_0.email_address,
+        uce1_0.email_id,
+        uce1_0.last_login_dt,
+        uce1_0.phone_no,
+        uce1_0.pwd_upd_dt,
+        uce1_0.reg_dtm,
+        uce1_0.reg_user,
+        uce1_0.updt_dtm,
+        uce1_0.updt_user,
+        uce1_0.user_pwd 
+    from
+        user_tb uce1_0 
+    where
+        uce1_0.user_id=?
+2024-10-12 09:21:21 [http-nio-8080-exec-2] INFO  c.h.common.aop.UserLoggingAspect - User login successful for testUser1. request_id=10a3c936-ac2d-4225-b92c-d7866665f6e0
+2024-10-12 09:48:00 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-12 09:48:00 [main] INFO  c.happyTravel.HappyTravelApplication - Starting HappyTravelApplication using Java 17.0.10 with PID 20688 (D:\dev\practice\happyTravel\build\classes\java\main started by adsa7 in D:\dev\practice\happyTravel)
+2024-10-12 09:48:00 [main] DEBUG c.happyTravel.HappyTravelApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-12 09:48:00 [main] INFO  c.happyTravel.HappyTravelApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-12 09:48:01 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-12 09:48:01 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 70 ms. Found 1 JPA repository interface.
+2024-10-12 09:48:01 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-12 09:48:01 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-12 09:48:01 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-12 09:48:01 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-12 09:48:01 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-12 09:48:01 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1502 ms
+2024-10-12 09:48:02 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-12 09:48:02 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-12 09:48:02 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-10-12 09:48:02 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-12 09:48:02 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-12 09:48:02 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3c71cf3e
+2024-10-12 09:48:02 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-12 09:48:02 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@718f3088) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@11adab6d)
+2024-10-12 09:48:02 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@11bfd751) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@29519337)
+2024-10-12 09:48:02 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@2152fde5) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@5d58dc61)
+2024-10-12 09:48:02 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@32328dc4) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@17df689e)
+2024-10-12 09:48:02 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@21540255) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@3a7469ca)
+2024-10-12 09:48:02 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@1c8e8fed) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@70f98f7a)
+2024-10-12 09:48:02 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@713e7d9a) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@681d704e)
+2024-10-12 09:48:02 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@846b47) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@3c3ab672)
+2024-10-12 09:48:02 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@3e6acec2) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@3d764641)
+2024-10-12 09:48:02 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 09:48:02 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.AuthTargetEntity
+2024-10-12 09:48:02 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 09:48:02 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.TermsAgreeEntity
+2024-10-12 09:48:03 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-12 09:48:03 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-12 09:48:03 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-12 09:48:04 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-12 09:48:04 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-12 09:48:04 [main] INFO  c.happyTravel.HappyTravelApplication - Started HappyTravelApplication in 4.34 seconds (process running for 4.673)
+2024-10-12 09:48:12 [http-nio-8080-exec-5] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-12 09:48:12 [http-nio-8080-exec-5] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-12 09:48:12 [http-nio-8080-exec-5] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-12 09:48:12 [http-nio-8080-exec-5] INFO  c.h.common.aop.UserLoggingAspect - 로그인 시도 요청 아이디: null  입력 아이디: testUser1
+2024-10-12 09:48:12 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        uce1_0.user_id,
+        uce1_0.address,
+        uce1_0.email_address,
+        uce1_0.email_id,
+        uce1_0.last_login_dt,
+        uce1_0.phone_no,
+        uce1_0.pwd_upd_dt,
+        uce1_0.reg_dtm,
+        uce1_0.reg_user,
+        uce1_0.updt_dtm,
+        uce1_0.updt_user,
+        uce1_0.user_pwd 
+    from
+        user_tb uce1_0 
+    where
+        uce1_0.user_id=?
+2024-10-12 09:48:12 [http-nio-8080-exec-5] INFO  c.h.common.aop.UserLoggingAspect - 로그인 성공 요청 아이디: 55947ad0-b43e-41dd-8ed2-00a212354ff0  입력 아이디: testUser1
