@@ -1454,3 +1454,187 @@ java.sql.SQLSyntaxErrorException: Unknown column 'uce1_0.email_address' in 'fiel
     where
         uce1_0.user_id=?
 2024-10-12 09:48:12 [http-nio-8080-exec-5] INFO  c.h.common.aop.UserLoggingAspect - 로그인 성공 요청 아이디: 55947ad0-b43e-41dd-8ed2-00a212354ff0  입력 아이디: testUser1
+[] 2024-10-12 09:54:12.409 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+[] 2024-10-12 09:54:12.453 [main] INFO  c.happyTravel.HappyTravelApplication - Starting HappyTravelApplication using Java 17.0.10 with PID 25392 (D:\dev\practice\happyTravel\build\classes\java\main started by adsa7 in D:\dev\practice\happyTravel)
+[] 2024-10-12 09:54:12.454 [main] DEBUG c.happyTravel.HappyTravelApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+[] 2024-10-12 09:54:12.454 [main] INFO  c.happyTravel.HappyTravelApplication - No active profile set, falling back to 1 default profile: "default"
+[] 2024-10-12 09:54:13.152 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[] 2024-10-12 09:54:13.236 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 75 ms. Found 1 JPA repository interface.
+[] 2024-10-12 09:54:13.864 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+[] 2024-10-12 09:54:13.876 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[] 2024-10-12 09:54:13.881 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+[] 2024-10-12 09:54:13.881 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+[] 2024-10-12 09:54:13.965 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[] 2024-10-12 09:54:13.966 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1471 ms
+[] 2024-10-12 09:54:14.170 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[] 2024-10-12 09:54:14.218 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+[] 2024-10-12 09:54:14.251 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+[] 2024-10-12 09:54:14.572 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[] 2024-10-12 09:54:14.597 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[] 2024-10-12 09:54:14.725 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7e1a9173
+[] 2024-10-12 09:54:14.727 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[] 2024-10-12 09:54:14.795 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@29519337) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@2152fde5)
+[] 2024-10-12 09:54:14.795 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@5d58dc61) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@32328dc4)
+[] 2024-10-12 09:54:14.795 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@17df689e) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@21540255)
+[] 2024-10-12 09:54:14.795 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@3a7469ca) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@1c8e8fed)
+[] 2024-10-12 09:54:14.795 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@70f98f7a) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@713e7d9a)
+[] 2024-10-12 09:54:14.795 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@681d704e) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@846b47)
+[] 2024-10-12 09:54:14.795 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@3c3ab672) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@3e6acec2)
+[] 2024-10-12 09:54:14.796 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@3d764641) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@1e8bccfb)
+[] 2024-10-12 09:54:14.796 [main] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@77eb607e) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@1f1fbc9f)
+[] 2024-10-12 09:54:15.121 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.AuthTargetEntity
+[] 2024-10-12 09:54:15.121 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.AuthTargetEntity
+[] 2024-10-12 09:54:15.122 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.TermsAgreeEntity
+[] 2024-10-12 09:54:15.122 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.TermsAgreeEntity
+[] 2024-10-12 09:54:15.688 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[] 2024-10-12 09:54:15.776 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[] 2024-10-12 09:54:16.203 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[] 2024-10-12 09:54:16.527 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[] 2024-10-12 09:54:16.544 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+[] 2024-10-12 09:54:16.553 [main] INFO  c.happyTravel.HappyTravelApplication - Started HappyTravelApplication in 4.545 seconds (process running for 4.889)
+[] 2024-10-12 09:54:23.649 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[] 2024-10-12 09:54:23.650 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[] 2024-10-12 09:54:23.651 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+[] 2024-10-12 09:54:23.743 [http-nio-8080-exec-1] INFO  c.h.common.aop.UserLoggingAspect - 로그인 시도 요청 아이디: null  입력 아이디: testUser1
+[4dd36724-7ad7-4891-94c2-cad0cc5382d1] 2024-10-12 09:54:23.864 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        uce1_0.user_id,
+        uce1_0.address,
+        uce1_0.email_address,
+        uce1_0.email_id,
+        uce1_0.last_login_dt,
+        uce1_0.phone_no,
+        uce1_0.pwd_upd_dt,
+        uce1_0.reg_dtm,
+        uce1_0.reg_user,
+        uce1_0.updt_dtm,
+        uce1_0.updt_user,
+        uce1_0.user_pwd 
+    from
+        user_tb uce1_0 
+    where
+        uce1_0.user_id=?
+[4dd36724-7ad7-4891-94c2-cad0cc5382d1] 2024-10-12 09:54:23.877 [http-nio-8080-exec-1] INFO  c.h.common.aop.UserLoggingAspect - 로그인 성공 요청 아이디: 4dd36724-7ad7-4891-94c2-cad0cc5382d1  입력 아이디: testUser1
+[] [2024-10-12 10:30:58.562] [background-preinit] [INFO ] [o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+][] [2024-10-12 10:30:58.607] [main] [INFO ] [c.happyTravel.HappyTravelApplication - Starting HappyTravelApplication using Java 17.0.10 with PID 21988 (D:\dev\practice\happyTravel\build\classes\java\main started by adsa7 in D:\dev\practice\happyTravel)
+][] [2024-10-12 10:30:58.609] [main] [DEBUG] [c.happyTravel.HappyTravelApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+][] [2024-10-12 10:30:58.610] [main] [INFO ] [c.happyTravel.HappyTravelApplication - No active profile set, falling back to 1 default profile: "default"
+][] [2024-10-12 10:30:59.365] [main] [INFO ] [o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+][] [2024-10-12 10:30:59.457] [main] [INFO ] [o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 81 ms. Found 1 JPA repository interface.
+][] [2024-10-12 10:31:00.072] [main] [INFO ] [o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+][] [2024-10-12 10:31:00.082] [main] [INFO ] [o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+][] [2024-10-12 10:31:00.086] [main] [INFO ] [o.a.catalina.core.StandardService - Starting service [Tomcat]
+][] [2024-10-12 10:31:00.087] [main] [INFO ] [o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+][] [2024-10-12 10:31:00.157] [main] [INFO ] [o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+][] [2024-10-12 10:31:00.158] [main] [INFO ] [o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1509 ms
+][] [2024-10-12 10:31:00.341] [main] [INFO ] [o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+][] [2024-10-12 10:31:00.407] [main] [INFO ] [org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+][] [2024-10-12 10:31:00.447] [main] [INFO ] [o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+][] [2024-10-12 10:31:00.727] [main] [INFO ] [o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+][] [2024-10-12 10:31:00.754] [main] [INFO ] [com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+][] [2024-10-12 10:31:00.894] [main] [INFO ] [com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7878bbdb
+][] [2024-10-12 10:31:00.896] [main] [INFO ] [com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+][] [2024-10-12 10:31:00.973] [main] [DEBUG] [o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@21540255) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@3a7469ca)
+][] [2024-10-12 10:31:00.973] [main] [DEBUG] [o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@1c8e8fed) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@70f98f7a)
+][] [2024-10-12 10:31:00.973] [main] [DEBUG] [o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@713e7d9a) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@681d704e)
+][] [2024-10-12 10:31:00.973] [main] [DEBUG] [o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@846b47) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@3c3ab672)
+][] [2024-10-12 10:31:00.974] [main] [DEBUG] [o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@3e6acec2) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@3d764641)
+][] [2024-10-12 10:31:00.974] [main] [DEBUG] [o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@1e8bccfb) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@77eb607e)
+][] [2024-10-12 10:31:00.974] [main] [DEBUG] [o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@1f1fbc9f) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@10d4b573)
+][] [2024-10-12 10:31:00.974] [main] [DEBUG] [o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@50785f86) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@7c3c3d67)
+][] [2024-10-12 10:31:00.974] [main] [DEBUG] [o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@1e258d3b) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@2b6fcca1)
+][] [2024-10-12 10:31:01.329] [main] [WARN ] [org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.AuthTargetEntity
+][] [2024-10-12 10:31:01.329] [main] [WARN ] [org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.AuthTargetEntity
+][] [2024-10-12 10:31:01.329] [main] [WARN ] [org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.TermsAgreeEntity
+][] [2024-10-12 10:31:01.329] [main] [WARN ] [org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.TermsAgreeEntity
+][] [2024-10-12 10:31:01.933] [main] [INFO ] [o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+][] [2024-10-12 10:31:02.021] [main] [INFO ] [o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+][] [2024-10-12 10:31:02.477] [main] [WARN ] [o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+][] [2024-10-12 10:31:02.809] [main] [INFO ] [o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+][] [2024-10-12 10:31:02.827] [main] [INFO ] [o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+][] [2024-10-12 10:31:02.836] [main] [INFO ] [c.happyTravel.HappyTravelApplication - Started HappyTravelApplication in 4.649 seconds (process running for 4.985)
+][] [2024-10-12 10:31:05.646] [http-nio-8080-exec-2] [INFO ] [o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+][] [2024-10-12 10:31:05.646] [http-nio-8080-exec-2] [INFO ] [o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+][] [2024-10-12 10:31:05.647] [http-nio-8080-exec-2] [INFO ] [o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+][] [2024-10-12 10:31:05.749] [http-nio-8080-exec-2] [INFO ] [c.h.common.aop.UserLoggingAspect - 로그인 시도 요청 아이디: null  입력 아이디: testUser1
+][533c4a33-fafc-492c-8b37-c8a592737129] [2024-10-12 10:31:05.878] [http-nio-8080-exec-2] [DEBUG] [org.hibernate.SQL - 
+    select
+        uce1_0.user_id,
+        uce1_0.address,
+        uce1_0.email_address,
+        uce1_0.email_id,
+        uce1_0.last_login_dt,
+        uce1_0.phone_no,
+        uce1_0.pwd_upd_dt,
+        uce1_0.reg_dtm,
+        uce1_0.reg_user,
+        uce1_0.updt_dtm,
+        uce1_0.updt_user,
+        uce1_0.user_pwd 
+    from
+        user_tb uce1_0 
+    where
+        uce1_0.user_id=?
+][533c4a33-fafc-492c-8b37-c8a592737129] [2024-10-12 10:31:05.891] [http-nio-8080-exec-2] [INFO ] [c.h.common.aop.UserLoggingAspect - 로그인 성공 요청 아이디: 533c4a33-fafc-492c-8b37-c8a592737129  입력 아이디: testUser1
+][] [2024-10-12 10:31:35.874] [background-preinit] [INFO ] [o.h.validator.internal.util.Version] [HV000001: Hibernate Validator 8.0.1.Final
+][] [2024-10-12 10:31:35.945] [main] [INFO ] [c.happyTravel.HappyTravelApplication] [Starting HappyTravelApplication using Java 17.0.10 with PID 19124 (D:\dev\practice\happyTravel\build\classes\java\main started by adsa7 in D:\dev\practice\happyTravel)
+][] [2024-10-12 10:31:35.945] [main] [DEBUG] [c.happyTravel.HappyTravelApplication] [Running with Spring Boot v3.3.4, Spring v6.1.13
+][] [2024-10-12 10:31:35.947] [main] [INFO ] [c.happyTravel.HappyTravelApplication] [No active profile set, falling back to 1 default profile: "default"
+][] [2024-10-12 10:31:36.711] [main] [INFO ] [o.s.d.r.c.RepositoryConfigurationDelegate] [Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+][] [2024-10-12 10:31:36.789] [main] [INFO ] [o.s.d.r.c.RepositoryConfigurationDelegate] [Finished Spring Data repository scanning in 70 ms. Found 1 JPA repository interface.
+][] [2024-10-12 10:31:37.381] [main] [INFO ] [o.s.b.w.e.tomcat.TomcatWebServer] [Tomcat initialized with port 8080 (http)
+][] [2024-10-12 10:31:37.391] [main] [INFO ] [o.a.coyote.http11.Http11NioProtocol] [Initializing ProtocolHandler ["http-nio-8080"]
+][] [2024-10-12 10:31:37.394] [main] [INFO ] [o.a.catalina.core.StandardService] [Starting service [Tomcat]
+][] [2024-10-12 10:31:37.395] [main] [INFO ] [o.a.catalina.core.StandardEngine] [Starting Servlet engine: [Apache Tomcat/10.1.30]
+][] [2024-10-12 10:31:37.465] [main] [INFO ] [o.a.c.c.C.[Tomcat].[localhost].[/]] [Initializing Spring embedded WebApplicationContext
+][] [2024-10-12 10:31:37.466] [main] [INFO ] [o.s.b.w.s.c.ServletWebServerApplicationContext] [Root WebApplicationContext: initialization completed in 1474 ms
+][] [2024-10-12 10:31:37.621] [main] [INFO ] [o.h.jpa.internal.util.LogHelper] [HHH000204: Processing PersistenceUnitInfo [name: default]
+][] [2024-10-12 10:31:37.671] [main] [INFO ] [org.hibernate.Version] [HHH000412: Hibernate ORM core version 6.5.3.Final
+][] [2024-10-12 10:31:37.703] [main] [INFO ] [o.h.c.i.RegionFactoryInitiator] [HHH000026: Second-level cache disabled
+][] [2024-10-12 10:31:37.980] [main] [INFO ] [o.s.o.j.p.SpringPersistenceUnitInfo] [No LoadTimeWeaver setup: ignoring JPA class transformer
+][] [2024-10-12 10:31:38.007] [main] [INFO ] [com.zaxxer.hikari.HikariDataSource] [HikariPool-1 - Starting...
+][] [2024-10-12 10:31:38.133] [main] [INFO ] [com.zaxxer.hikari.pool.HikariPool] [HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@315cf170
+][] [2024-10-12 10:31:38.135] [main] [INFO ] [com.zaxxer.hikari.HikariDataSource] [HikariPool-1 - Start completed.
+][] [2024-10-12 10:31:38.204] [main] [DEBUG] [o.h.t.d.sql.spi.DdlTypeRegistry] [addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@17df689e) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@21540255)
+][] [2024-10-12 10:31:38.204] [main] [DEBUG] [o.h.t.d.sql.spi.DdlTypeRegistry] [addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@3a7469ca) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@1c8e8fed)
+][] [2024-10-12 10:31:38.204] [main] [DEBUG] [o.h.t.d.sql.spi.DdlTypeRegistry] [addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@70f98f7a) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@713e7d9a)
+][] [2024-10-12 10:31:38.204] [main] [DEBUG] [o.h.t.d.sql.spi.DdlTypeRegistry] [addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@681d704e) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@846b47)
+][] [2024-10-12 10:31:38.205] [main] [DEBUG] [o.h.t.d.sql.spi.DdlTypeRegistry] [addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@3c3ab672) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@3e6acec2)
+][] [2024-10-12 10:31:38.205] [main] [DEBUG] [o.h.t.d.sql.spi.DdlTypeRegistry] [addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@3d764641) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@1e8bccfb)
+][] [2024-10-12 10:31:38.205] [main] [DEBUG] [o.h.t.d.sql.spi.DdlTypeRegistry] [addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@77eb607e) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@1f1fbc9f)
+][] [2024-10-12 10:31:38.205] [main] [DEBUG] [o.h.t.d.sql.spi.DdlTypeRegistry] [addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@10d4b573) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@50785f86)
+][] [2024-10-12 10:31:38.205] [main] [DEBUG] [o.h.t.d.sql.spi.DdlTypeRegistry] [addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@7c3c3d67) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@1e258d3b)
+][] [2024-10-12 10:31:38.528] [main] [WARN ] [org.hibernate.mapping.RootClass] [HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.AuthTargetEntity
+][] [2024-10-12 10:31:38.528] [main] [WARN ] [org.hibernate.mapping.RootClass] [HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.AuthTargetEntity
+][] [2024-10-12 10:31:38.528] [main] [WARN ] [org.hibernate.mapping.RootClass] [HHH000038: Composite-id class does not override equals(): com.happyTravel.common.entity.TermsAgreeEntity
+][] [2024-10-12 10:31:38.528] [main] [WARN ] [org.hibernate.mapping.RootClass] [HHH000039: Composite-id class does not override hashCode(): com.happyTravel.common.entity.TermsAgreeEntity
+][] [2024-10-12 10:31:39.118] [main] [INFO ] [o.h.e.t.j.p.i.JtaPlatformInitiator] [HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+][] [2024-10-12 10:31:39.215] [main] [INFO ] [o.s.o.j.LocalContainerEntityManagerFactoryBean] [Initialized JPA EntityManagerFactory for persistence unit 'default'
+][] [2024-10-12 10:31:39.798] [main] [WARN ] [o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] [spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+][] [2024-10-12 10:31:40.147] [main] [INFO ] [o.a.coyote.http11.Http11NioProtocol] [Starting ProtocolHandler ["http-nio-8080"]
+][] [2024-10-12 10:31:40.163] [main] [INFO ] [o.s.b.w.e.tomcat.TomcatWebServer] [Tomcat started on port 8080 (http) with context path '/'
+][] [2024-10-12 10:31:40.172] [main] [INFO ] [c.happyTravel.HappyTravelApplication] [Started HappyTravelApplication in 4.731 seconds (process running for 5.094)
+][] [2024-10-12 10:31:42.009] [http-nio-8080-exec-1] [INFO ] [o.a.c.c.C.[Tomcat].[localhost].[/]] [Initializing Spring DispatcherServlet 'dispatcherServlet'
+][] [2024-10-12 10:31:42.009] [http-nio-8080-exec-1] [INFO ] [o.s.web.servlet.DispatcherServlet] [Initializing Servlet 'dispatcherServlet'
+][] [2024-10-12 10:31:42.010] [http-nio-8080-exec-1] [INFO ] [o.s.web.servlet.DispatcherServlet] [Completed initialization in 0 ms
+][] [2024-10-12 10:31:42.100] [http-nio-8080-exec-1] [INFO ] [c.h.common.aop.UserLoggingAspect] [로그인 시도 요청 아이디: null  입력 아이디: testUser1
+][c66e4551-8d4b-49cb-bad9-edd175c0b450] [2024-10-12 10:31:42.207] [http-nio-8080-exec-1] [DEBUG] [org.hibernate.SQL] [
+    select
+        uce1_0.user_id,
+        uce1_0.address,
+        uce1_0.email_address,
+        uce1_0.email_id,
+        uce1_0.last_login_dt,
+        uce1_0.phone_no,
+        uce1_0.pwd_upd_dt,
+        uce1_0.reg_dtm,
+        uce1_0.reg_user,
+        uce1_0.updt_dtm,
+        uce1_0.updt_user,
+        uce1_0.user_pwd 
+    from
+        user_tb uce1_0 
+    where
+        uce1_0.user_id=?
+][c66e4551-8d4b-49cb-bad9-edd175c0b450] [2024-10-12 10:31:42.222] [http-nio-8080-exec-1] [INFO ] [c.h.common.aop.UserLoggingAspect] [로그인 성공 요청 아이디: c66e4551-8d4b-49cb-bad9-edd175c0b450  입력 아이디: testUser1
+]

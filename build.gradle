@@ -29,6 +29,8 @@ dependencies {
 
 	//	aop
 	implementation 'org.springframework.boot:spring-boot-starter-aop'
+	//	jansi
+	implementation group: 'org.fusesource.jansi', name: 'jansi', version: '2.4.1'
 	//	logback
 	implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.5.9'
 	//	
