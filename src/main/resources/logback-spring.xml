@@ -25,7 +25,7 @@
         <!-- 롤링 정책 설정 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <!-- 날짜와 인덱스 포함 -->
-            <fileNamePattern>${LOG_PATH}appLog.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>${LOG_PATH}appLog.%d{yyyy-MM-dd}_%i.log</fileNamePattern>
             <!-- 최대 파일 크기 10MB -->
             <maxFileSize>10MB</maxFileSize>
             <!-- 최대 30일간 로그 파일 보관 -->
