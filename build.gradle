@@ -27,6 +27,9 @@ dependencies {
 //	implementation 'io.springfox:springfox-boot-starter:3.0.0'
 //	implementation group: 'io.springfox', name: 'springfox-boot-starter', version: '3.0.0'
 
+	//	jackson
+	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.18.0'
+	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.18.0'
 	//	aop
 	implementation 'org.springframework.boot:spring-boot-starter-aop'
 	//	jansi
