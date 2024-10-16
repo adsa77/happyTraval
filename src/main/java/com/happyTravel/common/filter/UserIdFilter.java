@@ -2,7 +2,7 @@ package com.happyTravel.common.filter;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.happyTravel.common.request.CachedBodyHttpServletRequest;
+import com.happyTravel.common.cache.request.CachedBodyHttpServletRequest;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.MDC;

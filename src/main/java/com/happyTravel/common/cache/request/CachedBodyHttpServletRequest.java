@@ -1,4 +1,4 @@
-package com.happyTravel.common.request;
+package com.happyTravel.common.cache.request;
 
 import jakarta.servlet.ServletInputStream;
 import jakarta.servlet.http.HttpServletRequest;

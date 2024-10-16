@@ -1,5 +1,6 @@
-package com.happyTravel.common.response;
+package com.happyTravel.common.cache.response;
 
+import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpServletResponseWrapper;
 
@@ -29,6 +30,13 @@ public class CachedBodyHttpServletResponse extends HttpServletResponseWrapper {
             writer = new PrintWriter(outputStream);
         }
         return writer;
+    }
+
+    //  getOutputStream() 메서드 재정의: ServletOutputStream 객체를 반환
+    @Override
+    public ServletOutputStream getOutputStream() throws IOException {
+        //  ByteArrayOutputStream에 연결된 ServletOutputStream 반환
+        return new CachedBodyServletOutputStream(outputStream);
     }
 
     //  캐시된 응답 본문을 바이트 배열로 반환하는 메서드
