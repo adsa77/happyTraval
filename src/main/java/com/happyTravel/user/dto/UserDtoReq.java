@@ -28,11 +28,8 @@ public class UserDtoReq {
     private String signUpEmailAddress;
     private String signUpPhoneNo;
 
-
     //  로그인
     private String loginUserId;
     private String loginUserPwd;
-
-
 
 }

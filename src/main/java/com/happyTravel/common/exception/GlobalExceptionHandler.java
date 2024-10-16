@@ -1,6 +1,9 @@
 package com.happyTravel.common.exception;
 
 import com.happyTravel.common.response.CommonResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -9,8 +12,14 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
+    private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
+
     @ExceptionHandler(CustomException.class)
     public ResponseEntity<CommonResponse> handleCustomException(CustomException cEx) {
+
+        // 에러 코드와 메시지를 MDC에 추가
+        MDC.put("errorCode", String.valueOf(cEx.getErrorCodeNumber()));
+        MDC.put("errorMessage", cEx.getErrorCode().getMessage());
 
         //  빌더 패턴
         CommonResponse response = CommonResponse.builder()

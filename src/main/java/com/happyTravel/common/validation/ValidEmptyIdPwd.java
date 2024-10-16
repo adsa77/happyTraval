@@ -9,17 +9,14 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-//  유효성 검사 로직을 수행할 클래스 지정
-@Constraint(validatedBy = UserSignUpDataValidator.class)
-//  UserSignUpDtoReq 클래스 전체에 적용
+@Constraint(validatedBy = EmptyIdPwdValidator.class)
 @Target({ ElementType.TYPE })
-//  애너테이션의 수명 주기를 정의하기 위한 Retention 임포트. 실행 시에도 애너테이션이 유지됨
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ValidUserSignUpData {
+public @interface ValidEmptyIdPwd {
 
     //  기본 메시지
-    String message() default "유효하지 않은 로그인 데이터";
-
+    String message() default "유효하지 않은 아이디, 비밀번호";
+    
     //  검증 그룹 배열 (기본값: 빈 배열)
     Class<?>[] groups() default {};
 

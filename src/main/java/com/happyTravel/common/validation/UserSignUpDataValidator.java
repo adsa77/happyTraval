@@ -18,10 +18,8 @@ public class UserSignUpDataValidator implements ConstraintValidator<ValidUserSig
 
     @Override
     public boolean isValid(UserSignUpDtoReq signUpDto, ConstraintValidatorContext context) {
+
         // ID 유효성 검사
-        if (StringUtils.isBlank(signUpDto.getUserId())) {
-            throw new CustomException(ErrorCode.VALIDATION_USER_ID_EMPTY);
-        }
         if (signUpDto.getUserId().length() < 4 || signUpDto.getUserId().length() > 20) {
             throw new CustomException(ErrorCode.USER_ID_LENGTH);
         }
@@ -30,15 +28,15 @@ public class UserSignUpDataValidator implements ConstraintValidator<ValidUserSig
         if (StringUtils.isBlank(signUpDto.getUserPwd())) {
             throw new CustomException(ErrorCode.VALIDATION_USER_PASSWORD_REQUIRED);
         }
+
         if (signUpDto.getUserPwd().length() < 8) {
             throw new CustomException(ErrorCode.PASSWORD_LENGTH_REQUIREMENTS_NOT_MET);
         }
+
         if (!signUpDto.getUserPwd().matches("^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]).+$")) {
             throw new CustomException(ErrorCode.VALIDATION_PASSWORD_REQUIREMENTS_NOT_MET);
         }
 
-
-        // 비밀번호 확인
 //        if (!signUpDto.getUserPwd().equals(signUpDto.getConfirmUserPwd())) { // confirmUserPwd는 추가된 필드라고 가정
 //            throw new CustomException(ErrorCode.VALIDATION_PASSWORD_MISMATCH);
 //        }
@@ -60,7 +58,6 @@ public class UserSignUpDataValidator implements ConstraintValidator<ValidUserSig
         if (signUpDto.getAddress().length() > 150) {
             throw new CustomException(ErrorCode.VALIDATION_ADDRESS_LENGTH); // 주소 길이 오류 코드
         }
-
 
         return true;
 
