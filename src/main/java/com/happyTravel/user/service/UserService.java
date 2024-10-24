@@ -70,7 +70,7 @@ public class UserService {
 
         //  사용자 ID가 존재하지 않거나 비밀번호가 일치하지 않는 경우 예외 던지기
         if (loginUserEntity == null) {
-            throw new CustomException(ErrorCode.INVALID_CREDENTIALS); // 사용자 ID가 없음
+            throw new CustomException(ErrorCode.VALIDATION_USER_ID_EMPTY); // 사용자 ID가 없음
         } else if (!loginUserEntity.getUserPwd().equals(userLoginDtoReq.getUserPwd())) {
             throw new CustomException(ErrorCode.LOGIN_FAILURE); // 비밀번호 불일치
         }

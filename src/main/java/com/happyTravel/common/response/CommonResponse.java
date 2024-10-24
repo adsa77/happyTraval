@@ -17,6 +17,7 @@ public class CommonResponse {
     private String message;
     private int httpStatus;
     private Integer errorCode;
+    @Builder.Default
     private Map<String, Object> data = new HashMap<>();  // 동적으로 데이터를 저장할 곳
 
 //    // 생성자: 성공 여부와 메시지를 기본적으로 처리

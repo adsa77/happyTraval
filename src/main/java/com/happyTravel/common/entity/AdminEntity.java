@@ -35,9 +35,6 @@ public class AdminEntity {
     @Column(name = "PWD_UPD_DT")
     private LocalDate pwdUpdDt;
 
-    @Column(name = "USE_FL", length = 1)
-    private String useFl;
-
     @Embedded
     private RegUpdtInfo regUpdtInfo;
 
