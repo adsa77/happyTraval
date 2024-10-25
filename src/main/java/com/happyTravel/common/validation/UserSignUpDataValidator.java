@@ -2,12 +2,12 @@ package com.happyTravel.common.validation;
 
 import com.happyTravel.common.error.ErrorCode;
 import com.happyTravel.common.exception.CustomException;
-import com.happyTravel.user.dto.UserSignUpDtoReq;
+import com.happyTravel.user.dto.UserSignUpDto;
 import io.micrometer.common.util.StringUtils;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
-public class UserSignUpDataValidator implements ConstraintValidator<ValidUserSignUpData, UserSignUpDtoReq> {
+public class UserSignUpDataValidator implements ConstraintValidator<ValidUserSignUpData, UserSignUpDto> {
 
     private ErrorCode errorCode;
 
@@ -17,7 +17,7 @@ public class UserSignUpDataValidator implements ConstraintValidator<ValidUserSig
     }
 
     @Override
-    public boolean isValid(UserSignUpDtoReq signUpDto, ConstraintValidatorContext context) {
+    public boolean isValid(UserSignUpDto signUpDto, ConstraintValidatorContext context) {
 
         // ID 유효성 검사
         if (signUpDto.getUserId().length() < 4 || signUpDto.getUserId().length() > 20) {

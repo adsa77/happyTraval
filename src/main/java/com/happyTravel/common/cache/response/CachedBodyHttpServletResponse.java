@@ -53,6 +53,7 @@ public class CachedBodyHttpServletResponse extends HttpServletResponseWrapper {
             writer.flush();
         }
         // 원본 응답의 flushBuffer() 메서드 호출
+        getResponse().getOutputStream().write(getContentAsByteArray());
         super.flushBuffer();
     }
 }

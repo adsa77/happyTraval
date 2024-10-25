@@ -1,9 +1,5 @@
 package com.happyTravel.common.validation;
 
-import com.happyTravel.common.error.ErrorCode;
-import com.happyTravel.user.dto.UserLoginDtoReq;
-import jakarta.validation.ConstraintValidator;
-
 //public class UserLoginDataValidator implements ConstraintValidator<ValidUserLoginData, UserLoginDtoReq> {
 //
 //    private ErrorCode errorCode;

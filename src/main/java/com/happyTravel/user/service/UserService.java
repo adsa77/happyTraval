@@ -5,8 +5,8 @@ import com.happyTravel.common.entity.UserColumnEntity;
 import com.happyTravel.common.error.ErrorCode;
 import com.happyTravel.common.exception.CustomException;
 import com.happyTravel.common.response.CommonResponse;
-import com.happyTravel.user.dto.UserLoginDtoReq;
-import com.happyTravel.user.dto.UserSignUpDtoReq;
+import com.happyTravel.user.dto.UserLoginDto;
+import com.happyTravel.user.dto.UserSignUpDto;
 import com.happyTravel.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -20,10 +20,10 @@ public class UserService {
     private final ObjectMapper objectMapper;
 
     //  회원가입
-    public CommonResponse userSignUp(UserSignUpDtoReq userSignUpDtoReq) {
+    public CommonResponse userSignUp(UserSignUpDto userSignUpDto) {
 
         //  유효성 검사
-        validateUserSignUp(userSignUpDtoReq);
+        validateUserSignUp(userSignUpDto);
 
         //  엔티티로 변환
         //  빌더 패턴
@@ -37,7 +37,7 @@ public class UserService {
 //                .build();
 
         //  ObjectMapper
-        UserColumnEntity newUser = objectMapper.convertValue(userSignUpDtoReq, UserColumnEntity.class);
+        UserColumnEntity newUser = objectMapper.convertValue(userSignUpDto, UserColumnEntity.class);
 
 
         //  사용자 정보 저장
@@ -55,7 +55,7 @@ public class UserService {
     }
 
     //  유효성 검사 및 아이디 중복 체크
-    private void validateUserSignUp(UserSignUpDtoReq userSignUpDtoReq) {
+    private void validateUserSignUp(UserSignUpDto userSignUpDtoReq) {
 
         //  아이디 중복 체크
         if (repository.findByUserId(userSignUpDtoReq.getUserId()) != null) {
@@ -64,14 +64,14 @@ public class UserService {
     }
 
     //  로그인
-    public CommonResponse userLogin(UserLoginDtoReq userLoginDtoReq) {
+    public CommonResponse userLogin(UserLoginDto userLoginDto) {
 
-        UserColumnEntity loginUserEntity = repository.findByUserId(userLoginDtoReq.getUserId());
+        UserColumnEntity loginUserEntity = repository.findByUserId(userLoginDto.getUserId());
 
         //  사용자 ID가 존재하지 않거나 비밀번호가 일치하지 않는 경우 예외 던지기
         if (loginUserEntity == null) {
             throw new CustomException(ErrorCode.VALIDATION_USER_ID_EMPTY); // 사용자 ID가 없음
-        } else if (!loginUserEntity.getUserPwd().equals(userLoginDtoReq.getUserPwd())) {
+        } else if (!loginUserEntity.getUserPwd().equals(userLoginDto.getUserPwd())) {
             throw new CustomException(ErrorCode.LOGIN_FAILURE); // 비밀번호 불일치
         }
 

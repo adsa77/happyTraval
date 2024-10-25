@@ -6,6 +6,7 @@ import com.happyTravel.common.filter.UserIdFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
 
 @Configuration // 이 애너테이션은 이 클래스가 스프링 설정 클래스임을 나타냅니다.
 public class FilterConfig {
@@ -21,6 +22,7 @@ public class FilterConfig {
 
         // 필터를 적용할 URL 패턴 설정. /api/* 경로에만 필터가 적용됨
         registrationBean.addUrlPatterns("/api/*");
+        registrationBean.setOrder(Ordered.HIGHEST_PRECEDENCE);
 
         // 필터 설정을 담은 FilterRegistrationBean 반환
         return registrationBean;
@@ -60,4 +62,5 @@ public class FilterConfig {
         // 필터 설정을 담은 FilterRegistrationBean 반환
         return registrationBean;
     }
+
 }

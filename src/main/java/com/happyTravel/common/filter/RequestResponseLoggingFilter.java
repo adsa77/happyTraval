@@ -19,7 +19,14 @@ public class RequestResponseLoggingFilter extends OncePerRequestFilter {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
-    public void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
+    protected boolean shouldNotFilter(HttpServletRequest request) {
+        // Swagger 경로 필터 제외 설정
+        String path = request.getRequestURI();
+        return path.startsWith("/swagger") || path.startsWith("/v3/api-docs");
+    }
+
+    @Override
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws IOException, ServletException {
 
         //  요청 본문 읽기
@@ -40,8 +47,7 @@ public class RequestResponseLoggingFilter extends OncePerRequestFilter {
 
         } finally {
             // 필터에서 MDC 값은 MDCFilter에서 로그 처리에 활용됨
+            MDC.clear();
         }
     }
 }
-
-
