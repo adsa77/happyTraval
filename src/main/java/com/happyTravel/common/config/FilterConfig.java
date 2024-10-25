@@ -53,8 +53,8 @@ public class FilterConfig {
         // 실제로 필터를 설정 (RequestResponseLoggingFilter 사용)
         registrationBean.setFilter(new RequestResponseLoggingFilter());
 
-        // 필터를 적용할 URL 패턴 설정. 모든 URL에 필터가 적용됨
-        registrationBean.addUrlPatterns("/*");
+        // 필터를 적용할 URL 패턴 설정. /api/* 경로에만 필터가 적용됨
+        registrationBean.addUrlPatterns("/api/*");
 
         // 필터 체인에서 실행 순서를 지정. 숫자가 작을수록 먼저 실행됨
         registrationBean.setOrder(1);

@@ -18,12 +18,12 @@ public class RequestResponseLoggingFilter extends OncePerRequestFilter {
     private static final Logger logger = LoggerFactory.getLogger(RequestResponseLoggingFilter.class);
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    @Override
-    protected boolean shouldNotFilter(HttpServletRequest request) {
-        // Swagger 경로 필터 제외 설정
-        String path = request.getRequestURI();
-        return path.startsWith("/swagger") || path.startsWith("/v3/api-docs");
-    }
+//    @Override
+//    protected boolean shouldNotFilter(HttpServletRequest request) {
+//        // Swagger 경로 필터 제외 설정
+//        String path = request.getRequestURI();
+//        return path.startsWith("/swagger") || path.startsWith("/v3/api-docs");
+//    }
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)

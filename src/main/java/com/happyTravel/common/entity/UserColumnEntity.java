@@ -17,7 +17,7 @@ public class UserColumnEntity {
     @Column(name = "USER_ID", length = 50, nullable = false)
     private String userId;
 
-    @Column(name = "USER_PWD", length = 50)
+    @Column(name = "USER_PWD", length = 60)
     private String userPwd;
 
     @Column(name = "LAST_LOGIN_DT")

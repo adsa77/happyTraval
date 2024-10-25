@@ -1,5 +1,6 @@
 package com.happyTravel.common.filter;
 
+import com.happyTravel.common.cache.request.CachedBodyHttpServletRequest;
 import com.happyTravel.common.cache.response.CachedBodyHttpServletResponse;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
@@ -22,36 +23,42 @@ public class MDCFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
 
-        //  UUID를 사용하여 요청 ID 생성
+        // UUID를 사용하여 요청 ID 생성
         String requestId = UUID.randomUUID().toString();
-        //  요청, 응답 형변환
+        // 요청, 응답 형변환
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
         // 사용자 ID를 요청 헤더에서 가져옴
         String userId = httpRequest.getHeader("userId");
 
         // MDC 설정
-        //  요청 ID 추가
+        // 요청 ID 추가
         MDC.put("request_id", requestId);
-        //  요청 URI 추가
+        // 요청 URI 추가
         MDC.put("uri", httpRequest.getRequestURI());
-        //  HTTP 메서드 추가
+        // HTTP 메서드 추가
         MDC.put("httpMethod", httpRequest.getMethod());
-        //  userId가 있으면 추가, 없으면 null 설정
+        // userId가 있으면 추가, 없으면 null 설정
         MDC.put("userId", userId != null ? userId : "null");
 
-        //  응답을 캐싱하기 위한 WrappedResponse 생성
+        // 요청 본문을 캐시하기 위한 WrappedRequest 생성
+        CachedBodyHttpServletRequest cachedBodyHttpServletRequest = new CachedBodyHttpServletRequest(httpRequest);
+        // 응답을 캐싱하기 위한 WrappedResponse 생성
         CachedBodyHttpServletResponse cachedBodyHttpServletResponse = new CachedBodyHttpServletResponse(httpResponse);
 
         try {
+            // 요청 본문 읽기
+            String requestBody = new String(cachedBodyHttpServletRequest.getContentAsByteArray());
+            MDC.put("requestBody", requestBody);  // 요청 본문 저장
+
             // 요청 로그 타입 설정
             MDC.put("logType", "요청로그");
             logger.info("[REQUEST] [uri: {}] [body: {}]", MDC.get("uri"), MDC.get("requestBody"));
 
-            //  필터 체인 진행
-            chain.doFilter(request, cachedBodyHttpServletResponse);
+            // 필터 체인 진행
+            chain.doFilter(cachedBodyHttpServletRequest, cachedBodyHttpServletResponse);
 
-            //  처리 완료 후 응답 로그 타입 설정
+            // 처리 완료 후 응답 로그 타입 설정
             MDC.put("logType", "응답로그");
             String responseBody = new String(cachedBodyHttpServletResponse.getContentAsByteArray()); // 응답 본문 읽기
             MDC.put("response_status", String.valueOf(cachedBodyHttpServletResponse.getStatus())); // 응답 상태 코드 저장
