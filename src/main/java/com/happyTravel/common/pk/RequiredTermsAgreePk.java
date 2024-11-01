@@ -49,15 +49,7 @@ public class RequiredTermsAgreePk implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(agreeDtm, userType, userId, sequence);
-    }
-
-    @PrePersist
-    protected void onCreate() {
-        // 현재 시간을 agreeDtm 필드에 저장
-        if (agreeDtm == null) {
-            agreeDtm = LocalDateTime.now();
-        }
+        return Objects.hash(userType, userId, agreeDtm, sequence);
     }
 
     // agreeDtm을 yyyyMMddHHmmss 형식의 문자열로 변환하는 메서드
@@ -65,4 +57,5 @@ public class RequiredTermsAgreePk implements Serializable {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
         return agreeDtm.format(formatter);
     }
+
 }

@@ -1,4 +1,4 @@
-package com.happyTravel.common.validation;
+package com.happyTravel.common.validation.user;
 
 //public class UserLoginDataValidator implements ConstraintValidator<ValidUserLoginData, UserLoginDtoReq> {
 //

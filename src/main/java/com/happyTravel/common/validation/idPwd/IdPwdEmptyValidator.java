@@ -1,4 +1,4 @@
-package com.happyTravel.common.validation;
+package com.happyTravel.common.validation.idPwd;
 
 import com.happyTravel.common.error.ErrorCode;
 import com.happyTravel.common.exception.CustomException;
@@ -7,12 +7,12 @@ import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import io.micrometer.common.util.StringUtils;
 
-public class EmptyIdPwdValidator implements ConstraintValidator<ValidEmptyIdPwd, UserIdPwdDto> {
+public class IdPwdEmptyValidator implements ConstraintValidator<IdPwdEmptyValidation, UserIdPwdDto> {
 
     private ErrorCode errorCode;
 
     @Override
-    public void initialize(ValidEmptyIdPwd constraintAnnotation) {
+    public void initialize(IdPwdEmptyValidation constraintAnnotation) {
         this.errorCode = constraintAnnotation.errorCode(); // 어노테이션에서 ErrorCode를 가져옴
     }
 

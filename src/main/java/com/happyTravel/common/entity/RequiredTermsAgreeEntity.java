@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @Getter
@@ -35,9 +36,16 @@ public class RequiredTermsAgreeEntity implements Serializable {
     private String sequence;
 
     @Column(name = "TEMPLATE_SQ")
-    private String templateSq;
+    private int templateSq;
 
-    @Column(name = "AGREE_FL")
+    @Column(name = "AGREE_FL", length = 1)
     private String agreeFl;
+
+    @PrePersist
+    private void prePersist() {
+        if (this.agreeDtm == null) {
+            this.agreeDtm = LocalDateTime.now(); // 현재 시간으로 설정
+        }
+    }
 
 }

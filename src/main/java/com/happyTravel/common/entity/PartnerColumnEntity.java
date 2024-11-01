@@ -26,8 +26,8 @@ public class PartnerColumnEntity {
     @Column(name = "EMAIL_ID", length = 50)
     private String emailId;
 
-    @Column(name = "EMAIL_ADDRESS", length = 50)
-    private String emailAddress;
+    @Column(name = "EMAIL_DOMAIN", length = 50)
+    private String emailDomain;
 
     @Column(name = "LANDLINE_PHONE_NO", length = 16)
     private String landLinePhoneNo;

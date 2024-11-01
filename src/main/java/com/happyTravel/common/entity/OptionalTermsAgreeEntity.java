@@ -36,18 +36,16 @@ public class OptionalTermsAgreeEntity implements Serializable {
     private String sequence;
 
     @Column(name = "TEMPLATE_SQ")
-    private String templateSq;
+    private int templateSq;
 
-    @Column(name = "AGREE_FL", nullable = false)
+    @Column(name = "AGREE_FL", length = 1, nullable = false)
     private String agreeFl;
 
-    @Column(name = "DAGREE_DTM")
-    private LocalDateTime dagreeDtm;
-
-    // agreeDtm을 yyyyMMddHHmmss 형식의 문자열로 변환하는 메서드
-    public String getFormattedDagreeDtm() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
-        return dagreeDtm.format(formatter);
+    @PrePersist
+    private void prePersist() {
+        if (this.agreeDtm == null) {
+            this.agreeDtm = LocalDateTime.now(); // 현재 시간으로 설정
+        }
     }
 
 }

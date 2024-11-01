@@ -1,4 +1,4 @@
-package com.happyTravel.common.validation;
+package com.happyTravel.common.validation.idPwd;
 
 import com.happyTravel.common.error.ErrorCode;
 import jakarta.validation.Constraint;
@@ -9,10 +9,10 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Constraint(validatedBy = EmptyIdPwdValidator.class)
+@Constraint(validatedBy = IdPwdEmptyValidator.class)
 @Target({ ElementType.TYPE })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ValidEmptyIdPwd {
+public @interface IdPwdEmptyValidation {
 
     //  기본 메시지
     String message() default "유효하지 않은 아이디, 비밀번호";

@@ -1,4 +1,4 @@
-package com.happyTravel.common.validation;
+package com.happyTravel.common.validation.user;
 
 import com.happyTravel.common.error.ErrorCode;
 import com.happyTravel.common.exception.CustomException;
@@ -7,15 +7,36 @@ import io.micrometer.common.util.StringUtils;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
-public class UserSignUpDataValidator implements ConstraintValidator<ValidUserSignUpData, UserSignUpDto> {
+/**
+ * 회원 가입 데이터 유효성 검사를 수행하는 클래스.
+ *
+ * <p> {@link UserSignUpDataValidation} 애너테이션에 의해 지정된 {@link UserSignUpDto} 객체에 대한 유효성 검사를 처리한다.</p>
+ *
+ * @author 손지욱
+ * @since 24.09.01
+ */
+public class UserSignUpDataValidator implements ConstraintValidator<UserSignUpDataValidation, UserSignUpDto> {
 
-    private ErrorCode errorCode;
+    private ErrorCode errorCode; // 사용자 정의 오류 코드를 저장하는 변수
 
+    /**
+     * 초기화 메서드.
+     *
+     * @param constraintAnnotation {@link UserSignUpDataValidation} 애너테이션 인스턴스
+     */
     @Override
-    public void initialize(ValidUserSignUpData constraintAnnotation) {
+    public void initialize(UserSignUpDataValidation constraintAnnotation) {
         this.errorCode = constraintAnnotation.errorCode(); // 어노테이션에서 ErrorCode를 가져옴
     }
 
+    /**
+     * 유효성 검사 수행.
+     *
+     * @param signUpDto 검사할 {@link UserSignUpDto} 객체
+     * @param context 유효성 검사 컨텍스트
+     * @return 유효성 검사 결과, 모든 검사가 통과하면 true 반환
+     * @throws CustomException 유효성 검사 실패 시 사용자 정의 예외
+     */
     @Override
     public boolean isValid(UserSignUpDto signUpDto, ConstraintValidatorContext context) {
 
@@ -37,14 +58,15 @@ public class UserSignUpDataValidator implements ConstraintValidator<ValidUserSig
             throw new CustomException(ErrorCode.VALIDATION_PASSWORD_REQUIREMENTS_NOT_MET);
         }
 
-//        if (!signUpDto.getUserPwd().equals(signUpDto.getConfirmUserPwd())) { // confirmUserPwd는 추가된 필드라고 가정
-//            throw new CustomException(ErrorCode.VALIDATION_PASSWORD_MISMATCH);
-//        }
+        // 비밀번호 확인 필드 검사 (추가 필요 시 주석 해제)
+        // if (!signUpDto.getUserPwd().equals(signUpDto.getConfirmUserPwd())) {
+        //     throw new CustomException(ErrorCode.VALIDATION_PASSWORD_MISMATCH);
+        // }
 
-        // 이메일 유효성 검사 (추가 필요에 따라)
-//        if (StringUtils.isBlank(signUpDto.getEmailId())) {
-//            throw new CustomException(ErrorCode.VALIDATION_PHONE_NUMBER_REQUIRED);
-//        }
+        // 이메일 유효성 검사 (추가 필요에 따라 주석 해제)
+        // if (StringUtils.isBlank(signUpDto.getEmailId())) {
+        //     throw new CustomException(ErrorCode.VALIDATION_PHONE_NUMBER_REQUIRED);
+        // }
 
         // 전화번호 유효성 검사
         if (StringUtils.isBlank(signUpDto.getPhoneNo())) {
@@ -59,8 +81,7 @@ public class UserSignUpDataValidator implements ConstraintValidator<ValidUserSig
             throw new CustomException(ErrorCode.VALIDATION_ADDRESS_LENGTH); // 주소 길이 오류 코드
         }
 
-        return true;
-
+        return true; // 모든 검사가 통과하면 true 반환
     }
 
 }

@@ -1,13 +1,4 @@
-package com.happyTravel.common.validation;
-
-import com.happyTravel.common.error.ErrorCode;
-import jakarta.validation.Constraint;
-import jakarta.validation.Payload;
-
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+package com.happyTravel.common.validation.user;
 
 ////  유효성 검사 로직을 수행할 클래스 지정
 //@Constraint(validatedBy = UserLoginDataValidator.class)
