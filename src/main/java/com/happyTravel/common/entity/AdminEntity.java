@@ -18,7 +18,7 @@ public class AdminEntity {
     private String userId;
 
     @Column(name = "DEPT_CD", length = 2, nullable = false)
-    private String deptCd;
+    private String deptCd;  // 외래 키로 사용되는 deptCd
 
     @Column(name = "USER_PWD", length = 50)
     private String userPwd;
@@ -29,7 +29,7 @@ public class AdminEntity {
     @Column(name = "PHONE_NO", length = 11)
     private String phoneNo;
 
-    @Column(name = "OTP_SCRET_KEY", length = 32)
+    @Column(name = "OTP_SECRET_KEY", length = 32)
     private String otpSecretKey;
 
     @Column(name = "PWD_UPD_DT")
@@ -40,6 +40,6 @@ public class AdminEntity {
 
     @ManyToOne
     @JoinColumn(name = "DEPT_CD", insertable = false, updatable = false)
-    private DeptEntity dept;
+    private DeptEntity dept; // 외래 키 연결을 위한 DeptEntity
 
 }

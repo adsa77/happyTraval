@@ -138,7 +138,9 @@ public class UserService {
 
         // 4자리 문자열로 변환하여 반환
         return String.format("%04d", newSequence);
+
     }
+
 
     // 필수 약관 동의가 있는지 확인하는 메소드
     private void validateRequiredAgreements(UserSignUpDto userSignUpDto) {

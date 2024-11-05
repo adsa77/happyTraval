@@ -2,7 +2,7 @@ package com.happyTravel.common.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
-import jakarta.persistence.PrePersist;
+
 import lombok.Getter;
 
 import java.io.Serializable;

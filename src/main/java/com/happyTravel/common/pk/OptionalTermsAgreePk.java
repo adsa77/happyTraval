@@ -2,7 +2,7 @@ package com.happyTravel.common.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
-import jakarta.persistence.PrePersist;
+
 import lombok.Getter;
 
 import java.io.Serializable;
@@ -20,7 +20,7 @@ public class OptionalTermsAgreePk implements Serializable {
     @Column(name = "USER_ID", length = 20)
     private String userId;
 
-    @Column(name = "AGREE_DTM")
+    @Column(name = "AGREE_DTM", updatable = false)
     private LocalDateTime agreeDtm;
 
     @Column(name = "SEQUENCE", length = 4)

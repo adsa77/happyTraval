@@ -24,11 +24,11 @@ public class OptionalTermsAgreeEntity implements Serializable {
     private String userType;
 
     @Id
-    @Column(name = "USER_ID", length = 50)
+    @Column(name = "USER_ID", length = 20)
     private String userId;
 
     @Id
-    @Column(name = "AGREE_DTM")
+    @Column(name = "AGREE_DTM", updatable = false)
     private LocalDateTime agreeDtm;
 
     @Id
@@ -38,7 +38,7 @@ public class OptionalTermsAgreeEntity implements Serializable {
     @Column(name = "TEMPLATE_SQ")
     private int templateSq;
 
-    @Column(name = "AGREE_FL", length = 1, nullable = false)
+    @Column(name = "AGREE_FL", length = 1)
     private String agreeFl;
 
     @PrePersist
