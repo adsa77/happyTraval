@@ -13,6 +13,8 @@ import com.happyTravel.user.dto.UserSignUpDto;
 import com.happyTravel.user.repository.OptionalTermsAgreeRepository;
 import com.happyTravel.user.repository.RequiredTermsAgreeRepository;
 import com.happyTravel.user.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -47,19 +49,32 @@ public class UserService {
     private final RequiredTermsAgreeRepository requiredTermsAgreeRepository;
     private final OptionalTermsAgreeRepository optionalTermsAgreeRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
-    //  회원가입
+    /**
+     * 회원가입을 처리하는 메서드입니다.
+     *
+     * <p>회원 정보의 유효성을 검증한 후, 유효한 사용자 정보를 DB에 저장하고
+     * 필수 및 선택 약관 동의를 처리하여 응답을 생성합니다.</p>
+     *
+     * @param userSignUpDto 사용자 회원가입 정보를 담고 있는 DTO
+     * @return 회원가입 처리 결과를 담은 CommonResponse 객체
+     */
     @Transactional
     public CommonResponse userSignUp(UserSignUpDto userSignUpDto) {
 
         //  유효성 검사
         validateUserSignUp(userSignUpDto);
 
+        //  비밀번호 암호화
+        String encryptedPassword = passwordEncoder.encode(userSignUpDto.getUserPwd());
+
         //  엔티티로 변환
         //  빌더 패턴
         UserColumnEntity newUser = UserColumnEntity.builder()
                 .userId(userSignUpDto.getUserId())
-                .userPwd(userSignUpDto.getUserPwd())
+                .userPwd(encryptedPassword)
                 .emailId(userSignUpDto.getEmailId())
                 .emailDomain(userSignUpDto.getEmailDomain())
                 .phoneNo(userSignUpDto.getPhoneNo())
@@ -86,7 +101,12 @@ public class UserService {
 
     }
 
-    // 필수 약관 동의 저장
+    /**
+     * 필수 약관 동의 정보를 DB에 저장하는 메서드입니다.
+     *
+     * @param requiredAgreements 필수 약관 동의 목록
+     * @param userId 사용자 ID
+     */
     private void saveRequiredAgreements(List<RequiredTermsAgreementDto> requiredAgreements, String userId) {
         for (RequiredTermsAgreementDto requiredAgreement : requiredAgreements) {
             if (requiredAgreement.isAgreed()) {
@@ -107,7 +127,12 @@ public class UserService {
         }
     }
 
-    // 선택 약관 동의 저장
+    /**
+     * 선택 약관 동의 정보를 DB에 저장하는 메서드입니다.
+     *
+     * @param optionalAgreements 선택 약관 동의 목록
+     * @param userId 사용자 ID
+     */
     private void saveOptionalAgreements(List<OptionalTermsAgreementDto> optionalAgreements, String userId) {
         for(OptionalTermsAgreementDto optionalAgreement : optionalAgreements) {
             if (optionalAgreement.getAgreeFl() != null) { // 'T' 또는 'F' 값이 설정되어 있는지 확인
@@ -128,7 +153,14 @@ public class UserService {
         }
     }
 
-    // 시퀀스를 동적으로 생성하는 메소드
+    /**
+     * 사용자별 새로운 시퀀스를 생성하는 메서드입니다.
+     *
+     * <p>현재 사용자의 최대 시퀀스를 조회하여 1을 증가시킨 후 반환합니다.</p>
+     *
+     * @param userId 사용자 ID
+     * @return 새로 생성된 시퀀스 값
+     */
     private String generateSequence(String userId) {
         // 현재 사용자의 최대 시퀀스를 조회하는 로직
         int maxSequence = userRepository.findMaxSequenceByUserId(userId);
@@ -141,15 +173,24 @@ public class UserService {
 
     }
 
-
-    // 필수 약관 동의가 있는지 확인하는 메소드
+    /**
+     * 필수 약관 동의가 있는지 확인하는 메서드입니다.
+     *
+     * @param userSignUpDto 사용자 회원가입 정보 DTO
+     * @throws CustomException 필수 약관 동의가 누락된 경우 예외를 발생시킵니다.
+     */
     private void validateRequiredAgreements(UserSignUpDto userSignUpDto) {
         if (userSignUpDto.getRequiredAgreements() == null || userSignUpDto.getRequiredAgreements().isEmpty()) {
             throw new CustomException(ErrorCode.TERMS_CONSENT_REQUIRED); // 필수 약관 동의 필수 오류
         }
     }
 
-    //  유효성 검사 및 아이디 중복 체크
+    /**
+     * 회원가입 시 유효성 검사 및 아이디 중복을 체크하는 메서드입니다.
+     *
+     * @param userSignUpDtoReq 사용자 회원가입 정보 DTO
+     * @throws CustomException 중복된 아이디 또는 필수 약관 동의가 누락된 경우 예외를 발생시킵니다.
+     */
     private void validateUserSignUp(UserSignUpDto userSignUpDtoReq) {
 
         //  아이디 중복 체크
@@ -162,7 +203,13 @@ public class UserService {
 
     }
 
-    //  로그인
+    /**
+     * 로그인 처리를 수행하는 메서드입니다.
+     *
+     * @param userLoginDto 사용자 로그인 정보 DTO
+     * @return 로그인 처리 결과를 담은 CommonResponse 객체
+     * @throws CustomException 비밀번호가 일치하지 않는 경우 예외를 발생시킵니다.
+     */
     public CommonResponse userLogin(UserLoginDto userLoginDto) {
 
         UserColumnEntity loginUserEntity = userRepository.findByUserId(userLoginDto.getUserId());

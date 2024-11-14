@@ -47,6 +47,9 @@ public class MDCFilter implements Filter {
         CachedBodyHttpServletResponse cachedBodyHttpServletResponse = new CachedBodyHttpServletResponse(httpResponse);
 
         try {
+            // 필터 체인 진행
+            chain.doFilter(cachedBodyHttpServletRequest, cachedBodyHttpServletResponse);
+
             // 요청 본문 읽기
             String requestBody = new String(cachedBodyHttpServletRequest.getContentAsByteArray());
             MDC.put("requestBody", requestBody);  // 요청 본문 저장
@@ -54,9 +57,6 @@ public class MDCFilter implements Filter {
             // 요청 로그 타입 설정
             MDC.put("logType", "요청로그");
             logger.info("[REQUEST] [uri: {}] [body: {}]", MDC.get("uri"), MDC.get("requestBody"));
-
-            // 필터 체인 진행
-            chain.doFilter(cachedBodyHttpServletRequest, cachedBodyHttpServletResponse);
 
             // 처리 완료 후 응답 로그 타입 설정
             MDC.put("logType", "응답로그");
