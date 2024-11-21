@@ -1,5 +1,6 @@
-package com.happyTravel.common.entity;
+package com.happyTravel.common.entity.terms;
 
+import com.happyTravel.common.entity.pk.RequiredTermsAgreePk;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,16 +9,15 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 @Entity
 @Getter
-@NoArgsConstructor  // 기본 생성자
-@AllArgsConstructor // 모든 필드를 인자로 받는 생성자
-@Builder            // 빌더 패턴 사용
-@IdClass(com.happyTravel.common.entity.OptionalTermsAgreePk.class)
-@Table(name = "OPTIONAL_TERMS_AGREE_TH")
-public class OptionalTermsAgreeEntity implements Serializable {
+@NoArgsConstructor  //매개변수가 없는 기본 생성자를 자동으로 생성
+@AllArgsConstructor //모든 필드를 인자로 받는 생성자를 생성
+@Builder            //빌더 패턴 사용
+@IdClass(RequiredTermsAgreePk.class)
+@Table(name = "REQUIRED_TERMS_AGREE_TH")
+public class RequiredTermsAgreeEntity implements Serializable {
 
     @Id
     @Column(name = "USER_TYPE", length = 1)
@@ -29,7 +29,7 @@ public class OptionalTermsAgreeEntity implements Serializable {
 
     @Id
     @Column(name = "AGREE_DTM", updatable = false)
-    private LocalDateTime agreeDtm;
+    private LocalDateTime agreeDtm; // 복합 키의 일부분
 
     @Id
     @Column(name = "SEQUENCE", length = 4)

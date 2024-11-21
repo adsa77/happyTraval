@@ -1,7 +1,7 @@
 package com.happyTravel.user.repository;
 
-import com.happyTravel.common.entity.OptionalTermsAgreeEntity;
-import com.happyTravel.common.entity.OptionalTermsAgreePk;
+import com.happyTravel.common.entity.terms.OptionalTermsAgreeEntity;
+import com.happyTravel.common.entity.pk.OptionalTermsAgreePk;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package com.happyTravel.common.entity;
+package com.happyTravel.common.entity.auth;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -8,7 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "AUTH_TB")
+@Table(name = "AUTH_TC")
 public class AuthEntity {
 
     @Id

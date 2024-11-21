@@ -1,4 +1,4 @@
-package com.happyTravel.common.entity;
+package com.happyTravel.common.entity.user;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

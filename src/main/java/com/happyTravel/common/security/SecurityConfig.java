@@ -1,10 +1,14 @@
-package com.happyTravel.common.config;
+package com.happyTravel.common.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 /**
@@ -25,6 +29,12 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+
+    @Autowired
+    private UserDetailsServiceImpl userDetailsService;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     /**
      * Spring Security의 HTTP 요청에 대한 보안 정책을 설정하는 메서드입니다.
@@ -60,6 +70,30 @@ public class SecurityConfig {
         
 
         return httpSecurity.build();
+    }
+
+    /**
+     * AuthenticationManager를 설정하는 메서드입니다.
+     *
+     * @param auth AuthenticationManagerBuilder 객체
+     * @return AuthenticationManager 객체
+     * @throws Exception 예외 처리
+     */
+    @Bean
+    public AuthenticationManager authenticationManager(HttpSecurity httpSecurity) throws Exception {
+        // HttpSecurity 객체에서 AuthenticationManagerBuilder를 가져옴.
+        // HttpSecurity는 Spring Security에서 보안 설정을 담당하는 객체.
+        // 여기서 sharedObject()를 호출하여 AuthenticationManagerBuilder를 가져옴.
+        AuthenticationManagerBuilder authenticationManagerBuilder = httpSecurity.getSharedObject(AuthenticationManagerBuilder.class);
+
+        // 사용자 인증을 위한 UserDetailsService와 비밀번호 암호화를 위한 PasswordEncoder를 설정.
+        // userDetailsService는 사용자의 세부 정보를 로드하여 인증에 사용.
+        // passwordEncoder는 비밀번호를 안전하게 처리.
+        authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
+
+        // AuthenticationManager를 빌드하여 반환.
+        // AuthenticationManager는 실제 인증 작업을 수행하는 객체.
+        return authenticationManagerBuilder.build();
     }
 
 }

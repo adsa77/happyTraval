@@ -1,5 +1,6 @@
-package com.happyTravel.common.entity;
+package com.happyTravel.common.entity.common;
 
+import com.happyTravel.common.entity.terms.TemplateEntity;
 import jakarta.persistence.*;
 import lombok.*;
 

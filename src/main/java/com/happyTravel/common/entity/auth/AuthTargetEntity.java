@@ -1,5 +1,6 @@
-package com.happyTravel.common.entity;
+package com.happyTravel.common.entity.auth;
 
+import com.happyTravel.common.entity.common.RegUpdtInfo;
 import jakarta.persistence.*;
 import lombok.*;
 

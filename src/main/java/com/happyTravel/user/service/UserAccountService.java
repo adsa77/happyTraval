@@ -1,8 +1,10 @@
 package com.happyTravel.user.service;
 
-import com.happyTravel.common.entity.*;
-import com.happyTravel.common.entity.OptionalTermsAgreePk;
-import com.happyTravel.common.entity.RequiredTermsAgreePk;
+import com.happyTravel.common.entity.pk.OptionalTermsAgreePk;
+import com.happyTravel.common.entity.pk.RequiredTermsAgreePk;
+import com.happyTravel.common.entity.terms.OptionalTermsAgreeEntity;
+import com.happyTravel.common.entity.terms.RequiredTermsAgreeEntity;
+import com.happyTravel.common.entity.user.UserColumnEntity;
 import com.happyTravel.common.error.ErrorCode;
 import com.happyTravel.common.exception.CustomException;
 import com.happyTravel.common.response.CommonResponse;
@@ -12,8 +14,7 @@ import com.happyTravel.user.dto.UserLoginDto;
 import com.happyTravel.user.dto.UserSignUpDto;
 import com.happyTravel.user.repository.OptionalTermsAgreeRepository;
 import com.happyTravel.user.repository.RequiredTermsAgreeRepository;
-import com.happyTravel.user.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.happyTravel.user.repository.UserAccountRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -43,14 +44,13 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class UserService {
+public class UserAccountService {
 
-    private final UserRepository userRepository;
+    private final UserAccountRepository userRepository;
     private final RequiredTermsAgreeRepository requiredTermsAgreeRepository;
     private final OptionalTermsAgreeRepository optionalTermsAgreeRepository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
     /**
      * 회원가입을 처리하는 메서드입니다.
@@ -214,9 +214,13 @@ public class UserService {
 
         UserColumnEntity loginUserEntity = userRepository.findByUserId(userLoginDto.getUserId());
 
-        // 비밀번호 불일치 확인
-        if (!loginUserEntity.getUserPwd().equals(userLoginDto.getUserPwd())) {
-            throw new CustomException(ErrorCode.LOGIN_FAILURE); // 비밀번호 불일치
+//        // 비밀번호 불일치 확인
+//        if (!loginUserEntity.getUserPwd().equals(userLoginDto.getUserPwd())) {
+//            throw new CustomException(ErrorCode.LOGIN_FAILURE); // 비밀번호 불일치
+//        }
+        // 사용자가 존재하지 않거나 비밀번호가 일치하지 않는 경우 처리
+        if (loginUserEntity == null || !passwordEncoder.matches(userLoginDto.getUserPwd(), loginUserEntity.getUserPwd())) {
+            throw new CustomException(ErrorCode.LOGIN_FAILURE); // 비밀번호 불일치 또는 사용자 없음
         }
 
         //  로그인 성공 시 응답 생성

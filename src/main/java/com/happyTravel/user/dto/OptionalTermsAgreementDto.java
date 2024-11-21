@@ -1,6 +1,6 @@
 package com.happyTravel.user.dto;
 
-import com.happyTravel.common.entity.OptionalTermsAgreePk;
+import com.happyTravel.common.entity.pk.OptionalTermsAgreePk;
 import lombok.Getter;
 import lombok.Setter;
 

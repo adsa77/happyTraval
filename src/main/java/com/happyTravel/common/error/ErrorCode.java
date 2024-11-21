@@ -30,6 +30,7 @@ public enum ErrorCode {
     VALIDATION_USER_ID_EMPTY(1000, "ID를 입력하세요."), // ID 입력이 비어 있을 때 발생하는 오류
     VALIDATION_USER_PASSWORD_EMPTY(1001, "비밀번호를 입력하세요."), // 비밀번호 입력이 비어 있을 때 발생하는 오류
     VALIDATION_ID_PASSWORD_ERROR(1002, "아이디, 비밀번호가 유효하지 않습니다."), // 아이디 또는 비밀번호가 유효하지 않은 경우
+    USER_NOT_FOUND(1003, "사용자를 찾을 수 없습니다."),  // 사용자 찾을 수 없는 경우
 
     // 회원가입 관련 문제 (1100번대)
     VALIDATION_USER_SIGNUP_DATA(1100, "회원가입 데이터가 유효하지 않습니다."), // 회원가입 데이터가 올바르지 않은 경우

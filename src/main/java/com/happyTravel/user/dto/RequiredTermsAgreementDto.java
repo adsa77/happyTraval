@@ -1,6 +1,6 @@
 package com.happyTravel.user.dto;
 
-import com.happyTravel.common.entity.RequiredTermsAgreePk;
+import com.happyTravel.common.entity.pk.RequiredTermsAgreePk;
 import com.happyTravel.common.error.ErrorCode;
 import com.happyTravel.common.validation.termsAgreement.RequiredAgreementValidation;
 import lombok.Getter;

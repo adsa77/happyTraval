@@ -1,4 +1,4 @@
-package com.happyTravel.common.entity;
+package com.happyTravel.common.entity.admin;
 
 import jakarta.persistence.*;
 import lombok.*;
