@@ -15,7 +15,7 @@ public class UserIdFilter implements Filter {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain)
             throws IOException, ServletException {
 
         HttpServletRequest httpRequest = (HttpServletRequest) request;
@@ -37,7 +37,7 @@ public class UserIdFilter implements Filter {
             }
 
             // 다음 필터 또는 서블릿으로 요청 전달
-            chain.doFilter(cachedBodyHttpServletRequest, response);
+            filterChain.doFilter(cachedBodyHttpServletRequest, response);
         } catch (IOException e) {
             // 요청 본문이 JSON 형식이 아닐 경우 예외 처리
             throw new ServletException("Failed to parse JSON request body", e);

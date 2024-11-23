@@ -63,4 +63,26 @@ public class FilterConfig {
         return registrationBean;
     }
 
+//    // JwtLoggingFilter 필터를 등록하는 메서드
+//    @Bean
+//    public FilterRegistrationBean<JwtLoggingFilter> jwtLoggingFilter() {
+//
+//        // FilterRegistrationBean을 사용하여 JwtLoggingFilter를 등록
+//        FilterRegistrationBean<JwtLoggingFilter> registrationBean = new FilterRegistrationBean<>();
+//
+//        // 실제로 필터를 설정 (JwtLoggingFilter 사용)
+//        registrationBean.setFilter(new JwtLoggingFilter());
+//
+//        // 필터를 적용할 URL 패턴 설정. 예: 모든 요청에 필터를 적용
+//        registrationBean.addUrlPatterns("/api/*");  // URL 패턴을 적절히 설정
+//
+//        // 필터 체인에서 실행 순서를 지정. 숫자가 작을수록 먼저 실행됨
+//        registrationBean.setOrder(1);   // 다른 필터보다 먼저 실행되도록 설정 (필요시 조정)
+//
+//        // 필터 설정을 담은 FilterRegistrationBean 반환
+//        return registrationBean;
+//    }
+
+
+
 }

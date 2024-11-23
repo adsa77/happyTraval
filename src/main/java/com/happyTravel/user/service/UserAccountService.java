@@ -8,6 +8,7 @@ import com.happyTravel.common.entity.user.UserColumnEntity;
 import com.happyTravel.common.error.ErrorCode;
 import com.happyTravel.common.exception.CustomException;
 import com.happyTravel.common.response.CommonResponse;
+import com.happyTravel.security.jwt.JwtTokenProvider;
 import com.happyTravel.user.dto.OptionalTermsAgreementDto;
 import com.happyTravel.user.dto.RequiredTermsAgreementDto;
 import com.happyTravel.user.dto.UserLoginDto;
@@ -49,7 +50,7 @@ public class UserAccountService {
     private final UserAccountRepository userRepository;
     private final RequiredTermsAgreeRepository requiredTermsAgreeRepository;
     private final OptionalTermsAgreeRepository optionalTermsAgreeRepository;
-
+    private final JwtTokenProvider jwtTokenProvider;
     private final PasswordEncoder passwordEncoder;
 
     /**
@@ -212,16 +213,21 @@ public class UserAccountService {
      */
     public CommonResponse userLogin(UserLoginDto userLoginDto) {
 
+        // 사용자 정보 조회
         UserColumnEntity loginUserEntity = userRepository.findByUserId(userLoginDto.getUserId());
 
 //        // 비밀번호 불일치 확인
 //        if (!loginUserEntity.getUserPwd().equals(userLoginDto.getUserPwd())) {
 //            throw new CustomException(ErrorCode.LOGIN_FAILURE); // 비밀번호 불일치
 //        }
+
         // 사용자가 존재하지 않거나 비밀번호가 일치하지 않는 경우 처리
         if (loginUserEntity == null || !passwordEncoder.matches(userLoginDto.getUserPwd(), loginUserEntity.getUserPwd())) {
             throw new CustomException(ErrorCode.LOGIN_FAILURE); // 비밀번호 불일치 또는 사용자 없음
         }
+
+        // 로그인 성공 시 JWT 생성
+        String token = jwtTokenProvider.createToken(loginUserEntity.getUserId());
 
         //  로그인 성공 시 응답 생성
         CommonResponse response = CommonResponse.builder()

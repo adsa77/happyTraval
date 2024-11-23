@@ -54,6 +54,9 @@ dependencies {
 	// 유효성 검사 및 검증
 	implementation 'org.springframework.boot:spring-boot-starter-validation'  // 데이터 검증 및 유효성 검사 지원 (Bean Validation)
 
+	// jwt
+	implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.12.6'
+
 	// 기타 유틸리티 및 지원 라이브러리
 	compileOnly 'org.projectlombok:lombok'           // 반복적인 코드를 줄이기 위한 Lombok 라이브러리
 	annotationProcessor 'org.projectlombok:lombok'   // Lombok 애노테이션 처리기

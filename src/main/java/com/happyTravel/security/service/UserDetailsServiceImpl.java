@@ -1,4 +1,4 @@
-package com.happyTravel.common.security;
+package com.happyTravel.security.service;
 
 import com.happyTravel.common.entity.user.UserColumnEntity;
 import com.happyTravel.common.error.ErrorCode;
@@ -20,6 +20,23 @@ import java.util.ArrayList;
  * 인증을 처리할 수 있게 됩니다.
  * </p>
  *
+ * <h2>Implementation</h2>
+ * <p>
+ * {@link UserDetailsServiceImpl} 클래스는 {@link UserDetailsService}의 <code>loadUserByUsername</code>
+ * 메서드를 구현하며, 이 메서드는 다음과 같은 단계로 구성됩니다:
+ * </p>
+ * <ul>
+ *     <li><strong>사용자 조회:</strong> {@link UserAccountRepository}를 통해 사용자 ID로 사용자를 조회합니다.</li>
+ *     <li><strong>예외 처리:</strong> 사용자가 존재하지 않을 경우 {@link UsernameNotFoundException} 예외를 발생시킵니다.</li>
+ *     <li><strong>변환:</strong> 조회된 사용자 정보를 {@link UserDetails} 객체로 변환합니다.
+ *         이 과정에서 사용자 권한(roles, authorities)도 함께 매핑합니다.</li>
+ * </ul>
+ *
+ * <p>
+ * 이를 통해 Spring Security가 사용자 인증 과정에서 필요한 정보를 정확히 제공할 수 있습니다.
+ * 또한, 확장 가능한 구조로 설계되어 권한 관리 로직을 커스터마이징할 수 있습니다.
+ * </p>
+ *
  * @since 24.09.01
  * @author 손지욱
  */
@@ -27,7 +44,7 @@ import java.util.ArrayList;
 @RequiredArgsConstructor
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    private final UserAccountRepository userRepository;
+    private final UserAccountRepository userAccountRepository;
 
     /**
      * 주어진 사용자 ID로 사용자 정보를 로드하여 {@link UserDetails} 객체로 반환하는 메서드입니다.
@@ -44,7 +61,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
 
         // 사용자 정보를 DB에서 조회
-        UserColumnEntity userColumnEntity = userRepository.findById(userId)
+        UserColumnEntity userColumnEntity = userAccountRepository.findById(userId)
                 .orElseThrow(() -> new UsernameNotFoundException(ErrorCode.USER_NOT_FOUND.getMessage()));
 
         // UserDetails 객체로 반환 (Spring Security가 사용)

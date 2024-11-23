@@ -20,35 +20,35 @@ public class MDCFilter implements Filter {
     private static final Logger logger = LoggerFactory.getLogger(MDCFilter.class);
 
     @Override
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain)
             throws IOException, ServletException {
 
         // UUID를 사용하여 요청 ID 생성
         String requestId = UUID.randomUUID().toString();
         // 요청, 응답 형변환
-        HttpServletRequest httpRequest = (HttpServletRequest) request;
-        HttpServletResponse httpResponse = (HttpServletResponse) response;
+        HttpServletRequest httpServletRequest = (HttpServletRequest) request;
+        HttpServletResponse httpServletResponse = (HttpServletResponse) response;
         // 사용자 ID를 요청 헤더에서 가져옴
-        String userId = httpRequest.getHeader("userId");
+        String userId = httpServletRequest.getHeader("userId");
 
         // MDC 설정
         // 요청 ID 추가
         MDC.put("request_id", requestId);
         // 요청 URI 추가
-        MDC.put("uri", httpRequest.getRequestURI());
+        MDC.put("uri", httpServletRequest.getRequestURI());
         // HTTP 메서드 추가
-        MDC.put("httpMethod", httpRequest.getMethod());
+        MDC.put("httpMethod", httpServletRequest.getMethod());
         // userId가 있으면 추가, 없으면 null 설정
         MDC.put("userId", userId != null ? userId : "null");
 
         // 요청 본문을 캐시하기 위한 WrappedRequest 생성
-        CachedBodyHttpServletRequest cachedBodyHttpServletRequest = new CachedBodyHttpServletRequest(httpRequest);
+        CachedBodyHttpServletRequest cachedBodyHttpServletRequest = new CachedBodyHttpServletRequest(httpServletRequest);
         // 응답을 캐싱하기 위한 WrappedResponse 생성
-        CachedBodyHttpServletResponse cachedBodyHttpServletResponse = new CachedBodyHttpServletResponse(httpResponse);
+        CachedBodyHttpServletResponse cachedBodyHttpServletResponse = new CachedBodyHttpServletResponse(httpServletResponse);
 
         try {
             // 필터 체인 진행
-            chain.doFilter(cachedBodyHttpServletRequest, cachedBodyHttpServletResponse);
+            filterChain.doFilter(cachedBodyHttpServletRequest, cachedBodyHttpServletResponse);
 
             // 요청 본문 읽기
             String requestBody = new String(cachedBodyHttpServletRequest.getContentAsByteArray());

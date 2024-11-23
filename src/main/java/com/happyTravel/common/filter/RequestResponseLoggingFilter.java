@@ -26,7 +26,7 @@ public class RequestResponseLoggingFilter extends OncePerRequestFilter {
 //    }
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws IOException, ServletException {
 
         //  요청 본문 읽기
@@ -39,7 +39,7 @@ public class RequestResponseLoggingFilter extends OncePerRequestFilter {
 
         try {
             // 필터 체인 진행
-            chain.doFilter(cachedRequest, cachedResponse);
+            filterChain.doFilter(cachedRequest, cachedResponse);
 
             // 응답 본문 설정
             String responseBody = new String(cachedResponse.getContentAsByteArray());

@@ -1,4 +1,4 @@
-package com.happyTravel.common.security;
+package com.happyTravel.security.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
