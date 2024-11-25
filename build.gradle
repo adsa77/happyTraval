@@ -55,7 +55,9 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'  // 데이터 검증 및 유효성 검사 지원 (Bean Validation)
 
 	// jwt
-	implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.12.6'
+	implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.12.6'	// JJWT 라이브러리의 API 정의를 포함합니다.
+	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.12.6'		// JJWT의 기능 구현체로, 토큰 생성 및 검증 등의 핵심 기능을 처리합니다.
+	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.12.6'	// JSON 직렬화/역직렬화를 지원하며, 디폴트 JSON 처리 라이브러리로 Jackson을 사용합니다.
 
 	// 기타 유틸리티 및 지원 라이브러리
 	compileOnly 'org.projectlombok:lombok'           // 반복적인 코드를 줄이기 위한 Lombok 라이브러리
