@@ -1,4 +1,4 @@
-package com.happyTravel.common.util;
+package com.happyTravel.common.utils;
 
 import java.util.Base64;
 

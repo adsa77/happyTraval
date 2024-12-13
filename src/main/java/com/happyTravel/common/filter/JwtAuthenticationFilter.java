@@ -1,5 +1,6 @@
 package com.happyTravel.common.filter;
 
+import com.happyTravel.common.utils.URIUserTypeHelper;
 import com.happyTravel.security.jwt.JwtTokenProvider;
 import com.happyTravel.security.service.UserDetailsServiceImpl;
 import jakarta.servlet.FilterChain;
@@ -38,7 +39,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private UserDetailsServiceImpl userDetailsService; // 사용자 정보 로딩을 위한 UserDetailsService 의존성 주입
 
     /**
-     * HTTP 요청을 처리하는 필터 메서드로, JWT를 검증하고 인증 정보를 SecurityContext에 설정합니다.
+     * HTTP 요청을 처리하고 JWT 토큰을 검증하여 인증 정보를 설정하는 필터 메서드입니다.
+     * 유효한 JWT 토큰이 있을 경우, 해당 사용자의 정보를 SecurityContext에 설정하여 인증 상태를 유지합니다.
      *
      * @param request  서블릿 요청 객체
      * @param response 서블릿 응답 객체
@@ -55,6 +57,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         if (token != null && jwtTokenProvider.validateToken(token)) { // 유효한 토큰인지 확인
             String userId = jwtTokenProvider.getUserIdFromToken(token); // 토큰에서 사용자 ID 추출
             UserDetails userDetails = userDetailsService.loadUserByUsername(userId); // 사용자 정보 로드
+
+            // URIUserTypeHelper를 사용하여 사용자 유형을 판별
+            String userType = URIUserTypeHelper.determineUserType(request);
 
             // 인증 객체를 생성하여 SecurityContext에 설정
             UsernamePasswordAuthenticationToken authentication =

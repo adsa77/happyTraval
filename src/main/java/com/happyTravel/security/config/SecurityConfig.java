@@ -1,7 +1,9 @@
 package com.happyTravel.security.config;
 
 import com.happyTravel.common.filter.JwtAuthenticationFilter;
+import com.happyTravel.common.utils.URIUserTypeHelper;
 import com.happyTravel.security.service.UserDetailsServiceImpl;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,6 +11,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -31,7 +34,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
  */
 
 @Configuration
-@EnableWebSecurity
+@EnableWebSecurity(debug = true)
 public class SecurityConfig {
 
     @Autowired
@@ -42,6 +45,18 @@ public class SecurityConfig {
 
     @Autowired
     private JwtAuthenticationFilter jwtAuthenticationFilter;
+
+    /**
+     * 특정 URL 경로에 대한 보안 설정을 무시하는 메서드입니다.
+     * /signup, /login, Swagger API 문서 등에 대한 접근을 허용합니다.
+     *
+     * @return WebSecurityCustomizer 객체로, 보안 필터 체인에서 특정 경로에 대한 보안을 무시하도록 설정합니다.
+     */
+    @Bean
+    public WebSecurityCustomizer ignorePathsInSecurityFilterChain() {
+        return (web) -> web.ignoring()
+                .requestMatchers("/signup", "/login", "/swagger-ui/**", "/v3/api-docs");
+    }
 
     /**
      * Spring Security의 HTTP 요청에 대한 보안 정책을 설정하는 메서드입니다.
@@ -57,27 +72,30 @@ public class SecurityConfig {
                 // HTTP 요청에 대한 접근 제어 설정
                 .authorizeHttpRequests(authorizeHttpRequests ->
                         authorizeHttpRequests
-                                // 공개 URL 설정
-                                .requestMatchers("/signup", "/login", "/swagger-ui/**", "/v3/api-docs").permitAll()
+//                                // 공개 URL 설정(현재는 사용 안함.)
+//                                .requestMatchers("/signup", "/login", "/swagger-ui/**", "/v3/api-docs").permitAll()
                                 // 나머지 요청 모두 허용
                                 .anyRequest().permitAll()
                         )
-                //  람다식
-                // CSRF 보호 비활성화 (Web 애플리케이션에서 POST 요청을 쉽게 처리하기 위해 비활성화)
-                .csrf(csrf -> csrf.disable())  // CSRF 비활성화
-                // 폼 로그인 비활성화 (폼 로그인을 사용하지 않도록 설정)
-                .formLogin(formLogin -> formLogin.disable())  // 폼 로그인 비활성화
-                // HTTP Basic 인증 비활성화 (기본 인증을 사용하지 않도록 설정)
-                .httpBasic(httpBasic -> httpBasic.disable());  // HTTP Basic 인증 비활성화
+//                //  람다식
+//                // CSRF 보호 비활성화 (Web 애플리케이션에서 POST 요청을 쉽게 처리하기 위해 비활성화)
+//                .csrf(csrf -> csrf.disable())  // CSRF 비활성화
+//                // 폼 로그인 비활성화 (폼 로그인을 사용하지 않도록 설정)
+//                .formLogin(formLogin -> formLogin.disable())  // 폼 로그인 비활성화
+//                // HTTP Basic 인증 비활성화 (기본 인증을 사용하지 않도록 설정)
+//                .httpBasic(httpBasic -> httpBasic.disable());  // HTTP Basic 인증 비활성화
 
                 //  메서드 참조
-//                .csrf(AbstractHttpConfigurer::disable)  // CSRF 비활성화
-//                .formLogin(AbstractHttpConfigurer::disable)  // 폼 로그인 비활성화
-//                .httpBasic(AbstractHttpConfigurer::disable);  // HTTP Basic 인증 비활성화
+                .csrf(AbstractHttpConfigurer::disable)  // CSRF 비활성화
+                .formLogin(AbstractHttpConfigurer::disable)  // 폼 로그인 비활성화
+                .httpBasic(AbstractHttpConfigurer::disable);  // HTTP Basic 인증 비활성화
 
         // JwtAuthenticationFilter를 필터 체인에 추가
         // JwtAuthenticationFilter를 UsernamePasswordAuthenticationFilter 앞에 추가하여, 사용자가 요청할 때 JWT 인증이 먼저 처리되도록 설정
         httpSecurity.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+
+        // 사용자 로그인 필터 추가
+        httpSecurity.addFilterAt(userLoginFilter(authenticationManager(httpSecurity)), UsernamePasswordAuthenticationFilter.class);
 
         return httpSecurity.build();
     }
@@ -110,5 +128,56 @@ public class SecurityConfig {
         // AuthenticationManager는 실제 인증 작업을 수행하는 객체.
         return authenticationManagerBuilder.build();
     }
+
+    /**
+     * 사용자 로그인 필터를 생성하는 메서드입니다.
+     * 이 필터는 사용자 로그인 요청을 처리하며, 인증 성공 시 사용자 유형을 결정합니다.
+     *
+     * @param authenticationManager 인증 매니저 객체
+     * @return UsernamePasswordAuthenticationFilter 객체
+     */
+    @Bean
+    public UsernamePasswordAuthenticationFilter userLoginFilter(AuthenticationManager authenticationManager) {
+        UsernamePasswordAuthenticationFilter filter = new UsernamePasswordAuthenticationFilter();
+        filter.setAuthenticationManager(authenticationManager);
+        filter.setFilterProcessesUrl("api/user/login");
+        filter.setUsernameParameter("userId");
+        filter.setPasswordParameter("password");
+        filter.setAuthenticationSuccessHandler((request, response, authentication) -> {
+            String userType = URIUserTypeHelper.determineUserType(request);
+        });
+        return filter;
+    }
+
+    /**
+     * 관리자 로그인 필터를 생성하는 메서드입니다.
+     * 이 필터는 관리자 로그인 요청을 처리합니다.
+     *
+     * @param authenticationManager 인증 매니저 객체
+     * @return UsernamePasswordAuthenticationFilter 객체
+     */
+    @Bean
+    public UsernamePasswordAuthenticationFilter adminLoginFilter(AuthenticationManager authenticationManager) {
+        UsernamePasswordAuthenticationFilter filter = new UsernamePasswordAuthenticationFilter();
+        filter.setAuthenticationManager(authenticationManager);
+        filter.setFilterProcessesUrl("api/admin/login");  // 관리자 로그인 경로
+        return filter;
+    }
+
+    /**
+     * 파트너 로그인 필터를 생성하는 메서드입니다.
+     * 이 필터는 파트너 로그인 요청을 처리합니다.
+     *
+     * @param authenticationManager 인증 매니저 객체
+     * @return UsernamePasswordAuthenticationFilter 객체
+     */
+    @Bean
+    public UsernamePasswordAuthenticationFilter partnerLoginFilter(AuthenticationManager authenticationManager) {
+        UsernamePasswordAuthenticationFilter filter = new UsernamePasswordAuthenticationFilter();
+        filter.setAuthenticationManager(authenticationManager);
+        filter.setFilterProcessesUrl("api/partner/login");  // 파트너 로그인 경로
+        return filter;
+    }
+
 
 }

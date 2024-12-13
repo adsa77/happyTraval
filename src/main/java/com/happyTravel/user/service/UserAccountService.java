@@ -228,6 +228,7 @@ public class UserAccountService {
 
         // 로그인 성공 시 JWT 생성
         String token = jwtTokenProvider.createToken(loginUserEntity.getUserId());
+        String refreshToken = jwtTokenProvider.createRefreshToken(loginUserEntity.getUserId());
 
         //  로그인 성공 시 응답 생성
         CommonResponse response = CommonResponse.builder()
@@ -238,6 +239,8 @@ public class UserAccountService {
 
         // 동적으로 데이터 추가
         response.addData("loginSuccess", true);  // 로그인 성공 여부 추가
+        response.addData("accessToken", token);  // 생성된 JWT 추가
+        response.addData("refreshToken", refreshToken);  // 생성된 리프레시 토큰 추가
 
         return response;
 

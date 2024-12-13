@@ -17,6 +17,7 @@ import java.util.Date;
 /**
  * JwtTokenProvider는 JWT(Json Web Token)를 생성, 검증, 및 파싱하는 기능을 제공합니다.
  * JWT는 사용자 인증 및 세션 관리를 위한 토큰 기반 인증 메커니즘입니다.
+ * 이 클래스는 JWT 액세스 토큰과 리프레시 토큰을 생성하고, 토큰에서 사용자 정보를 추출하거나 유효성을 검증하는 기능을 제공합니다.
  *
  * @author 손지욱
  * @since 24.09.01
@@ -36,6 +37,7 @@ public class JwtTokenProvider {
 
     /**
      * JWT 서명에 사용할 비밀 키.
+     * <p>
      * application.properties 또는 application.yml에서 설정된 값을 가져옵니다.
      */
     @Value("${jwt.secret.key}")
@@ -43,14 +45,23 @@ public class JwtTokenProvider {
 
     /**
      * JWT의 유효기간 (밀리초 단위).
+     * <p>
      * application.properties 또는 application.yml에서 설정된 값을 가져옵니다.
      */
     @Value("${jwt.expiration.time}")
-    private long expirationTime;
+    private long accessTokenExpirationTime;
 
+    /**
+     * JWT 리프레시 토큰의 유효기간 (밀리초 단위).
+     * <p>
+     * application.properties 또는 application.yml에서 설정된 값을 가져옵니다.
+     */
+    @Value("${jwt.refresh.expiration.time}")
+    private long refreshTokenExpirationTime;
 
     /**
      * 초기화 메서드로 Base64로 인코딩된 시크릿 키를 디코딩하고 Key 객체를 생성합니다.
+     * 이 메서드는 `@PostConstruct`로 애플리케이션이 시작될 때 자동으로 호출됩니다.
      */
     @PostConstruct
     public void init() {
@@ -59,14 +70,17 @@ public class JwtTokenProvider {
     }
 
     /**
-     * 사용자 ID를 기반으로 JWT를 생성합니다.
+     * 사용자 ID를 기반으로 액세스 JWT를 생성합니다.
+     * <p>
+     * 주어진 사용자 ID를 기반으로 JWT 토큰을 생성하며, 만료 시간을 설정합니다.
+     * </p>
      *
      * @param userId 사용자 ID (JWT의 subject로 사용됨).
      * @return 생성된 JWT 문자열.
      */
     public String createToken(String userId){
         Date now = new Date();
-        Date expiryDate = new Date(now.getTime() + expirationTime);
+        Date expiryDate = new Date(now.getTime() + accessTokenExpirationTime);
 
         return Jwts.builder()
                 .claim("sub", userId) // JWT의 subject 설정 (주로 사용자 ID)
@@ -74,6 +88,27 @@ public class JwtTokenProvider {
                 .expiration(expiryDate)     // 만료 시간 설정
                 .signWith(key)              // HS512 알고리즘 사용
                 .compact();                 // 최종 JWT 문자열 반환
+    }
+
+    /**
+     * 사용자 ID를 기반으로 리프레시 JWT를 생성합니다.
+     * <p>
+     * 주어진 사용자 ID를 기반으로 리프레시 JWT 토큰을 생성하며, 만료 시간을 설정합니다.
+     * </p>
+     *
+     * @param userId 사용자 ID (JWT의 subject로 사용됨).
+     * @return 생성된 리프레시 JWT 문자열.
+     */
+    public String createRefreshToken(String userId) {
+        Date now = new Date();
+        Date expiryDate = new Date(now.getTime() + refreshTokenExpirationTime);
+
+        return Jwts.builder()
+                .claim("sub", userId)
+                .issuedAt(now)
+                .expiration(expiryDate)
+                .signWith(key)
+                .compact();
     }
 
     /**

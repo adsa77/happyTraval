@@ -1,15 +1,22 @@
 package com.happyTravel.security.service;
 
+import com.happyTravel.admin.repository.AdminRepository;
 import com.happyTravel.common.entity.user.UserColumnEntity;
 import com.happyTravel.common.error.ErrorCode;
+import com.happyTravel.common.utils.URIUserTypeHelper;
 import com.happyTravel.user.repository.UserAccountRepository;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * {@link UserDetailsServiceImpl}은 Spring Security의 {@link UserDetailsService} 인터페이스를 구현하여
@@ -44,7 +51,16 @@ import java.util.ArrayList;
 @RequiredArgsConstructor
 public class UserDetailsServiceImpl implements UserDetailsService {
 
+    private final HttpServletRequest request;
     private final UserAccountRepository userAccountRepository;
+//    private final AdminRepository adminRepository;
+//    private final PartnerRepository partnerRepository;
+
+    @Autowired
+    public UserDetailsServiceImpl(UserAccountRepository userAccountRepository, HttpServletRequest request) {
+        this.userAccountRepository = userAccountRepository;
+        this.request = request;
+    }
 
     /**
      * 주어진 사용자 ID로 사용자 정보를 로드하여 {@link UserDetails} 객체로 반환하는 메서드입니다.
@@ -60,9 +76,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
 
+        // URI에서 유저 타입을 추출 (예: "ADMIN", "PARTNER", "USER")
+        String userType = URIUserTypeHelper.determineUserType(request);  // request 객체는 필요없습니다.
+
         // 사용자 정보를 DB에서 조회
         UserColumnEntity userColumnEntity = userAccountRepository.findById(userId)
                 .orElseThrow(() -> new UsernameNotFoundException(ErrorCode.USER_NOT_FOUND.getMessage()));
+
 
         // UserDetails 객체로 반환 (Spring Security가 사용)
         return new org.springframework.security.core.userdetails.User(
@@ -70,5 +90,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 userColumnEntity.getUserPwd(),
                 new ArrayList<>()); // 권한 리스트를 설정할 필요가 있으면 이 부분을 수정
     }
+
 
 }
