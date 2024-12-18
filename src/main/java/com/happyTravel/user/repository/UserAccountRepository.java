@@ -34,6 +34,9 @@ public interface UserAccountRepository extends JpaRepository<UserColumnEntity, S
      */
     UserColumnEntity findByUserId(String loginUserId);
 
+    // userId가 존재하는지 확인하는 메서드
+    boolean existsByUserId(String userId);
+
     /**
      * 주어진 사용자 ID에 대한 최대 시퀀스를 조회하는 메서드입니다.
      * <p>

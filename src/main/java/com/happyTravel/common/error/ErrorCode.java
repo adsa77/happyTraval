@@ -26,6 +26,8 @@ import lombok.RequiredArgsConstructor;
 @Getter
 public enum ErrorCode {
 
+    INTERNAL_SERVER_ERROR(500, "서버 내부 오류"),
+
     // 일반 고객의 문제 (1000번대)
     VALIDATION_USER_ID_EMPTY(1000, "ID를 입력하세요."), // ID 입력이 비어 있을 때 발생하는 오류
     VALIDATION_USER_PASSWORD_EMPTY(1001, "비밀번호를 입력하세요."), // 비밀번호 입력이 비어 있을 때 발생하는 오류
@@ -48,6 +50,7 @@ public enum ErrorCode {
     VALIDATION_LOGIN_DATA_ERROR(1200, "로그인 데이터가 유효하지 않습니다."), // 로그인 데이터 오류
     INVALID_CREDENTIALS(1201, "잘못된 자격 증명입니다."), // 잘못된 자격 증명 오류
     LOGIN_FAILURE(1202, "로그인에 실패했습니다. 아이디와 비밀번호를 확인해주시기 바랍니다."), // 로그인 실패 시 오류
+    INVALID_USER_TYPE(1203, "계정 타입이 맞지 않습니다."),
 
     // 약관 동의 오류 (1300번대)
     TERMS_CONSENT_REQUIRED(1300, "필수 약관에 동의해야 합니다."), // 필수 약관 동의가 필요할 때 발생하는 오류

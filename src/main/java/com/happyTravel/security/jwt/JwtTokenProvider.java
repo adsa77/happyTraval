@@ -78,7 +78,7 @@ public class JwtTokenProvider {
      * @param userId 사용자 ID (JWT의 subject로 사용됨).
      * @return 생성된 JWT 문자열.
      */
-    public String createToken(String userId){
+    public String createAccessToken(String userId){
         Date now = new Date();
         Date expiryDate = new Date(now.getTime() + accessTokenExpirationTime);
 

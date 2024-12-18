@@ -204,46 +204,46 @@ public class UserAccountService {
 
     }
 
-    /**
-     * 로그인 처리를 수행하는 메서드입니다.
-     *
-     * @param userLoginDto 사용자 로그인 정보 DTO
-     * @return 로그인 처리 결과를 담은 CommonResponse 객체
-     * @throws CustomException 비밀번호가 일치하지 않는 경우 예외를 발생시킵니다.
-     */
-    public CommonResponse userLogin(UserLoginDto userLoginDto) {
-
-        // 사용자 정보 조회
-        UserColumnEntity loginUserEntity = userRepository.findByUserId(userLoginDto.getUserId());
-
-//        // 비밀번호 불일치 확인
-//        if (!loginUserEntity.getUserPwd().equals(userLoginDto.getUserPwd())) {
-//            throw new CustomException(ErrorCode.LOGIN_FAILURE); // 비밀번호 불일치
+//    /**
+//     * 로그인 처리를 수행하는 메서드입니다.
+//     *
+//     * @param userLoginDto 사용자 로그인 정보 DTO
+//     * @return 로그인 처리 결과를 담은 CommonResponse 객체
+//     * @throws CustomException 비밀번호가 일치하지 않는 경우 예외를 발생시킵니다.
+//     */
+//    public CommonResponse userLogin(UserLoginDto userLoginDto) {
+//
+//        // 사용자 정보 조회
+//        UserColumnEntity loginUserEntity = userRepository.findByUserId(userLoginDto.getUserId());
+//
+////        // 비밀번호 불일치 확인
+////        if (!loginUserEntity.getUserPwd().equals(userLoginDto.getUserPwd())) {
+////            throw new CustomException(ErrorCode.LOGIN_FAILURE); // 비밀번호 불일치
+////        }
+//
+//        // 사용자가 존재하지 않거나 비밀번호가 일치하지 않는 경우 처리
+//        if (loginUserEntity == null || !passwordEncoder.matches(userLoginDto.getUserPwd(), loginUserEntity.getUserPwd())) {
+//            throw new CustomException(ErrorCode.LOGIN_FAILURE); // 비밀번호 불일치 또는 사용자 없음
 //        }
-
-        // 사용자가 존재하지 않거나 비밀번호가 일치하지 않는 경우 처리
-        if (loginUserEntity == null || !passwordEncoder.matches(userLoginDto.getUserPwd(), loginUserEntity.getUserPwd())) {
-            throw new CustomException(ErrorCode.LOGIN_FAILURE); // 비밀번호 불일치 또는 사용자 없음
-        }
-
-        // 로그인 성공 시 JWT 생성
-        String token = jwtTokenProvider.createToken(loginUserEntity.getUserId());
-        String refreshToken = jwtTokenProvider.createRefreshToken(loginUserEntity.getUserId());
-
-        //  로그인 성공 시 응답 생성
-        CommonResponse response = CommonResponse.builder()
-                .message("로그인 성공")
-                .httpStatus(HttpStatus.OK.value()) // HTTP 상태 코드 설정
-                .errorCode(null) // 에러 코드 설정 (성공 시 null)
-                .build();
-
-        // 동적으로 데이터 추가
-        response.addData("loginSuccess", true);  // 로그인 성공 여부 추가
-        response.addData("accessToken", token);  // 생성된 JWT 추가
-        response.addData("refreshToken", refreshToken);  // 생성된 리프레시 토큰 추가
-
-        return response;
-
-    }
+//
+//        // 로그인 성공 시 JWT 생성
+//        String token = jwtTokenProvider.createToken(loginUserEntity.getUserId());
+//        String refreshToken = jwtTokenProvider.createRefreshToken(loginUserEntity.getUserId());
+//
+//        //  로그인 성공 시 응답 생성
+//        CommonResponse response = CommonResponse.builder()
+//                .message("로그인 성공")
+//                .httpStatus(HttpStatus.OK.value()) // HTTP 상태 코드 설정
+//                .errorCode(null) // 에러 코드 설정 (성공 시 null)
+//                .build();
+//
+//        // 동적으로 데이터 추가
+//        response.addData("loginSuccess", true);  // 로그인 성공 여부 추가
+//        response.addData("accessToken", token);  // 생성된 JWT 추가
+//        response.addData("refreshToken", refreshToken);  // 생성된 리프레시 토큰 추가
+//
+//        return response;
+//
+//    }
 
 }

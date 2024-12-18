@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Builder
 @Entity
 @Table(name = "ADMIN_TB")
-public class AdminEntity {
+public class AdminColumnEntity {
 
     @Id
     @Column(name = "USER_ID", length = 50, nullable = false)

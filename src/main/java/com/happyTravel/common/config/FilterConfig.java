@@ -39,6 +39,7 @@ public class FilterConfig {
 
         // 필터를 적용할 URL 패턴 설정. /api/* 경로에만 필터가 적용됨
         registrationBean.addUrlPatterns("/api/*");
+        registrationBean.setOrder(2); // MDCFilter 다음으로 실행
 
         // 필터 설정을 담은 FilterRegistrationBean 반환
         return registrationBean;
@@ -57,7 +58,7 @@ public class FilterConfig {
         registrationBean.addUrlPatterns("/api/*");
 
         // 필터 체인에서 실행 순서를 지정. 숫자가 작을수록 먼저 실행됨
-        registrationBean.setOrder(1);
+        registrationBean.setOrder(3);
 
         // 필터 설정을 담은 FilterRegistrationBean 반환
         return registrationBean;
