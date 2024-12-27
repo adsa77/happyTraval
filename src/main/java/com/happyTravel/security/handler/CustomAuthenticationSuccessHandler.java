@@ -16,6 +16,7 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
@@ -23,6 +24,7 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
 
     private final JwtTokenProvider jwtTokenProvider;
     private final ObjectMapper objectMapper;
+    private final RefreshTokenRepository refreshTokenRepository;
     private final RefreshTokenService refreshTokenService;
 
     /**
@@ -45,16 +47,27 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         String userType = (String) authentication.getDetails();
 
         try {
+            // 기존 리프레시 토큰 조회
+            RefreshTokenEntity existingRefreshTokenEntity = refreshTokenRepository.findByUserTypeAndUserId(userType, userId).orElse(null);
+
+            String refreshToken;
+            if (existingRefreshTokenEntity == null || isRefreshTokenExpired(existingRefreshTokenEntity)) {
+                // 기존 리프레시 토큰이 없거나 만료되었으면 새로 생성
+                refreshToken = jwtTokenProvider.createRefreshToken(userId);
+
+                // 새 리프레시 토큰 저장
+                refreshTokenService.saveRefreshToken(userType, userId, refreshToken);
+            } else {
+                // 기존 리프레시 토큰 사용
+                refreshToken = existingRefreshTokenEntity.getRefreshToken();
+            }
+
             // JWT 토큰 생성
             String accessToken = jwtTokenProvider.createAccessToken(userId);
-            String refreshToken = jwtTokenProvider.createRefreshToken(userId);
-
-            // Refresh Token 저장
-            refreshTokenService.saveRefreshToken(userType, userId, refreshToken);
 
             // 응답 객체 생성
             CommonResponse commonResponse = CommonResponse.builder()
-                    .message("로그인 성공s")
+                    .message("로그인 성공")
                     .httpStatus(HttpServletResponse.SC_OK)
                     .build();
 
@@ -83,4 +96,11 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
             response.flushBuffer();
         }
     }
+
+    private boolean isRefreshTokenExpired(RefreshTokenEntity refreshTokenEntity) {
+        // 리프레시 토큰이 만료되었는지 확인하는 로직
+        LocalDateTime expiryDate = refreshTokenEntity.getExpiryDate();
+        return expiryDate.isBefore(LocalDateTime.now());
+    }
+
 }
