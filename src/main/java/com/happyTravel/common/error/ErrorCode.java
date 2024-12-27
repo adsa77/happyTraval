@@ -27,6 +27,7 @@ import lombok.RequiredArgsConstructor;
 public enum ErrorCode {
 
     INTERNAL_SERVER_ERROR(500, "서버 내부 오류"),
+    INVALID_REQUEST_PATH(600, "잘못된 경로"),
 
     // 일반 고객의 문제 (1000번대)
     VALIDATION_USER_ID_EMPTY(1000, "ID를 입력하세요."), // ID 입력이 비어 있을 때 발생하는 오류

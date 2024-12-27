@@ -38,6 +38,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Autowired
     private UserDetailsServiceImpl userDetailsService; // 사용자 정보 로딩을 위한 UserDetailsService 의존성 주입
 
+    public JwtAuthenticationFilter(JwtTokenProvider jwtTokenProvider) {
+    }
+
     /**
      * HTTP 요청을 처리하고 JWT 토큰을 검증하여 인증 정보를 설정하는 필터 메서드입니다.
      * 유효한 JWT 토큰이 있을 경우, 해당 사용자의 정보를 SecurityContext에 설정하여 인증 상태를 유지합니다.

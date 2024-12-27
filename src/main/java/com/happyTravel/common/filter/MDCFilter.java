@@ -50,6 +50,10 @@ public class MDCFilter implements Filter {
             // 필터 체인 진행
             filterChain.doFilter(cachedBodyHttpServletRequest, cachedBodyHttpServletResponse);
 
+//            // 요청 본문 읽기 전에 MDC에 설정된 userId와 uri 값이 제대로 반영되어야 한다
+//            MDC.put("userId", userId != null ? userId : "null");
+//            MDC.put("uri", httpServletRequest.getRequestURI());
+
             // 요청 본문 읽기
             String requestBody = new String(cachedBodyHttpServletRequest.getContentAsByteArray());
             MDC.put("requestBody", requestBody);  // 요청 본문 저장

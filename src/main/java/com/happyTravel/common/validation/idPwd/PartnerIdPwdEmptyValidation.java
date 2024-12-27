@@ -9,14 +9,13 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Constraint(validatedBy = IdPwdEmptyValidator.class)
+@Constraint(validatedBy = PartnerIdPwdEmptyValidator.class)
 @Target({ ElementType.TYPE })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface IdPwdEmptyValidation {
-
+public @interface PartnerIdPwdEmptyValidation {
     //  기본 메시지
     String message() default "유효하지 않은 아이디, 비밀번호";
-    
+
     //  검증 그룹 배열 (기본값: 빈 배열)
     Class<?>[] groups() default {};
 
@@ -25,5 +24,4 @@ public @interface IdPwdEmptyValidation {
 
     //  검증 실패 시 사용할 사용자 정의 에러 코드
     ErrorCode errorCode(); // 에러 코드 추가
-
 }

@@ -1,8 +1,11 @@
 package com.happyTravel.security.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.happyTravel.common.filter.JwtAuthenticationFilter;
 import com.happyTravel.security.authentication.CustomAuthenticationProvider;
 import com.happyTravel.security.filter.CustomUsernamePasswordAuthenticationFilter;
+import com.happyTravel.security.handler.CustomAuthenticationFailureHandler;
+import com.happyTravel.security.handler.CustomAuthenticationSuccessHandler;
 import com.happyTravel.security.jwt.JwtTokenProvider;
 import com.happyTravel.security.service.UserDetailsServiceImpl;
 import lombok.RequiredArgsConstructor;
@@ -44,9 +47,11 @@ public class SecurityConfig {
     // 필요한 빈 선언
     private final UserDetailsServiceImpl userDetailsService;
     private final PasswordEncoder passwordEncoder;
-    private final JwtAuthenticationFilter jwtAuthenticationFilter;
-    private final JwtTokenProvider jwtTokenProvider;
     private final CustomAuthenticationProvider customAuthenticationProvider;
+    private final ObjectMapper objectMapper;
+    private final CustomAuthenticationSuccessHandler successHandler;
+    private final CustomAuthenticationFailureHandler failureHandler;
+    private final JwtTokenProvider jwtTokenProvider;
 
     /**
      * 특정 URL 경로에 대한 보안 설정을 무시하는 메서드입니다.
@@ -57,7 +62,12 @@ public class SecurityConfig {
     @Bean
     public WebSecurityCustomizer ignorePathsInSecurityFilterChain() {
         return (web) -> web.ignoring()
-                .requestMatchers("/signup", "/login", "/swagger-ui/**", "/v3/api-docs");
+                .requestMatchers("/signup",
+                        "/login",
+                        "/swagger-ui/**",
+                        "/v3/api-docs",
+                        "/api/user/signUp",
+                        "/api/partner/signUp");
     }
 
     /**
@@ -70,35 +80,60 @@ public class SecurityConfig {
      */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
+
         httpSecurity
                 .csrf(AbstractHttpConfigurer::disable) // CSRF 비활성화
                 .formLogin(AbstractHttpConfigurer::disable) // Form 로그인 비활성화
                 .httpBasic(AbstractHttpConfigurer::disable) // HTTP Basic 인증 비활성화
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/user/login", "/api/partner/login", "/api/admin/login").permitAll()
+                        .requestMatchers("/api/user/login").permitAll()
+                        .requestMatchers("/api/partner/login").permitAll()
+                        .requestMatchers("/api/admin/login").permitAll()
+                        .requestMatchers("/api/user/signUp").permitAll()
                         .anyRequest().authenticated()
                 );
 
         // user login 경로에 대한 필터 추가
-        CustomUsernamePasswordAuthenticationFilter userFilter = new CustomUsernamePasswordAuthenticationFilter(
-                authenticationManager(httpSecurity), jwtTokenProvider, customAuthenticationProvider);
+        CustomUsernamePasswordAuthenticationFilter userFilter = createLoginFilter(
+                "/api/user/login", customAuthenticationProvider, objectMapper, successHandler, failureHandler);
         userFilter.setFilterProcessesUrl("/api/user/login");
         httpSecurity.addFilterBefore(userFilter, UsernamePasswordAuthenticationFilter.class);
 
         // admin login 경로에 대한 필터 추가
-        CustomUsernamePasswordAuthenticationFilter adminFilter = new CustomUsernamePasswordAuthenticationFilter(
-                authenticationManager(httpSecurity), jwtTokenProvider, customAuthenticationProvider);
+        CustomUsernamePasswordAuthenticationFilter adminFilter = createLoginFilter(
+                "/api/admin/login", customAuthenticationProvider, objectMapper, successHandler, failureHandler);
         adminFilter.setFilterProcessesUrl("/api/admin/login");
         httpSecurity.addFilterBefore(adminFilter, UsernamePasswordAuthenticationFilter.class);
 
         // partner login 경로에 대한 필터 추가
-        CustomUsernamePasswordAuthenticationFilter partnerFilter = new CustomUsernamePasswordAuthenticationFilter(
-                authenticationManager(httpSecurity), jwtTokenProvider, customAuthenticationProvider);
+        CustomUsernamePasswordAuthenticationFilter partnerFilter = createLoginFilter(
+                "/api/partner/login", customAuthenticationProvider, objectMapper, successHandler, failureHandler);
         partnerFilter.setFilterProcessesUrl("/api/partner/login");
         httpSecurity.addFilterBefore(partnerFilter, UsernamePasswordAuthenticationFilter.class);
 
+        // JWT 인증 필터 추가
+        JwtAuthenticationFilter jwtAuthenticationFilter = new JwtAuthenticationFilter(jwtTokenProvider);
+        httpSecurity.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         return httpSecurity.build();
+    }
+
+    /**
+     * 공통 로그인 필터를 생성하는 메서드입니다.
+     */
+    private CustomUsernamePasswordAuthenticationFilter createLoginFilter(String loginUrl,
+                                                                         CustomAuthenticationProvider customAuthenticationProvider,
+                                                                         ObjectMapper objectMapper,
+                                                                         CustomAuthenticationSuccessHandler successHandler,
+                                                                         CustomAuthenticationFailureHandler failureHandler) {
+        // 필요한 생성자를 사용하여 필터 객체 생성
+        CustomUsernamePasswordAuthenticationFilter filter =
+                new CustomUsernamePasswordAuthenticationFilter(customAuthenticationProvider, objectMapper, successHandler, failureHandler);
+
+        filter.setFilterProcessesUrl(loginUrl); // 로그인 경로 설정
+        filter.setUsernameParameter("userId"); // 사용자 ID 파라미터 설정
+        filter.setPasswordParameter("password"); // 비밀번호 파라미터 설정
+        return filter;
     }
 
     /**
@@ -130,28 +165,15 @@ public class SecurityConfig {
         return authenticationManagerBuilder.build();
     }
 
-    /**
-     * 공통 로그인 필터를 생성하는 메서드입니다.
-     */
-    private CustomUsernamePasswordAuthenticationFilter createLoginFilter(String loginUrl,
-                                                                         AuthenticationManager authenticationManager,
-                                                                         JwtTokenProvider jwtTokenProvider) {
-        CustomUsernamePasswordAuthenticationFilter filter =
-                new CustomUsernamePasswordAuthenticationFilter(authenticationManager, jwtTokenProvider, customAuthenticationProvider);
-
-        filter.setFilterProcessesUrl(loginUrl); // 로그인 경로 설정
-        filter.setUsernameParameter("userId"); // 사용자 ID 파라미터 설정
-        filter.setPasswordParameter("password"); // 비밀번호 파라미터 설정
-        return filter;
-    }
-
     // AuthenticationProvider 등록
     @Bean
     public AuthenticationProvider authenticationProvider() {
-        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        provider.setUserDetailsService(userDetailsService);  // 사용자 인증을 위한 UserDetailsService 설정
-        provider.setPasswordEncoder(passwordEncoder);        // 비밀번호 인코딩 설정
-        return provider;
+        return customAuthenticationProvider;
     }
+
+//    @Bean
+//    public AuthenticationProvider authenticationProvider() {
+//        return customAuthenticationProvider; // CustomAuthenticationProvider 사용
+//    }
 
 }

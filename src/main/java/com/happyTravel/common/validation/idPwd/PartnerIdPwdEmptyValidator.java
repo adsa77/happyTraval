@@ -2,22 +2,22 @@ package com.happyTravel.common.validation.idPwd;
 
 import com.happyTravel.common.error.ErrorCode;
 import com.happyTravel.common.exception.CustomException;
-import com.happyTravel.user.dto.UserIdPwdDto;
+import com.happyTravel.partner.dto.PartnerIdPwdDto;
+import io.micrometer.common.util.StringUtils;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
-import io.micrometer.common.util.StringUtils;
 
-public class IdPwdEmptyValidator implements ConstraintValidator<IdPwdEmptyValidation, UserIdPwdDto> {
+public class PartnerIdPwdEmptyValidator implements ConstraintValidator<PartnerIdPwdEmptyValidation, PartnerIdPwdDto> {
 
     private ErrorCode errorCode;
 
     @Override
-    public void initialize(IdPwdEmptyValidation constraintAnnotation) {
+    public void initialize(PartnerIdPwdEmptyValidation constraintAnnotation) {
         this.errorCode = constraintAnnotation.errorCode(); // 어노테이션에서 ErrorCode를 가져옴
     }
 
     @Override
-    public boolean isValid(UserIdPwdDto dto, ConstraintValidatorContext context) {
+    public boolean isValid(PartnerIdPwdDto dto, ConstraintValidatorContext context) {
         boolean isValid = true;
 
         //  ID 공백 검사

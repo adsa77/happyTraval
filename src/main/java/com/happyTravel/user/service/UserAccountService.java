@@ -189,18 +189,18 @@ public class UserAccountService {
     /**
      * 회원가입 시 유효성 검사 및 아이디 중복을 체크하는 메서드입니다.
      *
-     * @param userSignUpDtoReq 사용자 회원가입 정보 DTO
+     * @param userSignUpDto 사용자 회원가입 정보 DTO
      * @throws CustomException 중복된 아이디 또는 필수 약관 동의가 누락된 경우 예외를 발생시킵니다.
      */
-    private void validateUserSignUp(UserSignUpDto userSignUpDtoReq) {
+    private void validateUserSignUp(UserSignUpDto userSignUpDto) {
 
         //  아이디 중복 체크
-        if (userRepository.findByUserId(userSignUpDtoReq.getUserId()) != null) {
+        if (userRepository.findByUserId(userSignUpDto.getUserId()) != null) {
             throw new CustomException(ErrorCode.USER_ID_ALREADY_EXISTS);
         }
 
         // 필수 약관 동의 확인
-        validateRequiredAgreements(userSignUpDtoReq);
+        validateRequiredAgreements(userSignUpDto);
 
     }
 
@@ -227,7 +227,7 @@ public class UserAccountService {
 //        }
 //
 //        // 로그인 성공 시 JWT 생성
-//        String token = jwtTokenProvider.createToken(loginUserEntity.getUserId());
+//        String token = jwtTokenProvider.createAccessToken(loginUserEntity.getUserId());
 //        String refreshToken = jwtTokenProvider.createRefreshToken(loginUserEntity.getUserId());
 //
 //        //  로그인 성공 시 응답 생성

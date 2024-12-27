@@ -1,15 +1,13 @@
 package com.happyTravel.user.dto;
 
 import com.happyTravel.common.error.ErrorCode;
-import com.happyTravel.common.validation.idPwd.IdPwdEmptyValidation;
+import com.happyTravel.common.validation.idPwd.UserIdPwdEmptyValidation;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@IdPwdEmptyValidation(errorCode = ErrorCode.VALIDATION_LOGIN_DATA_ERROR)
+@UserIdPwdEmptyValidation(errorCode = ErrorCode.VALIDATION_LOGIN_DATA_ERROR)
 public class UserLoginDto implements UserIdPwdDto {
 
     private String userId;

@@ -3,96 +3,122 @@ package com.happyTravel.security.filter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.happyTravel.common.error.ErrorCode;
 import com.happyTravel.common.exception.CustomException;
+import com.happyTravel.common.utils.URIUserTypeHelper;
 import com.happyTravel.security.authentication.CustomAuthenticationProvider;
 import com.happyTravel.security.dto.LoginRequest;
-import com.happyTravel.security.jwt.JwtTokenProvider;
+import com.happyTravel.security.handler.CustomAuthenticationFailureHandler;
+import com.happyTravel.security.handler.CustomAuthenticationSuccessHandler;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import java.io.IOException;
+import java.util.List;
 
+@RequiredArgsConstructor
 public class CustomUsernamePasswordAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
-    private final AuthenticationManager authenticationManager;
-    private final JwtTokenProvider jwtTokenProvider;
+
     private final CustomAuthenticationProvider customAuthenticationProvider;
     private final ObjectMapper objectMapper;
+    private final CustomAuthenticationSuccessHandler successHandler;
+    private final CustomAuthenticationFailureHandler failureHandler;
 
-    public CustomUsernamePasswordAuthenticationFilter(AuthenticationManager authenticationManager,
-                                                      JwtTokenProvider jwtTokenProvider,
-                                                      CustomAuthenticationProvider customAuthenticationProvider) {
-        this.authenticationManager = authenticationManager;
-        this.jwtTokenProvider = jwtTokenProvider;
-        this.customAuthenticationProvider = customAuthenticationProvider;
-        this.objectMapper = new ObjectMapper();
-    }
+
+//    @Override
+//    public void setAuthenticationManager(AuthenticationManager authenticationManager) {
+//        super.setAuthenticationManager(authenticationManager);
+//    }
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request,
                                                 HttpServletResponse response)
             throws AuthenticationException {
 
-        // 로그인 요청 경로 확인
-        String path = request.getRequestURI();
-        System.out.println("@@@@@@@@@@@@@@@@@path = " + path);
-
-        if (path.equals("/api/user/login")) {
-            return processLogin(request, response, "user");
-        } else if (path.equals("/api/admin/login")) {
-            return processLogin(request, response, "admin");
-        } else if (path.equals("/api/partner/login")) {
-            return processLogin(request, response, "partner");
-        }
-
-        return super.attemptAuthentication(request, response);
-    }
-
-    private Authentication processLogin(HttpServletRequest request,
-                                        HttpServletResponse response,
-                                        String role) throws AuthenticationException {
-
-        // 요청 본문이 JSON인 경우 JSON 파싱 처리
-        String contentType = request.getContentType();
-        String userId = null;
-        String userPwd = null;
+        // 로그인 요청 경로 확인 (USER, ADMIN, PARTNER)
+        String role;
 
         try {
-            // JSON 형식인 경우
+            // URIUserTypeHelper를 사용해 역할 결정
+            role = URIUserTypeHelper.determineUserType(request);
+        } catch (IllegalArgumentException e) {
+            throw new CustomException(ErrorCode.INVALID_REQUEST_PATH);
+        }
+        System.out.println("@@@@@@@@@@@@@@@@@role = " + role);
+
+        String contentType = request.getContentType();
+        String userId;
+        String userPwd;
+
+        try {
             if (contentType != null && contentType.contains("application/json")) {
                 LoginRequest loginRequest = objectMapper.readValue(request.getReader(), LoginRequest.class);
                 userId = loginRequest.getUserId();
                 userPwd = loginRequest.getUserPwd();
-            } else { // 폼 데이터 처리
+                System.out.println("@@@@@try@@@if@@@userId = " + userId + ", userPwd = " + userPwd);
+            } else {
                 userId = request.getParameter("userId");
                 userPwd = request.getParameter("userPwd");
+                System.out.println("@@@@@try@@@else@@@userIduserId = " + userId + ", userPwd = " + userPwd);
             }
         } catch (IOException e) {
-            throw new CustomException(ErrorCode.INVALID_CREDENTIALS); // 예외 처리
+            throw new CustomException(ErrorCode.INVALID_CREDENTIALS);
         }
 
-        System.out.println("@@@userId = " + userId + ", @@@userPwd = " + userPwd);
+        // role을 GrantedAuthority로 변환
+        SimpleGrantedAuthority authority = new SimpleGrantedAuthority("ROLE_" + role);
 
-        // 인증을 실제로 수행 (CustomAuthenticationProvider 사용)
-        Authentication authentication = customAuthenticationProvider.authenticate(new UsernamePasswordAuthenticationToken(userId, userPwd));
+        System.out.println("authority = " + authority);
 
-        if (authentication == null) {
-            throw new CustomException(ErrorCode.LOGIN_FAILURE); // 인증 실패
+        // 인증 수행
+        // role을 details에 담아서 전달
+        UsernamePasswordAuthenticationToken authRequestToken = new UsernamePasswordAuthenticationToken(userId, userPwd, List.of(authority));
+        (authRequestToken).setDetails(role);  // role을 details에 담음
+
+        return customAuthenticationProvider.authenticate(authRequestToken);
+    }
+
+    @Override
+    public void setAuthenticationManager(AuthenticationManager authenticationManager) {
+        super.setAuthenticationManager(authenticationManager);
+    }
+
+    @Override
+    protected void successfulAuthentication(HttpServletRequest request,
+                                            HttpServletResponse response,
+                                            FilterChain chain,
+                                            Authentication authResult)
+            throws IOException, ServletException {
+        // 필터에서 인증 성공 후, CustomAuthenticationSuccessHandler를 호출하여 성공 처리
+        successHandler.onAuthenticationSuccess(request, response, authResult);
+        System.out.println("request = " + request + ", response = " + response + ", chain = " + chain + ", authResult = " + authResult);
+//        chain.doFilter(request, response);  // 나머지 필터 처리 계속 진행
+    }
+
+    @Override
+    protected void unsuccessfulAuthentication(HttpServletRequest request,
+                                              HttpServletResponse response,
+                                              AuthenticationException failed)
+            throws IOException, ServletException {
+
+        failureHandler.onAuthenticationFailure(request, response, failed);
+    }
+
+    private String determineUserType(HttpServletRequest request) {
+        // URIUserTypeHelper를 사용해 역할 결정
+        try {
+            return URIUserTypeHelper.determineUserType(request);
+        } catch (IllegalArgumentException e) {
+            throw new CustomException(ErrorCode.INVALID_REQUEST_PATH);
         }
-
-        // 로그인 성공 시 JWT 생성
-        String token = jwtTokenProvider.createAccessToken(userId); // 사용자 ID로 액세스 토큰 생성
-        String refreshToken = jwtTokenProvider.createRefreshToken(userId); // 리프레시 토큰 생성
-
-        // JWT 토큰을 응답 헤더로 설정 (클라이언트에 전달)
-        response.setHeader("Authorization", "Bearer " + token); // Bearer Token 방식으로 전달
-        response.setHeader("Refresh-Token", refreshToken); // Refresh Token도 필요하다면 전달
-
-        return authentication; // 인증 객체 반환
     }
 
 }

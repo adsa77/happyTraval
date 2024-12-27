@@ -4,22 +4,17 @@ import com.happyTravel.admin.repository.AdminAccountRepository;
 import com.happyTravel.common.entity.admin.AdminColumnEntity;
 import com.happyTravel.common.entity.partner.PartnerColumnEntity;
 import com.happyTravel.common.entity.user.UserColumnEntity;
-import com.happyTravel.common.error.ErrorCode;
-import com.happyTravel.common.utils.URIUserTypeHelper;
 import com.happyTravel.partner.repository.PartnerAccountRepository;
 import com.happyTravel.user.repository.UserAccountRepository;
 import jakarta.servlet.http.HttpServletRequest;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 
 /**
  * {@link UserDetailsServiceImpl}은 Spring Security의 {@link UserDetailsService} 인터페이스를 구현하여
@@ -70,52 +65,60 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
 
     /**
-     * 주어진 사용자 ID로 사용자 정보를 로드하여 {@link UserDetails} 객체로 반환하는 메서드입니다.
-     * <p>
-     * 사용자 ID를 통해 DB에서 사용자 정보를 조회한 후, {@link org.springframework.security.core.userdetails.User}
-     * 객체로 변환하여 반환합니다. 만약 사용자가 존재하지 않으면 {@link UsernameNotFoundException} 예외가 발생합니다.
-     * </p>
+     * 사용자 ID로 사용자 정보를 조회하여 반환하는 메소드 (USER)
      *
      * @param userId 사용자 ID
-     * @return 사용자의 {@link UserDetails} 객체
-     * @throws UsernameNotFoundException 사용자가 존재하지 않을 경우 발생
+     * @return {@link UserDetails} 객체
+     * @throws UsernameNotFoundException 사용자가 존재하지 않으면 예외 발생
      */
-    @Override
-    public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
-
-        // 사용자 유형을 URI나 요청에서 추출
-        String userType = URIUserTypeHelper.determineUserType(request);
-
-        // 사용자 정보를 DB에서 조회
-        return switch (userType) {
-            case "USER" -> {
-                // UserColumnEntity로 조회
-                UserColumnEntity userColumnEntity = userAccountRepository.findById(userId)
-                        .orElseThrow(() -> new UsernameNotFoundException(ErrorCode.USER_NOT_FOUND.getMessage()));
-                yield new org.springframework.security.core.userdetails.User(
-                        userColumnEntity.getUserId(),
-                        userColumnEntity.getUserPwd(),
-                        new ArrayList<>());
-            }
-            case "ADMIN" -> {
-                // AdminColumnEntity로 조회
-                AdminColumnEntity adminColumnEntity = adminAccountRepository.findById(userId)
-                        .orElseThrow(() -> new UsernameNotFoundException(ErrorCode.USER_NOT_FOUND.getMessage()));
-                yield new org.springframework.security.core.userdetails.User(
-                        adminColumnEntity.getUserId(),
-                        adminColumnEntity.getUserPwd(),
-                        new ArrayList<>());
-            }
-            case "PARTNER" -> {
-                // PartnerColumnEntity로 조회
-                PartnerColumnEntity partnerColumnEntity = partnerAccountRepository.findById(userId)
-                        .orElseThrow(() -> new UsernameNotFoundException(ErrorCode.USER_NOT_FOUND.getMessage()));
-                yield new org.springframework.security.core.userdetails.User(
-                        partnerColumnEntity.getUserId(),
-                        partnerColumnEntity.getUserPwd(),
-                        new ArrayList<>());
-            }
-            default -> throw new UsernameNotFoundException(ErrorCode.INVALID_USER_TYPE.getMessage());
-        };
+    public UserDetails loadUserByUserId(String userId) throws UsernameNotFoundException {
+        System.out.println("userId = " + userId);
+        UserColumnEntity user = userAccountRepository.findById(userId)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        return new org.springframework.security.core.userdetails.User(
+                user.getUserId(),
+                user.getUserPwd(),
+                List.of(new SimpleGrantedAuthority("ROLE_USER"))
+        );
     }
+
+    /**
+     * 관리자 ID로 관리자 정보를 조회하여 반환하는 메소드 (ADMIN)
+     *
+     * @param adminId 관리자 ID
+     * @return {@link UserDetails} 객체
+     * @throws UsernameNotFoundException 사용자가 존재하지 않으면 예외 발생
+     */
+    public UserDetails loadUserByAdminId(String adminId) throws UsernameNotFoundException {
+        AdminColumnEntity admin = adminAccountRepository.findById(adminId)
+                .orElseThrow(() -> new UsernameNotFoundException("Admin not found"));
+        return new org.springframework.security.core.userdetails.User(
+                admin.getUserId(),
+                admin.getUserPwd(),
+                List.of(new SimpleGrantedAuthority("ROLE_ADMIN"))
+        );
+    }
+
+    /**
+     * 파트너 ID로 파트너 정보를 조회하여 반환하는 메소드 (PARTNER)
+     *
+     * @param partnerId 파트너 ID
+     * @return {@link UserDetails} 객체
+     * @throws UsernameNotFoundException 사용자가 존재하지 않으면 예외 발생
+     */
+    public UserDetails loadUserByPartnerId(String partnerId) throws UsernameNotFoundException {
+        PartnerColumnEntity partner = partnerAccountRepository.findById(partnerId)
+                .orElseThrow(() -> new UsernameNotFoundException("Partner not found"));
+        return new org.springframework.security.core.userdetails.User(
+                partner.getUserId(),
+                partner.getUserPwd(),
+                List.of(new SimpleGrantedAuthority("ROLE_PARTNER"))
+        );
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        throw new UnsupportedOperationException("This method is not supported. Use specific methods for each role instead.");
+    }
+
 }

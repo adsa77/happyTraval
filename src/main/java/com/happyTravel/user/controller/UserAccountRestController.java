@@ -1,6 +1,7 @@
 package com.happyTravel.user.controller;
 
 import com.happyTravel.common.response.CommonResponse;
+import com.happyTravel.security.filter.CustomUsernamePasswordAuthenticationFilter;
 import com.happyTravel.security.jwt.JwtTokenProvider;
 import com.happyTravel.user.dto.UserLoginDto;
 import com.happyTravel.user.dto.UserSignUpDto;
@@ -58,9 +59,9 @@ public class UserAccountRestController {
 //    }
 
 
-//    @Autowired
-//    private JwtTokenProvider jwtTokenProvider;  // JwtTokenProvider 필드 선언 및 주입
-//
+    @Autowired
+    private JwtTokenProvider jwtTokenProvider;  // JwtTokenProvider 필드 선언 및 주입
+
 //    @PostMapping("/login")
 //    public ResponseEntity<?> login(@RequestBody UserLoginDto userLoginDto) {
 //        // 사용자 인증 로직 (예시로 간단한 인증을 구현)
@@ -77,7 +78,7 @@ public class UserAccountRestController {
 //
 //        // CommonResponse 객체 생성
 //        CommonResponse response = CommonResponse.builder()
-//                .message("로그인 성공")
+//                .message("로그인 성공c")
 //                .httpStatus(HttpServletResponse.SC_OK)  // HTTP 200 OK
 //                .token(token)
 //                .build();
@@ -89,6 +90,5 @@ public class UserAccountRestController {
 //        // ResponseEntity로 반환 (200 OK와 함께 응답 반환)
 //        return ResponseEntity.ok(response);
 //    }
-
 
 }
