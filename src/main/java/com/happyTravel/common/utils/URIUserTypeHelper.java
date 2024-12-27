@@ -25,11 +25,11 @@ public class URIUserTypeHelper {
         logger.debug("요청 URI: {}", uri);
 
         if (uri.contains("/api/admin/login")) {
-            return "ADMIN";
+            return "A";
         } else if (uri.contains("/api/partner/login")) {
-            return "PARTNER";
+            return "P";
         } else if (uri.contains("/api/user/login")) {
-            return "USER";
+            return "U";
         } else {
             // 예외 메시지에 URI 추가하여 구체적으로 명시
             String errorMessage = "잘못된 로그인 요청입니다. 유효한 URI가 아닙니다. 요청 URI: " + uri;

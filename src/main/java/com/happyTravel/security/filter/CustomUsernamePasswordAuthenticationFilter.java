@@ -8,6 +8,7 @@ import com.happyTravel.security.authentication.CustomAuthenticationProvider;
 import com.happyTravel.security.dto.LoginRequest;
 import com.happyTravel.security.handler.CustomAuthenticationFailureHandler;
 import com.happyTravel.security.handler.CustomAuthenticationSuccessHandler;
+import com.happyTravel.security.service.RefreshTokenService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -31,12 +32,6 @@ public class CustomUsernamePasswordAuthenticationFilter extends UsernamePassword
     private final ObjectMapper objectMapper;
     private final CustomAuthenticationSuccessHandler successHandler;
     private final CustomAuthenticationFailureHandler failureHandler;
-
-
-//    @Override
-//    public void setAuthenticationManager(AuthenticationManager authenticationManager) {
-//        super.setAuthenticationManager(authenticationManager);
-//    }
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request,
@@ -92,7 +87,6 @@ public class CustomUsernamePasswordAuthenticationFilter extends UsernamePassword
                                             FilterChain chain,
                                             Authentication authResult)
             throws IOException, ServletException {
-
 
         // 필터에서 인증 성공 후, CustomAuthenticationSuccessHandler를 호출하여 성공 처리
         successHandler.onAuthenticationSuccess(request, response, authResult);

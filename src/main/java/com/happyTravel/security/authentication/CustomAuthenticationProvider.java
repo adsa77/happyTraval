@@ -30,9 +30,9 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
         // 역할에 맞는 UserDetailsService 메소드 호출
         UserDetails userDetails = switch (role) {
-            case "USER" -> userDetailsService.loadUserByUserId(userId);
-            case "ADMIN" -> userDetailsService.loadUserByAdminId(userId);
-            case "PARTNER" -> userDetailsService.loadUserByPartnerId(userId);
+            case "U" -> userDetailsService.loadUserByUserId(userId);
+            case "A" -> userDetailsService.loadUserByAdminId(userId);
+            case "P" -> userDetailsService.loadUserByPartnerId(userId);
             default -> throw new BadCredentialsException("Invalid user role");
         };
 
@@ -41,11 +41,16 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         }
 
         // 인증 성공 후 UsernamePasswordAuthenticationToken 반환
-        return new UsernamePasswordAuthenticationToken(
+        UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
                 userDetails.getUsername(),
                 null,  // 비밀번호는 보안상 null로 처리
                 userDetails.getAuthorities()  // 권한 정보
         );
+
+        // role을 details에 담아서 반환
+        authToken.setDetails(role);  // role을 details에 설정
+
+        return authToken;
     }
 
     @Override
