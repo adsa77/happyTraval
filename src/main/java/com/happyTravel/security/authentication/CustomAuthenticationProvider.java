@@ -28,11 +28,6 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
             throw new BadCredentialsException("Role must not be null or empty");
         }
 
-        System.out.println("@@@@@@@@@@CustomAuthenticationProvider.authenticate1");
-        System.out.println("role = " + role);
-        System.out.println("userId = " + userId);
-        System.out.println("password = " + password);
-
         // 역할에 맞는 UserDetailsService 메소드 호출
         UserDetails userDetails = switch (role) {
             case "USER" -> userDetailsService.loadUserByUserId(userId);

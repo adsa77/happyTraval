@@ -55,8 +55,9 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
 
             // 응답 헤더 및 본문 설정
             response.setContentType("application/json");
-            System.out.println("@@@commonResponse = " + commonResponse.getData());
             response.getWriter().write(objectMapper.writeValueAsString(commonResponse));
+            response.flushBuffer();
+
 
         } catch (Exception e) {
             // 예외 처리
@@ -70,6 +71,7 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
                     .build();
 
             response.getWriter().write(objectMapper.writeValueAsString(errorResponse));
+            response.flushBuffer();
         }
     }
 }

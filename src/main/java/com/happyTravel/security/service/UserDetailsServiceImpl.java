@@ -72,7 +72,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
      * @throws UsernameNotFoundException 사용자가 존재하지 않으면 예외 발생
      */
     public UserDetails loadUserByUserId(String userId) throws UsernameNotFoundException {
-        System.out.println("userId = " + userId);
         UserColumnEntity user = userAccountRepository.findById(userId)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
         return new org.springframework.security.core.userdetails.User(

@@ -52,7 +52,6 @@ public class CustomUsernamePasswordAuthenticationFilter extends UsernamePassword
         } catch (IllegalArgumentException e) {
             throw new CustomException(ErrorCode.INVALID_REQUEST_PATH);
         }
-        System.out.println("@@@@@@@@@@@@@@@@@role = " + role);
 
         String contentType = request.getContentType();
         String userId;
@@ -63,11 +62,9 @@ public class CustomUsernamePasswordAuthenticationFilter extends UsernamePassword
                 LoginRequest loginRequest = objectMapper.readValue(request.getReader(), LoginRequest.class);
                 userId = loginRequest.getUserId();
                 userPwd = loginRequest.getUserPwd();
-                System.out.println("@@@@@try@@@if@@@userId = " + userId + ", userPwd = " + userPwd);
             } else {
                 userId = request.getParameter("userId");
                 userPwd = request.getParameter("userPwd");
-                System.out.println("@@@@@try@@@else@@@userIduserId = " + userId + ", userPwd = " + userPwd);
             }
         } catch (IOException e) {
             throw new CustomException(ErrorCode.INVALID_CREDENTIALS);
@@ -75,8 +72,6 @@ public class CustomUsernamePasswordAuthenticationFilter extends UsernamePassword
 
         // role을 GrantedAuthority로 변환
         SimpleGrantedAuthority authority = new SimpleGrantedAuthority("ROLE_" + role);
-
-        System.out.println("authority = " + authority);
 
         // 인증 수행
         // role을 details에 담아서 전달
@@ -97,10 +92,11 @@ public class CustomUsernamePasswordAuthenticationFilter extends UsernamePassword
                                             FilterChain chain,
                                             Authentication authResult)
             throws IOException, ServletException {
+
+
         // 필터에서 인증 성공 후, CustomAuthenticationSuccessHandler를 호출하여 성공 처리
         successHandler.onAuthenticationSuccess(request, response, authResult);
-        System.out.println("request = " + request + ", response = " + response + ", chain = " + chain + ", authResult = " + authResult);
-//        chain.doFilter(request, response);  // 나머지 필터 처리 계속 진행
+
     }
 
     @Override
