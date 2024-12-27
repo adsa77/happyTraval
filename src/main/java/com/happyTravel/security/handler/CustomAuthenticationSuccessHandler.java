@@ -1,6 +1,7 @@
 package com.happyTravel.security.handler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.happyTravel.common.error.ErrorCode;
 import com.happyTravel.common.response.CommonResponse;
 import com.happyTravel.security.entity.RefreshTokenEntity;
 import com.happyTravel.security.jwt.JwtTokenProvider;
@@ -16,7 +17,6 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
@@ -88,8 +88,9 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
 
             // CommonResponse 객체를 사용하여 오류 메시지 전달
             CommonResponse errorResponse = CommonResponse.builder()
-                    .message("로그인 처리 중 오류 발생. onAuthenticationSuccess")
+                    .message(ErrorCode.SUCCESS_HANDLER_ERROR.getMessage())
                     .httpStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR)
+                    .errorCode(ErrorCode.SUCCESS_HANDLER_ERROR.getCode())
                     .build();
 
             response.getWriter().write(objectMapper.writeValueAsString(errorResponse));

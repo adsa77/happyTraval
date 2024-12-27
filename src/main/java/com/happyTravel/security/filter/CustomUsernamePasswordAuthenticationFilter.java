@@ -8,7 +8,6 @@ import com.happyTravel.security.authentication.CustomAuthenticationProvider;
 import com.happyTravel.security.dto.LoginRequest;
 import com.happyTravel.security.handler.CustomAuthenticationFailureHandler;
 import com.happyTravel.security.handler.CustomAuthenticationSuccessHandler;
-import com.happyTravel.security.service.RefreshTokenService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -100,15 +99,6 @@ public class CustomUsernamePasswordAuthenticationFilter extends UsernamePassword
             throws IOException, ServletException {
 
         failureHandler.onAuthenticationFailure(request, response, failed);
-    }
-
-    private String determineUserType(HttpServletRequest request) {
-        // URIUserTypeHelper를 사용해 역할 결정
-        try {
-            return URIUserTypeHelper.determineUserType(request);
-        } catch (IllegalArgumentException e) {
-            throw new CustomException(ErrorCode.INVALID_REQUEST_PATH);
-        }
     }
 
 }

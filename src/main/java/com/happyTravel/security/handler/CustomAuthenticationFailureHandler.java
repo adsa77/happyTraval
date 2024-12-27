@@ -1,6 +1,7 @@
 package com.happyTravel.security.handler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.happyTravel.common.error.ErrorCode;
 import com.happyTravel.common.response.CommonResponse;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -25,13 +26,15 @@ public class CustomAuthenticationFailureHandler implements AuthenticationFailure
     ) throws IOException, ServletException {
 
         CommonResponse commonResponse = CommonResponse.builder()
-                .message("로그인 실패")
+                .message(ErrorCode.LOGIN_FAILURE.getMessage())
                 .httpStatus(HttpServletResponse.SC_UNAUTHORIZED)
+                .errorCode(ErrorCode.LOGIN_FAILURE.getCode())
                 .build();
 
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         response.setContentType("application/json");
         response.getWriter().write(objectMapper.writeValueAsString(commonResponse));
+        response.flushBuffer();
     }
 
 }

@@ -4,6 +4,7 @@ import com.happyTravel.admin.repository.AdminAccountRepository;
 import com.happyTravel.common.entity.admin.AdminColumnEntity;
 import com.happyTravel.common.entity.partner.PartnerColumnEntity;
 import com.happyTravel.common.entity.user.UserColumnEntity;
+import com.happyTravel.common.error.ErrorCode;
 import com.happyTravel.partner.repository.PartnerAccountRepository;
 import com.happyTravel.user.repository.UserAccountRepository;
 import jakarta.servlet.http.HttpServletRequest;
@@ -73,7 +74,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
      */
     public UserDetails loadUserByUserId(String userId) throws UsernameNotFoundException {
         UserColumnEntity user = userAccountRepository.findById(userId)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+                .orElseThrow(() -> new UsernameNotFoundException(ErrorCode.USER_NOT_FOUND.getMessage()));
         return new org.springframework.security.core.userdetails.User(
                 user.getUserId(),
                 user.getUserPwd(),
@@ -90,7 +91,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
      */
     public UserDetails loadUserByAdminId(String adminId) throws UsernameNotFoundException {
         AdminColumnEntity admin = adminAccountRepository.findById(adminId)
-                .orElseThrow(() -> new UsernameNotFoundException("Admin not found"));
+                .orElseThrow(() -> new UsernameNotFoundException(ErrorCode.USER_NOT_FOUND.getMessage()));
         return new org.springframework.security.core.userdetails.User(
                 admin.getUserId(),
                 admin.getUserPwd(),
@@ -107,7 +108,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
      */
     public UserDetails loadUserByPartnerId(String partnerId) throws UsernameNotFoundException {
         PartnerColumnEntity partner = partnerAccountRepository.findById(partnerId)
-                .orElseThrow(() -> new UsernameNotFoundException("Partner not found"));
+                .orElseThrow(() -> new UsernameNotFoundException(ErrorCode.USER_NOT_FOUND.getMessage()));
         return new org.springframework.security.core.userdetails.User(
                 partner.getUserId(),
                 partner.getUserPwd(),

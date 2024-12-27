@@ -27,7 +27,6 @@ import lombok.RequiredArgsConstructor;
 public enum ErrorCode {
 
     INTERNAL_SERVER_ERROR(500, "서버 내부 오류"),
-    INVALID_REQUEST_PATH(600, "잘못된 경로"),
 
     // 일반 고객의 문제 (1000번대)
     VALIDATION_USER_ID_EMPTY(1000, "ID를 입력하세요."), // ID 입력이 비어 있을 때 발생하는 오류
@@ -49,7 +48,7 @@ public enum ErrorCode {
 
     // 로그인 관련 문제 (1200번대)
     VALIDATION_LOGIN_DATA_ERROR(1200, "로그인 데이터가 유효하지 않습니다."), // 로그인 데이터 오류
-    INVALID_CREDENTIALS(1201, "잘못된 자격 증명입니다."), // 잘못된 자격 증명 오류
+    INVALID_CREDENTIALS(1201, "잘못된 자격 증명"), // 잘못된 자격 증명 오류
     LOGIN_FAILURE(1202, "로그인에 실패했습니다. 아이디와 비밀번호를 확인해주시기 바랍니다."), // 로그인 실패 시 오류
     INVALID_USER_TYPE(1203, "계정 타입이 맞지 않습니다."),
 
@@ -66,8 +65,13 @@ public enum ErrorCode {
     PARTNER_AUTHENTICATION_FAILURE(2001, "파트너 인증 실패."), // 파트너 인증 실패 시 발생하는 오류
 
     // 권한 관련 문제 (4000번대)
-    AUTHORITY_NOT_GRANTED(4000, "권한 없음 오류."), // 권한이 없을 때 발생하는 오류
+    AUTHORITY_NOT_GRANTED(4000, "권한 없음."), // 권한이 없을 때 발생하는 오류
     AUTHORITY_CHANGE_FAILURE(4001, "권한 변경 실패."), // 권한 변경 실패 시 발생하는 오류
+    AUTHENTICATION_FAILURE(4002, "인증 실패."),
+
+    // 기타 오류 (7000번대)
+    INVALID_REQUEST_PATH(7000, "잘못된 경로"),
+    SUCCESS_HANDLER_ERROR(7001, "성공 핸들러 오류"),
 
     // 관리자 관련 문제 (8000번대)
     ADMIN_ACCOUNT_ERROR(8000, "관리자 계정 오류."), // 관리자 계정과 관련된 오류
