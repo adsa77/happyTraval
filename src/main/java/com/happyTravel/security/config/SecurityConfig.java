@@ -111,7 +111,7 @@ public class SecurityConfig {
         httpSecurity.addFilterBefore(partnerFilter, UsernamePasswordAuthenticationFilter.class);
 
         // JWT 인증 필터 추가
-        JwtAuthenticationFilter jwtAuthenticationFilter = new JwtAuthenticationFilter(jwtTokenProvider);
+        JwtAuthenticationFilter jwtAuthenticationFilter = new JwtAuthenticationFilter(jwtTokenProvider, userDetailsService);
         httpSecurity.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         return httpSecurity.build();

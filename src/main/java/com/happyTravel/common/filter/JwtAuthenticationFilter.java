@@ -32,13 +32,13 @@ import java.io.IOException;
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-    @Autowired
-    private JwtTokenProvider jwtTokenProvider; // JWT 토큰을 처리하는 JwtTokenProvider 의존성 주입
+    private final JwtTokenProvider jwtTokenProvider; // JWT 토큰을 처리하는 JwtTokenProvider 의존성 주입
+    private final UserDetailsServiceImpl userDetailsService; // 사용자 정보 로딩을 위한 UserDetailsService 의존성 주입
 
     @Autowired
-    private UserDetailsServiceImpl userDetailsService; // 사용자 정보 로딩을 위한 UserDetailsService 의존성 주입
-
-    public JwtAuthenticationFilter(JwtTokenProvider jwtTokenProvider) {
+    public JwtAuthenticationFilter(JwtTokenProvider jwtTokenProvider, UserDetailsServiceImpl userDetailsService) {
+        this.jwtTokenProvider = jwtTokenProvider;
+        this.userDetailsService = userDetailsService;
     }
 
     /**
@@ -57,9 +57,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         // 요청에서 JWT 토큰을 추출하고, 유효하면 인증 처리
         String token = resolveToken(request); // JWT 추출
+        System.out.println("token = " + token);
         if (token != null && jwtTokenProvider.validateToken(token)) { // 유효한 토큰인지 확인
             String userId = jwtTokenProvider.getUserIdFromToken(token); // 토큰에서 사용자 ID 추출
             UserDetails userDetails = userDetailsService.loadUserByUsername(userId); // 사용자 정보 로드
+
+            System.out.println("@@@request = " + request + ", response = " + response + ", filterChain = " + filterChain);
 
             // URIUserTypeHelper를 사용하여 사용자 유형을 판별
             String userType = URIUserTypeHelper.determineUserType(request);

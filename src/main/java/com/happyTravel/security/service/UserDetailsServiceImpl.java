@@ -5,11 +5,14 @@ import com.happyTravel.common.entity.admin.AdminColumnEntity;
 import com.happyTravel.common.entity.partner.PartnerColumnEntity;
 import com.happyTravel.common.entity.user.UserColumnEntity;
 import com.happyTravel.common.error.ErrorCode;
+import com.happyTravel.common.utils.URIUserTypeHelper;
 import com.happyTravel.partner.repository.PartnerAccountRepository;
 import com.happyTravel.user.repository.UserAccountRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -118,7 +121,32 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        throw new UnsupportedOperationException("This method is not supported. Use specific methods for each role instead.");
+
+        // 현재 인증 정보를 가져오기
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        System.out.println("authentication = " + authentication);
+
+        if (authentication == null) {
+            throw new UsernameNotFoundException("인증되지 않은 사용자입니다.");
+        }
+
+        // URIUserTypeHelper를 사용하여 요청에서 역할을 결정
+        String role = URIUserTypeHelper.determineUserType(request);
+        if (role == null) {
+            throw new UsernameNotFoundException("잘못된 역할 정보입니다.");
+        }
+
+        // 역할에 따라 인증을 처리
+        switch (role) {
+            case "A": // 관리자
+                return loadUserByAdminId(username);
+            case "P": // 파트너
+                return loadUserByPartnerId(username);
+            case "U": // 일반 사용자
+                return loadUserByUserId(username);
+            default:
+                throw new UsernameNotFoundException("잘못된 사용자 유형입니다.");
+        }
     }
 
 }

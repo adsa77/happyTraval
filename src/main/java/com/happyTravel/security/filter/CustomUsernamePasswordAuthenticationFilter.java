@@ -72,6 +72,8 @@ public class CustomUsernamePasswordAuthenticationFilter extends UsernamePassword
         UsernamePasswordAuthenticationToken authRequestToken = new UsernamePasswordAuthenticationToken(userId, userPwd, List.of(authority));
         (authRequestToken).setDetails(role);  // role을 details에 담음
 
+        System.out.println("authority = " + authority);
+
         return customAuthenticationProvider.authenticate(authRequestToken);
     }
 
@@ -89,6 +91,7 @@ public class CustomUsernamePasswordAuthenticationFilter extends UsernamePassword
 
         // 필터에서 인증 성공 후, CustomAuthenticationSuccessHandler를 호출하여 성공 처리
         successHandler.onAuthenticationSuccess(request, response, authResult);
+        System.out.println("request = " + request + ", response = " + response + ", authResult = " + authResult);
 
     }
 
