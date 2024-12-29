@@ -133,15 +133,31 @@ public class JwtTokenProvider {
      * @param token 사용자로부터 받은 JWT.
      * @return JWT에서 추출된 사용자 ID.
      */
-    public String getUserIdFromToken(String token) {
-        Claims claims = Jwts.parser()
-                .verifyWith((SecretKey) key)
-                .build()
-                .parseSignedClaims(token)
-                .getPayload();
+//    public String getUserIdFromToken(String token) {
+//        Claims claims = Jwts.parser()
+//                .verifyWith((SecretKey) key)
+//                .build()
+//                .parseSignedClaims(token)
+//                .getPayload();
+//
+//        return claims.getSubject();
+//    }
 
-        return claims.getSubject();
+    public String getUserIdFromToken(String token) {
+        try {
+            Claims claims = Jwts.parser()
+                    .verifyWith((SecretKey) key)  // 서명 검증에 사용할 키 설정
+                    .build()
+                    .parseSignedClaims(token)
+                    .getPayload();  // Payload 반환
+
+            return claims.getSubject();  // 사용자 ID는 subject에 포함됩니다.
+        } catch (Exception e) {
+            log.error("JWT 토큰 파싱 오류: ", e);
+            return null;  // 예외 발생 시 null 반환 (필요시 예외 던질 수도 있음)
+        }
     }
+
 
     /**
      * JWT의 유효성을 검증합니다.

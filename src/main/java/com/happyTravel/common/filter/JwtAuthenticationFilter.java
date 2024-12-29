@@ -57,12 +57,15 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         // 요청에서 JWT 토큰을 추출하고, 유효하면 인증 처리
         String token = resolveToken(request); // JWT 추출
-        System.out.println("token = " + token);
+        System.out.println("JwtAuthenticationFilter.doFilterInternal");
+        System.out.println("@@@token = " + token);
         if (token != null && jwtTokenProvider.validateToken(token)) { // 유효한 토큰인지 확인
-            String userId = jwtTokenProvider.getUserIdFromToken(token); // 토큰에서 사용자 ID 추출
-            UserDetails userDetails = userDetailsService.loadUserByUsername(userId); // 사용자 정보 로드
 
-            System.out.println("@@@request = " + request + ", response = " + response + ", filterChain = " + filterChain);
+            String userId = jwtTokenProvider.getUserIdFromToken(token); // 토큰에서 사용자 ID 추출
+
+            System.out.println("userId = " + userId);
+
+            UserDetails userDetails = userDetailsService.loadUserByUsername(userId); // 사용자 정보 로드
 
             // URIUserTypeHelper를 사용하여 사용자 유형을 판별
             String userType = URIUserTypeHelper.determineUserType(request);
