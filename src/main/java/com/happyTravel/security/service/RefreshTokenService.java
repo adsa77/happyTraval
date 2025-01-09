@@ -45,7 +45,7 @@ public class RefreshTokenService {
                 .orElseGet(() -> saveRefreshToken(userType, userId, refreshToken));
 
         // RefreshToken 갱신
-        String newRefreshToken = jwtTokenProvider.createRefreshToken(userId);
+        String newRefreshToken = jwtTokenProvider.createRefreshToken(userType, userId);
         token.setRefreshToken(newRefreshToken);
 
         // RefreshToken 만료 시간 갱신

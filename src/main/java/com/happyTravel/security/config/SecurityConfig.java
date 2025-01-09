@@ -81,6 +81,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
 
         httpSecurity
+//                .securityMatcher() // 경로설정
                 .csrf(AbstractHttpConfigurer::disable) // CSRF 비활성화
                 .formLogin(AbstractHttpConfigurer::disable) // Form 로그인 비활성화
                 .httpBasic(AbstractHttpConfigurer::disable) // HTTP Basic 인증 비활성화
@@ -89,6 +90,9 @@ public class SecurityConfig {
                         .requestMatchers("/api/partner/login").permitAll()
                         .requestMatchers("/api/admin/login").permitAll()
                         .requestMatchers("/api/user/signUp").permitAll()
+                        .requestMatchers("/api/user/**").hasRole("USER")
+                        .requestMatchers("/api/partner/**").hasRole("PARTNER")
+                        .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 );
 

@@ -46,6 +46,11 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         String userId = authentication.getName();
         String userType = (String) authentication.getDetails();
 
+        System.out.println("@@@CustomAuthenticationSuccessHandler.onAuthenticationSuccess");
+        System.out.println("authentication = " + authentication);
+        System.out.println("userId = " + userId);
+        System.out.println("userType = " + userType);
+
         try {
             // 기존 리프레시 토큰 조회
             RefreshTokenEntity existingRefreshTokenEntity = refreshTokenRepository.findByUserTypeAndUserId(userType, userId).orElse(null);
@@ -53,7 +58,7 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
             String refreshToken;
             if (existingRefreshTokenEntity == null || isRefreshTokenExpired(existingRefreshTokenEntity)) {
                 // 기존 리프레시 토큰이 없거나 만료되었으면 새로 생성
-                refreshToken = jwtTokenProvider.createRefreshToken(userId);
+                refreshToken = jwtTokenProvider.createRefreshToken(userType ,userId);
 
                 // 새 리프레시 토큰 저장
                 refreshTokenService.saveRefreshToken(userType, userId, refreshToken);
@@ -63,7 +68,7 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
             }
 
             // JWT 토큰 생성
-            String accessToken = jwtTokenProvider.createAccessToken(userId);
+            String accessToken = jwtTokenProvider.createAccessToken(userType, userId);
 
             // 응답 객체 생성
             CommonResponse commonResponse = CommonResponse.builder()

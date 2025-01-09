@@ -62,18 +62,25 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         if (token != null && jwtTokenProvider.validateToken(token)) { // 유효한 토큰인지 확인
 
             String userId = jwtTokenProvider.getUserIdFromToken(token); // 토큰에서 사용자 ID 추출
+            String authority = jwtTokenProvider.getAuthorityFromToken(token); // JWT에서 사용자 유형 추출
 
-            System.out.println("userId = " + userId);
+            System.out.println("@@@userId = " + userId);
+            System.out.println("@@@authority = " + authority);
 
-            UserDetails userDetails = userDetailsService.loadUserByUsername(userId); // 사용자 정보 로드
+            UserDetails userDetails = userDetailsService.loadUserByUsername(userId, authority); // 사용자 정보 로드
 
-            // URIUserTypeHelper를 사용하여 사용자 유형을 판별
-            String userType = URIUserTypeHelper.determineUserType(request);
+//            // URIUserTypeHelper를 사용하여 사용자 유형을 판별
+//            String userType = URIUserTypeHelper.determineUserType(request);
 
             // 인증 객체를 생성하여 SecurityContext에 설정
             UsernamePasswordAuthenticationToken authentication =
                     new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
             SecurityContextHolder.getContext().setAuthentication(authentication); // 인증 정보 설정
+
+            // 설정된 인증 객체 확인
+            System.out.println("### Authentication 설정 완료:");
+            System.out.println("### Principal: " + authentication.getPrincipal());
+            System.out.println("### Authorities: " + authentication.getAuthorities());
         }
 
         // 요청을 다음 필터로 전달

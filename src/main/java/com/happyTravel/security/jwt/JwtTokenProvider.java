@@ -78,12 +78,13 @@ public class JwtTokenProvider {
      * @param userId 사용자 ID (JWT의 subject로 사용됨).
      * @return 생성된 JWT 문자열.
      */
-    public String createAccessToken(String userId){
+    public String createAccessToken(String authority, String userId){
         Date now = new Date();
         Date expiryDate = new Date(now.getTime() + accessTokenExpirationTime);
 
         return Jwts.builder()
                 .claim("sub", userId) // JWT의 subject 설정 (주로 사용자 ID)
+                .claim("authority", authority)   // 권한 정보 추가
                 .issuedAt(now)              // 발급 시간 설정
                 .expiration(expiryDate)     // 만료 시간 설정
                 .signWith(key)              // HS512 알고리즘 사용
@@ -99,12 +100,13 @@ public class JwtTokenProvider {
      * @param userId 사용자 ID (JWT의 subject로 사용됨).
      * @return 생성된 리프레시 JWT 문자열.
      */
-    public String createRefreshToken(String userId) {
+    public String createRefreshToken(String authority, String userId) {
         Date now = new Date();
         Date expiryDate = new Date(now.getTime() + refreshTokenExpirationTime);
 
         return Jwts.builder()
                 .claim("sub", userId)
+                .claim("authority", authority)   // 권한 정보 추가
                 .issuedAt(now)
                 .expiration(expiryDate)
                 .signWith(key)
@@ -133,15 +135,6 @@ public class JwtTokenProvider {
      * @param token 사용자로부터 받은 JWT.
      * @return JWT에서 추출된 사용자 ID.
      */
-//    public String getUserIdFromToken(String token) {
-//        Claims claims = Jwts.parser()
-//                .verifyWith((SecretKey) key)
-//                .build()
-//                .parseSignedClaims(token)
-//                .getPayload();
-//
-//        return claims.getSubject();
-//    }
 
     public String getUserIdFromToken(String token) {
         try {
@@ -158,6 +151,21 @@ public class JwtTokenProvider {
         }
     }
 
+    /**
+     * JWT 토큰에서 사용자 유형을 추출하는 메서드입니다.
+     *
+     * @param token JWT 토큰
+     * @return 사용자 유형 (ADMIN, PARTNER, USER)
+     */
+    public String getAuthorityFromToken(String token) {
+        Claims claims = Jwts.parser()
+                .verifyWith((SecretKey) key)
+                .build()
+                .parseSignedClaims(token)
+                .getPayload();
+
+        return claims.get("authority", String.class); // JWT claims에서 "authority"를 추출
+    }
 
     /**
      * JWT의 유효성을 검증합니다.

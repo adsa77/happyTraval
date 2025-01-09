@@ -122,19 +122,24 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        // 현재 인증 정보를 가져오기
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        System.out.println("authentication = " + authentication);
-
-        if (authentication == null) {
-            throw new UsernameNotFoundException("인증되지 않은 사용자입니다.");
-        }
+        System.out.println("@@@UserDetailsServiceImpl.loadUserByUsername");
+        System.out.println("username = " + username);
 
         // URIUserTypeHelper를 사용하여 요청에서 역할을 결정
         String role = URIUserTypeHelper.determineUserType(request);
         if (role == null) {
             throw new UsernameNotFoundException("잘못된 역할 정보입니다.");
         }
+
+        System.out.println("role = " + role);
+
+//        // 현재 인증 정보를 가져오기
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        System.out.println("authentication = " + authentication);
+//
+//        if (authentication == null) {
+//            throw new UsernameNotFoundException("인증되지 않은 사용자입니다.");
+//        }
 
         // 역할에 따라 인증을 처리
         switch (role) {
